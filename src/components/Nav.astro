@@ -22,8 +22,7 @@ const langPaths = {
 <nav class="nav">
   <div class="nav-inner">
     <a href={lang === 'en' ? '/' : `/${lang}/`} class="nav-brand" aria-label={nav.brand}>
-      <img src="/logo.jpg" alt="" class="nav-brand-mark" width="120" height="48" aria-hidden="true" />
-      <span class="nav-brand-text">{nav.brand}</span>
+      <img src="/logo.jpg" alt={nav.brand} class="nav-brand-mark" height="36" aria-hidden="false" />
     </a>
 
     <div class="lang-switcher" role="group" aria-label="Language">
