@@ -19,7 +19,8 @@ const langPaths = {
 } as const;
 ---
 
-<nav class="nav" id="main-nav">
+<nav class="nav">
+  <input type="checkbox" id="nav-toggle-check" class="nav-toggle-check" aria-hidden="true" tabindex="-1" />
   <div class="nav-inner">
     <a href={lang === 'en' ? '/' : `/${lang}/`} class="nav-brand" aria-label={nav.brand}>
       <img src="/logo-nav.png" alt={nav.brand} class="nav-brand-mark" aria-hidden="false" />
@@ -49,21 +50,9 @@ const langPaths = {
       <a href={nav.header.cta.href} class="nav-cta" aria-current={nav.header.cta.page === currentPage ? 'page' : undefined}>
         {nav.header.cta.label}
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <label for="nav-toggle-check" class="nav-toggle" aria-label="Toggle navigation">
         <span class="nav-toggle-bars"></span>
-      </button>
+      </label>
     </div>
   </div>
 </nav>
-
-<script is:inline>
-  (function() {
-    var toggle = document.getElementById('nav-toggle');
-    var nav = document.getElementById('main-nav');
-    if (!toggle || !nav) return;
-    toggle.addEventListener('click', function() {
-      var isOpen = nav.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-  })();
-</script>

@@ -173,9 +173,17 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
   border-bottom: var(--border-hairline);
 }
 
+.nav-toggle-check {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 .nav-inner {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   height: clamp(80px, 9vw, 130px);
   max-width: 100%;
@@ -190,12 +198,17 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
   text-decoration: none;
   flex-shrink: 0;
   justify-self: start;
+  min-width: 0;
+  overflow: visible;
 }
 
 .nav-brand-mark {
   height: clamp(50px, 5.5vw, 90px);
   width: auto;
+  max-width: 100%;
   display: block;
+  aspect-ratio: 1280 / 512;
+  object-fit: contain;
 }
 
 .nav-menu {
@@ -298,16 +311,16 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
   width: 100%;
   height: 2px;
   background: var(--carbone);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, top 0.2s ease;
 }
 .nav-toggle-bars::before { top: -7px; }
 .nav-toggle-bars::after { top: 7px; }
 
-.nav-open .nav-toggle-bars { background: transparent; }
-.nav-open .nav-toggle-bars::before { top: 0; transform: rotate(45deg); }
-.nav-open .nav-toggle-bars::after { top: 0; transform: rotate(-45deg); }
+.nav-toggle-check:checked + .nav-inner .nav-toggle-bars { background: transparent; }
+.nav-toggle-check:checked + .nav-inner .nav-toggle-bars::before { top: 0; transform: rotate(45deg); }
+.nav-toggle-check:checked + .nav-inner .nav-toggle-bars::after { top: 0; transform: rotate(-45deg); }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-inner {
     display: flex;
     justify-content: space-between;
@@ -327,7 +340,7 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
     margin: 0;
     justify-self: auto;
   }
-  .nav.nav-open .nav-menu {
+  .nav-toggle-check:checked + .nav-inner .nav-menu {
     display: flex;
   }
   .nav-menu .lang-switcher {
