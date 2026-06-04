@@ -19,37 +19,50 @@ const langPaths = {
 } as const;
 ---
 
-<nav class="nav">
+<nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href={lang === 'en' ? '/' : `/${lang}/`} class="nav-brand" aria-label={nav.brand}>
-      <img src="/logo-nav.png" alt={nav.brand} class="nav-brand-mark" height="56" aria-hidden="false" />
+      <img src="/logo-nav.png" alt={nav.brand} class="nav-brand-mark" aria-hidden="false" />
     </a>
 
-    <div class="lang-switcher" role="group" aria-label="Language">
-      <a href={langPaths.en} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en">EN</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href={langPaths.it} aria-current={lang === 'it' ? 'true' : undefined} hreflang="it">IT</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href={langPaths.es} aria-current={lang === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+    <div class="nav-menu" id="nav-menu">
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <a href={langPaths.en} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <a href={langPaths.it} aria-current={lang === 'it' ? 'true' : undefined} hreflang="it">IT</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <a href={langPaths.es} aria-current={lang === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+      </div>
+
+      <ul class="nav-list">
+        {nav.header.items.map(item => (
+          <li>
+            <a href={item.href} class="nav-item" aria-current={item.page === currentPage ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
 
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="nav-toggle-bars"></span>
-    </button>
-
-    <ul class="nav-list">
-      {nav.header.items.map(item => (
-        <li>
-          <a href={item.href} class="nav-item" aria-current={item.page === currentPage ? 'page' : undefined}>
-            {item.label}
-          </a>
-        </li>
-      ))}
-      <li>
-        <a href={nav.header.cta.href} class="nav-cta" aria-current={nav.header.cta.page === currentPage ? 'page' : undefined}>
-          {nav.header.cta.label}
-        </a>
-      </li>
-    </ul>
+    <div class="nav-actions">
+      <a href={nav.header.cta.href} class="nav-cta" aria-current={nav.header.cta.page === currentPage ? 'page' : undefined}>
+        {nav.header.cta.label}
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bars"></span>
+      </button>
+    </div>
   </div>
 </nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>
