@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Pratica · Rosso Consulting",
+    "description": "Come opera Rosso Consulting — metodologia, formati di incarico e approccio tecnologico.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "02",
+    "eyebrowLabel": "Pratica",
+    "headline": "Come<br>operiamo",
+    "sub": "Gli incarichi seguono sette principi. Non sono framework da slide — sono il modo in cui il lavoro è effettivamente condotto. Quattro filoni, sei formati, un metodo operativo."
+  },
+  "methodology": {
+    "num": "01",
+    "title": "Metodologia",
+    "intro": "Sette principi. Applicati in ogni incarico, indipendentemente dalla dimensione.",
+    "principles": [
+      { "n": "01", "h": "Operator-first", "p": "Ogni raccomandazione supera un test: la dispiegherei in una proprietà che gestisco? Le raccomandazioni che non sopravviverebbero al contatto con un ambiente operativo non vengono fatte, per quanto eleganti possano apparire sulla carta." },
+      { "n": "02", "h": "Evidence-led", "p": "Le conclusioni sono supportate da dati, comportamenti osservabili o esperienza operativa diretta. \"Best practice\" non è accettato come evidenza senza fonti. Quando i dati non sono disponibili, il limite viene esplicitato anziché nascosto." },
+      { "n": "03", "h": "Time-boxed", "p": "Scope definito, deliverable definiti, exit definito. I retainer aperti creano scope creep e disallineamento di incentivi. I rinnovi sono scelte esplicite, non il percorso di minor resistenza." },
+      { "n": "04", "h": "AI-native", "p": "Strumenti AI moderni utilizzati ovunque — per ricerca, analisi, redazione e automazione di processo. Non è una metodologia di branding; è la realtà operativa di uno studio del 2026. I clienti beneficiano della velocità e della profondità, con chiara dichiarazione di dove l'AI è e non è in the loop." },
+      { "n": "05", "h": "Linguaggio chiaro", "p": "Le raccomandazioni sono scritte in un linguaggio su cui un operatore può agire. I cliché della consulenza — \"viaggio di trasformazione\", \"sbloccare valore\", \"leverage delle sinergie\" — sono assenti. Se una scoperta non può essere spiegata in un paragrafo a un general manager, non è ancora una scoperta." },
+      { "n": "06", "h": "Indipendente", "p": "Nessun referral fee dai vendor, nessuna kickback, nessun rapporto di rivendita. Quando Marco ricopre ruoli advisory con aziende i cui prodotti possono essere rilevanti, la relazione è dichiarata all'inizio e il cliente decide se considerare il vendor nel set di valutazione." },
+      { "n": "07", "h": "Documentato", "p": "Gli incarichi producono artefatti scritti che viaggiano — documenti di findings, decision log, valutazioni di vendor, playbook operativi. La consulenza verbale è integrata, non sostituita. Il cliente trattiene IP utilizzabile dopo la chiusura dell'incarico." }
+    ]
+  },
+  "formats": {
+    "num": "02",
+    "title": "Formati di incarico",
+    "intro": "Attraverso i quattro filoni di servizio, gli incarichi prendono tipicamente una di sei forme. Il formato è concordato durante lo scoping e riflesso nello Statement of Work.",
+    "items": [
+      { "n": "A", "h": "Discovery sprint", "p": "Una o due settimane. Utilizzato per definire un incarico più ampio, validare un'ipotesi o produrre una diagnostica iniziale. Output: brief scritto più sessione di lavoro. Spesso il ponte da \"dovremmo parlare\" a un progetto definito." },
+      { "n": "B", "h": "Audit o assessment", "p": "Quattro-sei settimane. Approfondimento su una domanda specifica — stack tecnologico, operazioni commerciali, valutazione di vendor, AI readiness. Output: documento di findings strutturato, raccomandazioni prioritizzate e readout esecutivo." },
+      { "n": "C", "h": "Incarico di trasformazione", "p": "Tre-sei mesi, a volte più. Programmi completi che coprono diagnosi, design, selezione vendor, supervisione di implementazione e abilitazione del team. Fatturato per milestone, con criteri di exit espliciti a ogni fase." },
+      { "n": "D", "h": "Leadership commerciale frazionale", "p": "Ongoing, tipicamente uno-due giorni a settimana. Utilizzato da fondatori SaaS che necessitano leadership commerciale senior ma non possono ancora giustificare l'assunzione full-time. Marco opera come leadership integrata — conduce forecast call, gestisce pipeline review, fa mentoring ai team lead e riporta al CEO." },
+      { "n": "E", "h": "Advisory retainer", "p": "Cadenza mensile. Impegno definito (tipicamente un numero fisso di ore e una sessione board o strategica per trimestre). Utilizzato da fondatori e CEO che vogliono una voce senior indipendente in orbita regolare, non un intervento una tantum." },
+      { "n": "F", "h": "Expert call", "p": "Consulenza singola, tipicamente 30-60 minuti. Utilizzata per due diligence, orientamento di settore o domande tattiche specifiche. Prenotata tramite expert network o direttamente." }
+    ]
+  },
+  "pullquote": "Competenza operatore-praticante — costruita dentro al settore, affinata da un decennio scalando team commerciali SaaS statunitensi, dispiegata da Lugano con precisione svizzera e direttezza italiana.",
+  "techApproach": {
+    "num": "03",
+    "title": "Approccio tecnologico",
+    "intro": "La tecnologia non è adiacente alla pratica; è la pratica. L'orientamento tecnico dello studio è informato dal ruolo operativo corrente di Marco, dalla carriera precedente lato vendor e dalle pratiche operative AI-native costruite nel lavoro quotidiano.",
+    "blocks": [
+      { "label": "Padronanza dello stack", "h": "Sistemi alberghieri", "p": "Familiarità diretta con PMS, channel manager, CRM, revenue management, BI, finance, F&B POS e sistemi di identity attraverso lo stack ospitalità — Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, Guezzt, HubSpot, Room Price Genie, Power BI." },
+      { "label": "AI e automazione", "h": "Dispiegato, non venduto", "p": "Ricerca e analisi LLM-aumentata attraverso tutti gli incarichi. Pipeline di automazione custom per briefing di intelligence, generazione di documenti e reportistica operativa. Framework di SOP AI-first dispiegati a livello operatore." },
+      { "label": "Architettura", "h": "Orientata MACH", "p": "Per selezione tecnologica e lavoro infrastrutturale, lo studio si orienta verso principi MACH dove appropriato, contro il pattern prevalente di stack monolitici vendor-locked. Una posizione, non una religione — il legacy resta dove guadagna il suo posto." }
+    ],
+    "vendorIndependence": {
+      "label": "Indipendenza dai vendor",
+      "body": "Nessun accordo di rivendita, nessuna partnership di implementazione, nessun referral fee dai vendor. Le relazioni advisory con aziende SaaS dell'ospitalità sono dichiarate quando tali aziende possono essere in scope. L'interesse economico dello studio è allineato con i risultati del cliente, non con il posizionamento di un particolare vendor."
+    }
+  },
+  "lifecycle": {
+    "num": "04",
+    "title": "Ciclo di incarico",
+    "intro": "La maggior parte degli incarichi segue un ciclo a cinque fasi. Le fasi scalano in alto o in basso con la dimensione dell'incarico; la struttura rimane la stessa.",
+    "phases": [
+      { "y": "Fase 01", "h": "Introduzione e fit reciproco", "p": "Conversazione iniziale, tipicamente una sola chiamata. Lo scopo è capire la domanda, non vendere un servizio. Se la domanda è fuori dallo scope operativo dello studio, la conversazione si chiude con un referral o un gentile rifiuto. Nessuna fee si applica a questa fase." },
+      { "y": "Fase 02", "h": "Scoping", "p": "Quando c'è fit, lo scoping produce uno Statement of Work che copre scope, deliverable, tempistiche, struttura di pricing, ownership della IP e cessazione. Lo scoping è non fatturato per la maggior parte degli incarichi." },
+      { "y": "Fase 03", "h": "Discovery", "p": "Raccolta strutturata di informazioni all'inizio dell'esecuzione — interviste con stakeholder, accesso ai sistemi, revisione dati. Produce un'understanding di lavoro e un memo di Discovery Findings per revisione del cliente prima dell'esecuzione più profonda." },
+      { "y": "Fase 04", "h": "Esecuzione", "p": "Lavoro core contro lo SoW. Cadenza e deliverable variano per tipo di incarico. Note di progresso scritte settimanali sono standard per incarichi più lunghi di quattro settimane. Review di scope a metà incarico avvengono a checkpoint definiti." },
+      { "y": "Fase 05", "h": "Handoff", "p": "Artefatti di chiusura consegnati al cliente in forma editabile. Una sessione di handoff guida gli stakeholder chiave attraverso i materiali. Disponibilità post-incarico per domande di follow-up è inclusa per 30 giorni dopo l'handoff senza costi aggiuntivi." }
+    ]
+  },
+  "cta": {
+    "label": "Inizia un dialogo",
+    "headline": "Hai uno scope in mente",
+    "sub": "Manda una breve nota. Lo scoping inizia con una singola chiamata, e la prima conversazione non è fatturata.",
+    "accent": "?",
+    "buttonLabel": "Contattaci →",
+    "buttonHref": "/it/contact/"
+  }
+}

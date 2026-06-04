@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Articoli · Rosso Consulting",
+    "description": "Saggi su distribuzione alberghiera, AI deployment, economia dei canali e l'interfaccia operatore-acquirente. Scritti da Marco Rosso.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "07",
+    "eyebrowLabel": "Articoli",
+    "headline": "Note dal seat<br>dell'operatore",
+    "sub": "Saggi su distribuzione alberghiera, AI deployment, economia dei canali e l'interfaccia operatore-acquirente. Scritti per revenue manager, GM, fondatori e investitori che vogliono la visione lato operatore di dove sta davvero andando questo settore."
+  },
+  "footerNote": {
+    "main": "Nuovi saggi vengono pubblicati con cadenza approssimativamente mensile. I temi seguono ciò che è effettivamente sulla scrivania dell'operatore quel mese — cambiamenti distributivi, consolidamento dei vendor, deployment AI, economia dei canali, design dei team commerciali.",
+    "subscribeLead": "Iscriviti via",
+    "rssLabel": "RSS",
+    "rssHref": "/rss.xml",
+    "linkedinLead": "Versioni originali di diversi saggi sono pubblicate anche su",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHref": "https://linkedin.com/in/mprosso"
+  },
+  "cta": {
+    "label": "Vuoi discutere di tutto questo",
+    "headline": "Parliamone",
+    "sub": "Questi saggi nascono da incarichi reali. Contattaci se uno di essi descrive una situazione in cui ti trovi.",
+    "accent": "",
+    "buttonLabel": "Contattaci →",
+    "buttonHref": "/it/contact/"
+  }
+}

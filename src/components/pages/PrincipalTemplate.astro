@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import SectionHeader from '../SectionHeader.astro';
+import PullQuote from '../PullQuote.astro';
+import CareerChart from '../CareerChart.astro';
+import CTABlock from '../CTABlock.astro';
+import { getPrincipalPage, getUi, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getPrincipalPage(lang);
+const ui = await getUi(lang);
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="principal"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+    meta={page.hero.meta}
+  />
+
+  <!-- Career arc -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.careerArc.num} title={page.careerArc.title} />
+      <p class="section-intro reveal">{page.careerArc.intro}</p>
+      <div class="reveal" style="margin-top: var(--s-6);">
+        <CareerChart bars={page.careerArc.careerBars} note={page.careerArc.note} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Background -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.background.num} title={page.background.title} />
+      <div class="reveal" style="margin-top: var(--s-4); max-width: 75ch;">
+        <p style="font-size: 18px; line-height: 1.55; color: var(--carbone); margin-bottom: var(--s-4);"><strong>{page.background.leadParagraph}</strong></p>
+        {page.background.paragraphs.map(p => (
+          <p style="font-size: 16px; line-height: 1.65; color: var(--grigio); margin-bottom: var(--s-3);">{p}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PullQuote quote={page.background.pullquote} />
+
+  <!-- Experience -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.experience.num} title={page.experience.title} />
+      <div class="timeline reveal" style="margin-top: var(--s-5);">
+        {page.experience.entries.map(e => (
+          <div class="timeline-item">
+            <span class="timeline-year">
+              {e.year}
+              {e.current && <span style="display: inline-block; margin-left: 8px; padding: 2px 8px; background: var(--rosso); color: var(--bianco); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; vertical-align: middle;">{ui.common.currentRoleLabel}</span>}
+            </span>
+            <div>
+              <h3>{e.role}</h3>
+              <p set:html={e.detail} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.education.num} title={page.education.title} />
+      <div class="timeline reveal" style="margin-top: var(--s-5);">
+        {page.education.entries.map(ed => (
+          <div class="timeline-item">
+            <span class="timeline-year">{ed.years}</span>
+            <div>
+              <h3>{ed.school}</h3>
+              <p>{ed.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas of fluency -->
+  <section class="section-dark">
+    <div class="container">
+      <SectionHeader num={page.fluencies.num} title={page.fluencies.title} dark />
+      <div class="grid-3 reveal" style="margin-top: var(--s-6); gap: var(--s-5);">
+        {page.fluencies.items.map(item => (
+          <div>
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{item.label}</div>
+            <p style="color: var(--grigio-soft); font-size: 15px; line-height: 1.6;">{item.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    label={page.cta.label}
+    headline={page.cta.headline}
+    sub={page.cta.sub}
+    accent={page.cta.accent}
+    buttonLabel={page.cta.buttonLabel}
+    buttonHref={page.cta.buttonHref}
+  />
+</BaseLayout>

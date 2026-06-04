@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Ventures · Rosso Consulting",
+    "description": "Operating ventures costruite sotto l'ombrello di Rosso Consulting. Astia Web è la prima.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "05",
+    "eyebrowLabel": "Operating Ventures",
+    "headline": "Ventures<br>costruite sotto<br>l'ombrello",
+    "sub": "Alcuni pattern emergono ripetutamente attraverso gli incarichi clienti al punto che la risposta giusta non è un altro progetto di consulenza — è una soluzione productizzata. Rosso Consulting le spinoffa come aziende operative. Ognuna porta l'endorsement della parent pur mantenendo il proprio brand e la propria autonomia commerciale."
+  },
+  "currentVenture": {
+    "num": "01",
+    "title": "Venture corrente",
+    "label": "A Rosso Consulting company",
+    "name": "Astia Web.",
+    "description": "Uno studio moderno di produzione siti web per gruppi alberghieri indipendenti, costruito su uno stack MACH deliberatamente scelto — Astro, headless CMS, deploy on the edge. Sostituisce il modello legacy template-driven dei siti hotel con qualcosa di più veloce, più economico da mantenere e controllabile dall'operatore.",
+    "buttonLabel": "Visita Astia Web →",
+    "buttonHref": "https://astiaweb.com",
+    "whyExistsLabel": "Perché esiste",
+    "whyExistsParagraphs": [
+      "Gli hotel indipendenti spendono budget sproporzionati per siti che non performano. I vendor caricano fee enterprise per build template che l'operatore non può controllare. L'handoff è doloroso. La manutenzione è peggio.",
+      "Astia Web risolve il problema architetturale sottostante. L'hotel finisce con un sito veloce, posseduto, gestito via CMS che costa meno nel TCO a cinque anni rispetto all'alternativa legacy."
+    ],
+    "stats": [
+      { "label": "Status", "value": "Live, accetta brief" },
+      { "label": "Stack", "value": "Astro · Netlify · Sveltia" },
+      { "label": "Mercato", "value": "Hotel indip. (EMEA)" }
+    ]
+  },
+  "spinoutLogic": {
+    "num": "02",
+    "title": "Architettura di spinout",
+    "intro": "Un pattern diventa una venture solo quando quattro condizioni sono vere. La maggior parte dei pattern non supera questo test e rimangono come lavoro advisory o di consulenza. I pochi che lo superano sono costruiti deliberatamente.",
+    "conditions": [
+      { "n": "01", "h": "Necessità ripetibile", "p": "Il pattern si ripresenta attraverso più clienti in forma simile. Un singolo incarico advisory che lo risolve una volta non affronta il volume sottostante di domanda." },
+      { "n": "02", "h": "Erogazione productizzabile", "p": "La soluzione ha abbastanza struttura da poter essere erogata come prodotto o servizio standardizzato piuttosto che come consulenza bespoke. I margini migliorano con la scala." },
+      { "n": "03", "h": "Economics funzionanti", "p": "L'economia unitaria funziona alla scala che il mercato supporterebbe — non solo in teoria, ma con assunzioni conservative su prezzo, conversione e retention." },
+      { "n": "04", "h": "Brand separato serve meglio", "p": "La venture serve il proprio mercato in modo più credibile sotto il proprio brand che sotto il brand parent Rosso Consulting. L'endorsement aggiunge; il brand non diluisce." }
+    ]
+  },
+  "parentSpinout": {
+    "num": "03",
+    "title": "Parent e spinout",
+    "intro": "Tre impegni strutturali valgono per ogni venture, corrente e futura.",
+    "commitments": [
+      { "label": "Brand", "h": "Endorsement lockup", "p": "Ogni venture porta il lockup \"a Rosso Consulting company\" nel proprio sistema di identità. Il brand operativo rimane distinto; la provenienza rimane chiara." },
+      { "label": "Operations", "h": "Autonoma", "p": "Le ventures gestiscono le proprie decisioni commerciali, di prodotto e operative. La parent fornisce capitale e consiglio strategico, non controllo operativo." },
+      { "label": "Orizzonte temporale", "h": "Duraturo", "p": "Le ventures sono costruite per operare come aziende standalone nel lungo termine. Non sono asset preparati per la vendita — anche se l'acquisizione non è preclusa se emerge la struttura giusta." }
+    ]
+  },
+  "futureVentures": {
+    "num": "04",
+    "title": "Ventures future",
+    "lead": "Due idee di venture adiacenti sono state oggetto di studio deliberato e non sono ancora pronte per essere spinoffate. Entrambe seguono lo stesso test a quattro condizioni di Astia Web.",
+    "paragraph": "Un sistema operativo commerciale AI-native per hotel indipendenti — che sostituisce il patchwork di strumenti di revenue management, CRM, marketing e reporting che la maggior parte degli operatori indipendenti attualmente mette insieme. E un motore B2B di packaging AI per tour operator indipendenti, costruito sull'entità Francorosso Lugano mantenuta dal business di famiglia — che modernizza la distribuzione offline anziché disintermediarla.",
+    "pullquote": "La maggior parte delle idee rimane come lavoro advisory o progetti di consulenza. Le ventures che esistono sono quelle che la parent non potrebbe servire meglio in nessun altro modo."
+  },
+  "cta": {
+    "label": "Fondatore di un'idea venture-stage",
+    "headline": "Stai costruendo qualcosa di adiacente",
+    "sub": "Se stai costruendo nel campo dell'ospitalità indipendente, della distribuzione o del software per operatori, e vuoi un sparring partner con contesto operativo attuale — contattaci.",
+    "accent": "?",
+    "buttonLabel": "Contattaci →",
+    "buttonHref": "/it/contact/"
+  }
+}

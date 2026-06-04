@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Lane from '../Lane.astro';
+import CTABlock from '../CTABlock.astro';
+import { getAdvisoryPage, getAdvisoryEntries, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getAdvisoryPage(lang);
+const advisoryEntries = await getAdvisoryEntries();
+
+// Per-entry localized overrides for description + formats
+const overrides = page.advisoryOverrides ?? {};
+function mergedDescription(slug: string, fallback: string) {
+  return overrides[slug]?.fullDescription ?? fallback;
+}
+function mergedFormats(slug: string, fallback?: string[]) {
+  return overrides[slug]?.formats ?? fallback ?? [];
+}
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="advisory"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+    meta={page.hero.meta}
+  />
+
+  <!-- Current advisory roles (from collection + locale overrides) -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.roles.num} title={page.roles.title} />
+      <p class="section-intro reveal">{page.roles.intro}</p>
+      <div class="lanes" style="margin-top: var(--s-5);">
+        {advisoryEntries.map((entry, i) => {
+          const desc = mergedDescription(entry.id, entry.data.fullDescription);
+          const formats = mergedFormats(entry.id, entry.data.formats);
+          return (
+            <div class={`lane reveal${i === 0 ? '' : ''}`} style={i === 0
+              ? "border-top-color: var(--carbone);"
+              : (i === advisoryEntries.length - 1 ? "border-bottom-color: var(--carbone);" : '')}>
+              <div class="lane-num">{String(i + 1).padStart(2, '0')}<span class="dot">.</span></div>
+              <div class="lane-body">
+                <h3>{entry.data.name}</h3>
+                <p class="lane-lead">{desc}</p>
+                {formats.length > 0 && (
+                  <div class="lane-formats">
+                    {formats.map(f => <span class="format">{f}</span>)}
+                  </div>
+                )}
+                <div style="margin-top: var(--s-3); display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center;">
+                  <span class="meta" style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rosso);">{entry.data.role} · {entry.data.stage}</span>
+                  <a href={entry.data.url} class="link-arrow" target="_blank" rel="noopener" style="font-size: 13px;">
+                    {new URL(entry.data.url).hostname.replace(/^www\./, '')} →
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert network -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.expertNetwork.num} title={page.expertNetwork.title} />
+      <p class="section-intro reveal">{page.expertNetwork.intro}</p>
+      <div class="grid-3 reveal" style="margin-top: var(--s-6); gap: var(--s-5);">
+        {page.expertNetwork.cards.map(card => (
+          <div style="padding: var(--s-5); background: var(--bianco); border: 1px solid var(--nebbia-deep);">
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{card.label}</div>
+            <h3 style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{card.h}</h3>
+            <p style="color: var(--grigio); font-size: 14px; line-height: 1.6;">{card.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Independence -->
+  <section class="section-dark">
+    <div class="container">
+      <SectionHeader num={page.independence.num} title={page.independence.title} dark />
+      <p class="section-intro reveal" style="color: var(--grigio-soft);">{page.independence.intro}</p>
+      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
+        {page.independence.items.map(item => (
+          <div>
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{item.label}</div>
+            <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--bianco); text-transform: uppercase; margin-bottom: var(--s-3); letter-spacing: 0.005em;">{item.h}</h3>
+            <p style="color: var(--grigio-soft); font-size: 15px; line-height: 1.6;">{item.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    label={page.cta.label}
+    headline={page.cta.headline}
+    sub={page.cta.sub}
+    accent={page.cta.accent}
+    buttonLabel={page.cta.buttonLabel}
+    buttonHref={page.cta.buttonHref}
+  />
+</BaseLayout>

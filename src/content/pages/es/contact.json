@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Contacto · Rosso Consulting",
+    "description": "Contacta con Rosso Consulting — Marco Rosso, fundador y principal.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "06",
+    "eyebrowLabel": "Inicia una Conversación",
+    "headline": "Hablemos",
+    "sub": "Las conversaciones iniciales no se facturan y duran aproximadamente treinta minutos. Trae la pregunta. La forma del mandato viene después."
+  },
+  "direct": {
+    "num": "01",
+    "title": "Directo",
+    "cards": [
+      { "kind": "email", "label": "Email", "displayValue": "marco@rossoconsulting.ch", "href": "mailto:marco@rossoconsulting.ch", "description": "La ruta más rápida. Bandeja revisada diariamente, respuestas típicamente dentro de veinticuatro horas en días laborables." },
+      { "kind": "linkedin", "label": "LinkedIn", "displayValue": "linkedin.com<br>/in/mprosso", "href": "https://linkedin.com/in/mprosso", "description": "Para fundadores, peers y contactos del sector. Los mensajes directos con contexto son respondidos; las propuestas en frío generalmente no." }
+    ]
+  },
+  "coordinates": {
+    "num": "02",
+    "title": "Coordenadas",
+    "items": [
+      { "label": "Domicilio", "h": "Lugano, Suiza", "p": "El estudio está registrado en Suiza bajo derecho comercial suizo. La facturación es en CHF; tarifas cross-border disponibles para mandatos EU y no-EU." },
+      { "label": "Idiomas", "h": "EN · IT · ES", "p": "Los mandatos se ejecutan en cualquiera de los tres idiomas de trabajo. Italiano e inglés son primarios; el español es competencia profesional completa de roles comerciales previos en Madrid y Barcelona." },
+      { "label": "Cobertura", "h": "EMEA primaria", "p": "La mayoría de los mandatos se ejecutan a través de DACH, Iberia, Italia, Francia y UK. Trabajo selectivo fuera de EMEA donde hay un claro fit sectorial o relacional." }
+    ]
+  },
+  "whatToInclude": {
+    "num": "03",
+    "title": "Qué incluir",
+    "lead": "Una nota inicial útil cubre tres cosas. La nota en sí puede ser breve — dos párrafos suelen ser suficientes.",
+    "items": [
+      { "n": "01", "h": "La pregunta", "p": "Una descripción breve del problema u oportunidad, en lenguaje sencillo. La especificidad ayuda; la certeza no es requerida." },
+      { "n": "02", "h": "El contexto", "p": "Dónde te ubicas — operador, fundador, inversor, peer — y la escala aproximada o etapa en la que estás operando. Dos o tres líneas." },
+      { "n": "03", "h": "El timing", "p": "Si es una situación de movimiento rápido o una conversación exploratoria. Ambas son bienvenidas; la cadencia de respuesta difiere." }
+    ],
+    "referencesNote": "Las referencias de clientes previos y advisory boards están disponibles bajo solicitud después de que una conversación inicial establezca el fit mutuo."
+  }
+}

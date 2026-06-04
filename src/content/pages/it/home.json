@@ -1,0 +1,86 @@
+{
+  "seo": {
+    "title": "Rosso Consulting · Una voce indipendente nella tecnologia dell'ospitalità",
+    "description": "Rosso Consulting è uno studio di consulenza con sede in Svizzera ed entità ombrello, fondato e diretto da Marco Rosso. Competenza operatore-praticante nella tecnologia dell'ospitalità.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "01",
+    "eyebrowLabel": "Studio Indipendente",
+    "headline": "Una voce<br>indipendente<br>nella tecnologia<br>dell'ospitalità",
+    "sub": "Uno studio di consulenza con sede in Svizzera ed entità ombrello, fondato e diretto da Marco Rosso. Competenza operatore-praticante — costruita dentro al settore, affinata da un decennio scalando team commerciali SaaS statunitensi, dispiegata da Lugano.",
+    "meta": [
+      { "label": "Pratica", "value": "Indipendente" },
+      { "label": "Sede", "value": "Lugano, CH" },
+      { "label": "Lingue", "value": "EN · IT · ES" },
+      { "label": "Attivo dal", "value": "2026" }
+    ]
+  },
+  "practice": {
+    "num": "02",
+    "title": "Pratica",
+    "intro": "Rosso Consulting opera su quattro filoni. I servizi sono guidati dai risultati, non standardizzati — ma i quattro filoni descrivono come il lavoro è strutturato e contrattualizzato.",
+    "lanes": [
+      {
+        "num": "01",
+        "title": "Consulenza su Progetto",
+        "body": "Progetti clienti con scope esplicito, deliverable e tempistiche. Consulenza strategica, audit tecnologici, programmi di trasformazione, AI deployment, modelli operativi commerciali.",
+        "formats": ["Consulenza strategica", "Audit dello stack", "Programmi di trasformazione", "Leadership commerciale frazionale"]
+      },
+      {
+        "num": "02",
+        "title": "Ruoli Advisory",
+        "body": "Posizioni formali di advisory board o consulente strategico presso aziende di tecnologia per l'ospitalità. Relazioni di lungo periodo, cadenza regolare, mix di cash, equity e strutture in-kind.",
+        "formats": ["Board seats", "Strategic GTM advisor", "Pre-seed e seed"]
+      },
+      {
+        "num": "03",
+        "title": "Expert Network e Lavoro per Investitori",
+        "body": "Consulenze pagate per VC, PE e investitori corporate che valutano il settore della tecnologia per l'ospitalità. Chiamate singole tramite expert network; relazioni più lunghe per lo sviluppo di tesi di investimento.",
+        "formats": ["Chiamate di due diligence", "Market mapping", "Stress-test di tesi"]
+      },
+      {
+        "num": "04",
+        "title": "Operating Ventures",
+        "body": "Aziende costruite o gestite sotto l'ombrello di Rosso Consulting. Le ventures portano l'endorsement della parent — \"a Rosso Consulting company\" — mantenendo brand e autonomia commerciale propri.",
+        "formats": ["Astia Web (corrente)", "Architettura di spinout"]
+      }
+    ],
+    "ctaLabel": "Scopri come operiamo",
+    "ctaHref": "/it/practice/"
+  },
+  "audiences": {
+    "num": "03",
+    "title": "Chi serviamo",
+    "items": [
+      { "heading": "Fondatori SaaS", "body": "Fondatori da pre-seed a Series C che costruiscono software per ospitalità e travel. Advisory, GTM, leadership commerciale frazionale." },
+      { "heading": "Investitori VC e PE", "body": "Fondi che valutano travel e hospitality tech. Due diligence, mappatura di mercato, sviluppo di tesi." },
+      { "heading": "Operatori Alberghieri", "body": "Gruppi indipendenti e a conduzione familiare. Trasformazione digitale, AI deployment, lavoro sullo stack tecnologico." },
+      { "heading": "Pari Operatori", "body": "Pari del C-suite ed eventi di settore. Speaking, thought leadership, contributo alla community." }
+    ]
+  },
+  "active": {
+    "num": "04",
+    "title": "Incarichi attivi",
+    "intro": "Quattro ruoli advisory attivi nella tecnologia per l'ospitalità, più la prima venture operativa dello studio. Il portfolio è curato; le posizioni vengono accettate solo dove la relazione offre allineamento strategico con la pratica più ampia.",
+    "ctaLabel": "Vedi portfolio advisory",
+    "ctaHref": "/it/advisory/"
+  },
+  "operatingNow": {
+    "num": "05",
+    "title": "In operatività ora",
+    "roleLabel": "Ruolo Principale",
+    "roleTitle": "Chief Digital Strategy<br>& Business Automation Officer",
+    "company": "Planhotel Hospitality Group — gruppo alberghiero italo-svizzero, 11 proprietà su tre brand operativi a Zanzibar, alle Maldive e in Kenya.",
+    "whyMattersLabel": "Perché conta",
+    "whyMattersBody": "Il ruolo operativo di Marco è corrente e attivo. Ogni raccomandazione fatta in consulenza e advisory supera un singolo test: la dispiegherei in una proprietà che gestisco? Il seat operativo non è un titolo da citare — è l'ambiente di lavoro da cui la pratica è erogata."
+  },
+  "cta": {
+    "label": "Inizia un dialogo",
+    "headline": "Pronti a parlare",
+    "sub": "La definizione dell'incarico inizia con una singola chiamata. Le prime conversazioni non sono fatturate.",
+    "accent": ".",
+    "buttonLabel": "Contattaci →",
+    "buttonHref": "/it/contact/"
+  }
+}

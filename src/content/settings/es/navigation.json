@@ -1,0 +1,45 @@
+{
+  "brand": "Rosso Consulting",
+  "header": {
+    "items": [
+      { "label": "Práctica", "href": "/es/practice/", "page": "practice" },
+      { "label": "Principal", "href": "/es/principal/", "page": "principal" },
+      { "label": "Advisory", "href": "/es/advisory/", "page": "advisory" },
+      { "label": "Ventures", "href": "/es/ventures/", "page": "ventures" },
+      { "label": "Artículos", "href": "/writing/", "page": "writing" }
+    ],
+    "cta": { "label": "Contáctanos", "href": "/es/contact/", "page": "contact" }
+  },
+  "footer": {
+    "tagline": "Consultoría independiente y entidad paraguas. Fundada y dirigida por Marco Rosso.",
+    "columns": [
+      {
+        "heading": "Práctica",
+        "links": [
+          { "label": "Cómo trabajamos", "href": "/es/practice/" },
+          { "label": "Advisory", "href": "/es/advisory/" },
+          { "label": "Ventures", "href": "/es/ventures/" },
+          { "label": "Artículos", "href": "/writing/" }
+        ]
+      },
+      {
+        "heading": "Estudio",
+        "links": [
+          { "label": "Principal", "href": "/es/principal/" },
+          { "label": "Contacto", "href": "/es/contact/" },
+          { "label": "LinkedIn", "href": "https://linkedin.com/in/mprosso", "external": true }
+        ]
+      },
+      {
+        "heading": "Contacto",
+        "links": [
+          { "label": "marco@rossoconsulting.ch", "href": "mailto:marco@rossoconsulting.ch" },
+          { "label": "Lugano, Suiza", "href": "" },
+          { "label": "EN · IT · ES", "href": "" }
+        ]
+      }
+    ],
+    "copyright": "© {year} Rosso Consulting",
+    "bottom": "Lugano · Suiza · rossoconsulting.ch"
+  }
+}

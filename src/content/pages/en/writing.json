@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Writing · Rosso Consulting",
+    "description": "Essays on hospitality distribution, AI deployment, channel economics, and the operator-buyer interface. Written by Marco Rosso.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "07",
+    "eyebrowLabel": "Writing",
+    "headline": "Notes from<br>the operator's seat",
+    "sub": "Essays on hospitality distribution, AI deployment, channel economics, and the operator-buyer interface. Written for revenue managers, GMs, founders, and investors who want the operator-side view of where the industry is actually going."
+  },
+  "footerNote": {
+    "main": "New essays are published roughly monthly. Topics follow what is actually on the operator's desk that month — distribution shifts, vendor consolidation, AI deployment, channel economics, commercial team design.",
+    "subscribeLead": "Subscribe via",
+    "rssLabel": "RSS",
+    "rssHref": "/rss.xml",
+    "linkedinLead": "Original versions of several essays are also published on",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHref": "https://linkedin.com/in/mprosso"
+  },
+  "cta": {
+    "label": "Want to discuss any of this",
+    "headline": "Let's talk",
+    "sub": "These essays come out of real engagements. Reach out if any of them describe a situation you are in.",
+    "accent": "",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}

@@ -1,0 +1,61 @@
+---
+// Nav.astro — renders header navigation from navigation.{lang}.json
+import { getNavigation, type Lang } from '../lib/cms';
+
+interface Props {
+  lang: Lang;
+  currentPage?: string;
+}
+
+const { lang, currentPage } = Astro.props;
+const nav = await getNavigation(lang);
+
+// Language switcher: preserves current path across locales
+const currentPath = Astro.url.pathname.replace(/^\/(it|es)/, '') || '/';
+const langPaths = {
+  en: currentPath,
+  it: currentPath === '/' ? '/it/' : `/it${currentPath}`,
+  es: currentPath === '/' ? '/es/' : `/es${currentPath}`,
+} as const;
+---
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href={lang === 'en' ? '/' : `/${lang}/`} class="nav-brand" aria-label={nav.brand}>
+      <svg class="nav-brand-mark" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="10" y="10" width="20" height="80" rx="10" fill="#1C1C1C"></rect>
+        <rect x="50" y="35" width="20" height="55" rx="10" fill="#1C1C1C"></rect>
+        <polygon points="50,18 70,18 60,33" fill="#DC1F26"></polygon>
+        <rect x="90" y="20" width="20" height="70" rx="10" fill="#1C1C1C"></rect>
+      </svg>
+      <span class="nav-brand-text">{nav.brand}</span>
+    </a>
+
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <a href={langPaths.en} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href={langPaths.it} aria-current={lang === 'it' ? 'true' : undefined} hreflang="it">IT</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href={langPaths.es} aria-current={lang === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle-bars"></span>
+    </button>
+
+    <ul class="nav-list">
+      {nav.header.items.map(item => (
+        <li>
+          <a href={item.href} class="nav-item" aria-current={item.page === currentPage ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href={nav.header.cta.href} class="nav-cta" aria-current={nav.header.cta.page === currentPage ? 'page' : undefined}>
+          {nav.header.cta.label}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  body: string;
+  formats?: string[];
+  isFirst?: boolean;
+  isLast?: boolean;
+}
+const { num, title, body, formats, isFirst, isLast } = Astro.props;
+const style = [isFirst ? 'border-top-color: var(--carbone);' : '', isLast ? 'border-bottom-color: var(--carbone);' : ''].filter(Boolean).join(' ');
+---
+<div class="lane reveal" style={style}>
+  <div class="lane-num">{num}<span class="dot">.</span></div>
+  <div class="lane-body">
+    <h3>{title}</h3>
+    <p class="lane-lead" set:html={body}></p>
+    {formats && formats.length > 0 && (
+      <div class="lane-formats">
+        {formats.map(f => <span class="format">{f}</span>)}
+      </div>
+    )}
+    <slot />
+  </div>
+</div>

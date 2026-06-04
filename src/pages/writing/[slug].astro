@@ -1,0 +1,49 @@
+---
+import { getCollection, render, getEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getUi } from '../../lib/cms';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+};
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const ui = await getUi('en');
+
+const relatedRefs = article.data.related || [];
+const relatedArticles = await Promise.all(
+  relatedRefs.map(async (ref) => await getEntry(ref))
+);
+const filteredRelated = relatedArticles.filter(Boolean);
+---
+
+<ArticleLayout article={article} lang="en">
+  <Content />
+
+  {filteredRelated.length > 0 && (
+    <Fragment slot="related">
+      <div class="article-footer">
+        <div class="container-narrow">
+          <div class="article-related reveal">
+            <div class="label" style="margin-bottom: var(--s-3);">{ui.article.relatedWriting}</div>
+            {filteredRelated.map((related, i) => related && (
+              <a href={`/writing/${related.id}/`} class="article-related-item">
+                <span class="article-related-num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <div class="article-related-title">{related.data.title}</div>
+                  <div class="article-related-meta">{related.data.category} · {related.data.readTime} {ui.article.minRead}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  )}
+</ArticleLayout>

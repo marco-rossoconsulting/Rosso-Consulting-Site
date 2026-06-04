@@ -1,0 +1,104 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../lib/cms';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  author?: string;
+  noindex?: boolean;
+  currentPage?: string;
+  jsonLd?: any;
+}
+
+const {
+  title, description, lang, image, type = 'website',
+  publishedTime, author, noindex = false,
+  currentPage, jsonLd,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      lang={lang}
+      image={image}
+      type={type}
+      publishedTime={publishedTime}
+      author={author}
+      noindex={noindex}
+    />
+    <JsonLd type={type === 'article' ? 'article' : 'website'} lang={lang} data={{ ...jsonLd, lang, publishedTime, title, description, category: jsonLd?.category }} />
+  </head>
+  <body>
+    <Nav lang={lang} currentPage={currentPage} />
+    <slot />
+    <Footer lang={lang} />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initial reveal for hero on first paint
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.hero .reveal').forEach((el) => el.classList.add('in-view'));
+        });
+
+        // Reveal-on-scroll for everything else
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal:not(.hero .reveal)').forEach((el) => io.observe(el));
+
+        // Mobile menu toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+          });
+          nav.querySelectorAll('.nav-item').forEach((item) =>
+            item.addEventListener('click', () => nav.classList.remove('nav-open'))
+          );
+        }
+
+        // Animate career bars on scroll into view
+        const bars = document.querySelector('.career-bars');
+        if (bars) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.bar-fill').forEach((bar, i) => {
+                  const targetHeight = (bar as HTMLElement).dataset.height || '0%';
+                  (bar as HTMLElement).style.height = '0%';
+                  setTimeout(() => {
+                    (bar as HTMLElement).style.transition = 'height 800ms cubic-bezier(0.16, 1, 0.3, 1)';
+                    (bar as HTMLElement).style.height = targetHeight;
+                  }, 80 + i * 100);
+                });
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          observer.observe(bars);
+        }
+      });
+    </script>
+  </body>
+</html>

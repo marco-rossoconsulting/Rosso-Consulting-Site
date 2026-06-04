@@ -1,0 +1,37 @@
+{
+  "name": "Rosso Consulting",
+  "tagline": "Una voz independiente en tecnología hotelera",
+  "url": "https://rossoconsulting.ch",
+  "favicon": "/favicon.svg",
+  "defaultOgImage": "/uploads/og-default.png",
+  "logoMark": "/favicon.svg",
+  "contact": {
+    "email": "marco@rossoconsulting.ch",
+    "linkedin": "https://linkedin.com/in/mprosso",
+    "location": "Lugano, Suiza"
+  },
+  "social": {
+    "twitter": ""
+  },
+  "principal": {
+    "fullName": "Marco Rosso",
+    "givenName": "Marco",
+    "familyName": "Rosso",
+    "jobTitle": "Fundador & Principal, Rosso Consulting; Chief Digital Strategy & Business Automation Officer, Planhotel Hospitality Group",
+    "alumniOf": [
+      "EHL Lausanne",
+      "Cornell University",
+      "Harvard Business School"
+    ],
+    "knowsLanguage": [
+      "en",
+      "it",
+      "es"
+    ]
+  },
+  "founding": {
+    "addressLocality": "Lugano",
+    "addressRegion": "Ticino",
+    "addressCountry": "CH"
+  }
+}

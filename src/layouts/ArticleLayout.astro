@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getUi, type Lang } from '../lib/cms';
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  lang: Lang;
+}
+
+const { article, lang } = Astro.props;
+const { data } = article;
+const ui = await getUi(lang);
+
+const seoTitle = data.seo?.title ?? `${data.title} · Rosso Consulting`;
+const seoDescription = data.seo?.description ?? data.deck;
+const seoImage = data.seo?.image ?? '';
+
+const dateLocale = lang === 'it' ? 'it-IT' : lang === 'es' ? 'es-ES' : 'en-GB';
+const formattedDate = new Intl.DateTimeFormat(dateLocale, { day: 'numeric', month: 'long', year: 'numeric' }).format(data.date);
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  image={seoImage}
+  lang={lang}
+  type="article"
+  publishedTime={data.date}
+  jsonLd={{ category: data.category }}
+>
+  <article class="article">
+    <header class="article-header reveal">
+      <div class="container-narrow">
+        <div class="article-eyebrow">
+          <span class="cat">{data.category}</span>
+          <span class="sep">·</span>
+          <span>{formattedDate}</span>
+          <span class="sep">·</span>
+          <span>{data.readTime} {ui.article.minRead}</span>
+        </div>
+        <h1 class="article-title">{data.title}</h1>
+        <p class="article-deck">{data.deck}</p>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <div class="container-narrow">
+        <slot />
+      </div>
+    </div>
+
+    <slot name="related" />
+  </article>
+</BaseLayout>

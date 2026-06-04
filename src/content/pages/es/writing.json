@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Artículos · Rosso Consulting",
+    "description": "Ensayos sobre distribución hotelera, despliegue de IA, economía de canales e interfaz operador-comprador. Escritos por Marco Rosso.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "07",
+    "eyebrowLabel": "Artículos",
+    "headline": "Notas desde<br>el asiento del operador",
+    "sub": "Ensayos sobre distribución hotelera, despliegue de IA, economía de canales e interfaz operador-comprador. Escritos para revenue managers, GMs, fundadores e inversores que quieren la visión del lado operador de hacia dónde va realmente este sector."
+  },
+  "footerNote": {
+    "main": "Nuevos ensayos se publican con cadencia aproximadamente mensual. Los temas siguen lo que está realmente sobre el escritorio del operador ese mes — cambios distributivos, consolidación de vendors, despliegue de IA, economía de canales, diseño de equipos comerciales.",
+    "subscribeLead": "Suscríbete vía",
+    "rssLabel": "RSS",
+    "rssHref": "/rss.xml",
+    "linkedinLead": "Versiones originales de varios ensayos también se publican en",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHref": "https://linkedin.com/in/mprosso"
+  },
+  "cta": {
+    "label": "Quieres discutir cualquiera de estos temas",
+    "headline": "Hablemos",
+    "sub": "Estos ensayos surgen de mandatos reales. Contáctanos si alguno describe una situación en la que te encuentras.",
+    "accent": "",
+    "buttonLabel": "Contáctanos →",
+    "buttonHref": "/es/contact/"
+  }
+}

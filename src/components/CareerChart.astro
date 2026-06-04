@@ -1,0 +1,43 @@
+---
+interface Bar {
+  company: string;
+  years: string;
+  heightPct: number; // 0-100
+  current?: boolean;
+}
+
+interface Props {
+  bars: Bar[];
+  note?: string;
+}
+
+const { bars, note } = Astro.props;
+---
+
+<div class="career-chart reveal">
+  <div class="career-bars">
+    {bars.map((b) => (
+      <div class={`career-bar${b.current ? ' current' : ''}`}>
+        <div
+          class="bar-fill"
+          data-height={`${b.heightPct}%`}
+          style={`height: ${b.heightPct}%;`}
+        ></div>
+      </div>
+    ))}
+  </div>
+  <div class="career-labels">
+    {bars.map((b) => (
+      <div class="career-label">
+        {b.company}<span class="years">{b.years}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+{note && (
+  <p class="reveal" style="font-size: 14px; color: var(--grigio); margin-top: var(--s-5); max-width: 60ch;">
+    <span style="display: inline-block; width: 8px; height: 8px; background: var(--rosso); border-radius: 50%; vertical-align: middle; margin-right: 6px;"></span>
+    {note}
+  </p>
+)}

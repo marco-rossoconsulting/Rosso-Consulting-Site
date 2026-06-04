@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import CTABlock from '../CTABlock.astro';
+import { getWritingPage, getPublishedArticles, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getWritingPage(lang);
+const articles = await getPublishedArticles();
+
+const dateLocale = lang === 'it' ? 'it-IT' : lang === 'es' ? 'es-ES' : 'en-GB';
+const dateFormatter = new Intl.DateTimeFormat(dateLocale, { month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="writing"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+  />
+
+  <section class="writing-index">
+    <div class="container">
+      <div class="writing-list reveal">
+        {articles.map((article, i) => (
+          <a href={`/writing/${article.id}/`} class="writing-row">
+            <span class="writing-num">{String(i + 1).padStart(2, '0')}</span>
+            <div class="writing-content">
+              <div class="writing-title">{article.data.title}</div>
+              <div class="writing-deck">{article.data.deck}</div>
+            </div>
+            <div class="writing-meta">
+              <span class="cat">{article.data.category}</span>
+              <span>{dateFormatter.format(article.data.date)} · {article.data.readTime} min</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="reveal" style="margin-top: var(--s-8); padding-top: var(--s-4); border-top: 1px solid var(--nebbia-deep);">
+        <p style="font-size: 14px; color: var(--grigio); max-width: 60ch; line-height: 1.55;">{page.footerNote.main}</p>
+        <p style="font-size: 14px; color: var(--grigio); max-width: 60ch; line-height: 1.55; margin-top: var(--s-2);">
+          {page.footerNote.subscribeLead}{' '}
+          <a href={page.footerNote.rssHref} class="link">{page.footerNote.rssLabel}</a>.{' '}
+          {page.footerNote.linkedinLead}{' '}
+          <a href={page.footerNote.linkedinHref} target="_blank" rel="noopener" class="link">{page.footerNote.linkedinLabel}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    label={page.cta.label}
+    headline={page.cta.headline}
+    sub={page.cta.sub}
+    accent={page.cta.accent}
+    buttonLabel={page.cta.buttonLabel}
+    buttonHref={page.cta.buttonHref}
+  />
+</BaseLayout>

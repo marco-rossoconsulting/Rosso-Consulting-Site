@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Práctica · Rosso Consulting",
+    "description": "Cómo opera Rosso Consulting — metodología, formatos de mandato y enfoque tecnológico.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "02",
+    "eyebrowLabel": "Práctica",
+    "headline": "Cómo<br>trabajamos",
+    "sub": "Los mandatos siguen siete principios. No son frameworks de slide — son cómo se ejecuta realmente el trabajo. Cuatro líneas, seis formatos, un método operativo."
+  },
+  "methodology": {
+    "num": "01",
+    "title": "Metodología",
+    "intro": "Siete principios. Aplicados en cada mandato, independientemente de su tamaño.",
+    "principles": [
+      { "n": "01", "h": "Operator-first", "p": "Cada recomendación pasa un test: ¿la desplegaría en una propiedad que gestiono? Las recomendaciones que no sobrevivirían al contacto con un entorno operativo no se hacen, por elegantes que parezcan sobre el papel." },
+      { "n": "02", "h": "Evidence-led", "p": "Las conclusiones se respaldan con datos, comportamiento observable o experiencia operativa de primera mano. \"Best practice\" no se acepta como evidencia sin fuentes. Cuando los datos no están disponibles, el límite se nombra explícitamente en lugar de disimularse." },
+      { "n": "03", "h": "Time-boxed", "p": "Alcance definido, entregables definidos, salida definida. Los retainers abiertos crean scope creep y desalineación de incentivos. Las renovaciones son elecciones explícitas, no el camino de menor resistencia." },
+      { "n": "04", "h": "AI-native", "p": "Herramientas de IA modernas usadas en todas partes — para investigación, análisis, redacción y automatización de procesos. No es metodología de branding; es la realidad operativa de una práctica de 2026. Los clientes se benefician de la velocidad y la profundidad, con disclosure clara sobre dónde la IA está y no está in the loop." },
+      { "n": "05", "h": "Lenguaje claro", "p": "Las recomendaciones se escriben en un lenguaje sobre el que un operador puede actuar. Los clichés de consultoría — \"viaje de transformación\", \"desbloquear valor\", \"apalancar sinergias\" — están ausentes. Si un hallazgo no puede explicarse en un párrafo a un general manager, todavía no es un hallazgo." },
+      { "n": "06", "h": "Independiente", "p": "Sin comisiones de referencia de vendors, sin kickbacks, sin acuerdos de reventa. Cuando Marco ocupa posiciones advisory con empresas cuyos productos pueden ser relevantes, la relación se declara al inicio y el cliente decide si considerar al vendor en el set de evaluación." },
+      { "n": "07", "h": "Documentado", "p": "Los mandatos producen artefactos escritos que viajan — documentos de hallazgos, registros de decisiones, evaluaciones de vendors, playbooks operativos. La asesoría verbal se complementa, no se sustituye. El cliente retiene IP utilizable tras el cierre del mandato." }
+    ]
+  },
+  "formats": {
+    "num": "02",
+    "title": "Formatos de mandato",
+    "intro": "A través de las cuatro líneas de servicio, los mandatos toman típicamente una de seis formas. El formato se acuerda durante el scoping y se refleja en el Statement of Work.",
+    "items": [
+      { "n": "A", "h": "Discovery sprint", "p": "Una o dos semanas. Usado para definir el alcance de un mandato mayor, validar una hipótesis o producir un diagnóstico inicial. Output: brief escrito más sesión de trabajo. A menudo el puente entre \"deberíamos hablar\" y un proyecto definido." },
+      { "n": "B", "h": "Auditoría o assessment", "p": "Cuatro a seis semanas. Inmersión profunda en una pregunta específica — stack tecnológico, operaciones comerciales, evaluación de vendors, AI readiness. Output: documento de hallazgos estructurado, recomendaciones priorizadas y readout ejecutivo." },
+      { "n": "C", "h": "Mandato de transformación", "p": "Tres a seis meses, a veces más. Programas completos que abarcan diagnóstico, diseño, selección de vendors, supervisión de implementación y capacitación del equipo. Facturado por milestone, con criterios de salida explícitos en cada fase." },
+      { "n": "D", "h": "Liderazgo comercial fraccional", "p": "Continuo, típicamente uno o dos días por semana. Usado por fundadores SaaS que necesitan liderazgo comercial senior pero aún no pueden justificar la contratación full-time. Marco opera como liderazgo integrado — dirige forecast calls, gestiona pipeline review, mentoriza a team leads y reporta al CEO." },
+      { "n": "E", "h": "Retainer advisory", "p": "Cadencia mensual. Compromiso definido (típicamente un número fijo de horas y una sesión de board o estratégica por trimestre). Usado por fundadores y CEOs que quieren una voz senior independiente en órbita regular, no una intervención puntual." },
+      { "n": "F", "h": "Expert call", "p": "Consulta individual, típicamente 30-60 minutos. Usada para due diligence, orientación de sector o preguntas tácticas específicas. Reservada mediante expert networks o directamente." }
+    ]
+  },
+  "pullquote": "Experiencia operador-practicante — construida dentro del sector, refinada por una década escalando equipos comerciales SaaS estadounidenses, desplegada desde Lugano con precisión suiza y franqueza italiana.",
+  "techApproach": {
+    "num": "03",
+    "title": "Enfoque tecnológico",
+    "intro": "La tecnología no es adyacente a la práctica; es la práctica. La orientación técnica del estudio está informada por el rol operativo actual de Marco, su carrera previa del lado vendor y las prácticas operativas AI-native construidas en el trabajo diario.",
+    "blocks": [
+      { "label": "Dominio del stack", "h": "Sistemas hoteleros", "p": "Familiaridad directa con PMS, channel managers, CRM, revenue management, BI, finance, F&B POS y sistemas de identity en el stack hotelero — Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, Guezzt, HubSpot, Room Price Genie, Power BI." },
+      { "label": "IA y automatización", "h": "Desplegada, no vendida", "p": "Investigación y análisis aumentados por LLM en todos los mandatos. Pipelines de automatización personalizados para briefings de inteligencia, generación de documentos y reporting operativo. Frameworks de SOP AI-first desplegados a nivel operador." },
+      { "label": "Arquitectura", "h": "Orientada MACH", "p": "Para selección tecnológica y trabajo de infraestructura, el estudio se orienta hacia principios MACH donde aplica, contra el patrón prevalente de stacks monolíticos vendor-locked. Una postura, no una religión — el legacy se queda donde se gana su lugar." }
+    ],
+    "vendorIndependence": {
+      "label": "Independencia de vendors",
+      "body": "Sin acuerdos de reventa, sin partnerships de implementación, sin comisiones de referencia. Las relaciones advisory con empresas SaaS hoteleras se declaran cuando dichas empresas pueden estar en scope. El interés económico del estudio está alineado con los resultados del cliente, no con la colocación de un vendor particular."
+    }
+  },
+  "lifecycle": {
+    "num": "04",
+    "title": "Ciclo de mandato",
+    "intro": "La mayoría de los mandatos siguen un ciclo de cinco fases. Las fases escalan hacia arriba o hacia abajo con el tamaño del mandato; la estructura permanece igual.",
+    "phases": [
+      { "y": "Fase 01", "h": "Introducción y fit mutuo", "p": "Conversación inicial, típicamente una sola llamada. El propósito es entender la pregunta, no vender un servicio. Si la pregunta está fuera del alcance operativo del estudio, la conversación termina con una referencia o un rechazo cortés. No se aplican fees a esta fase." },
+      { "y": "Fase 02", "h": "Scoping", "p": "Donde hay fit, el scoping produce un Statement of Work cubriendo alcance, entregables, plazos, estructura de pricing, ownership de IP y terminación. El scoping no se factura en la mayoría de los mandatos." },
+      { "y": "Fase 03", "h": "Discovery", "p": "Recolección estructurada de información al inicio de la ejecución — entrevistas a stakeholders, acceso a sistemas, revisión de datos. Produce un entendimiento de trabajo y un memo de Discovery Findings para revisión del cliente antes de la ejecución más profunda." },
+      { "y": "Fase 04", "h": "Ejecución", "p": "Trabajo core contra el SoW. Cadencia y entregables varían por tipo de mandato. Notas de progreso escritas semanales son estándar para mandatos de más de cuatro semanas. Revisiones de scope a mitad del mandato ocurren en checkpoints definidos." },
+      { "y": "Fase 05", "h": "Handoff", "p": "Artefactos de cierre entregados al cliente en forma editable. Una sesión de handoff guía a los stakeholders clave por los materiales. Disponibilidad post-mandato para preguntas de seguimiento se incluye por 30 días después del handoff sin costo adicional." }
+    ]
+  },
+  "cta": {
+    "label": "Inicia una conversación",
+    "headline": "Tienes un alcance en mente",
+    "sub": "Envía una nota breve. El scoping comienza con una sola llamada, y la primera conversación no se factura.",
+    "accent": "?",
+    "buttonLabel": "Contáctanos →",
+    "buttonHref": "/es/contact/"
+  }
+}

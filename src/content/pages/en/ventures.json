@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Ventures · Rosso Consulting",
+    "description": "Operating ventures built under the Rosso Consulting umbrella. Astia Web is the first.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "05",
+    "eyebrowLabel": "Operating Ventures",
+    "headline": "Ventures<br>built under<br>the umbrella",
+    "sub": "Some patterns emerge repeatedly across client engagements to the point where the right answer is not another consulting project — it is a productised solution. Rosso Consulting spins these out as operating companies. Each carries the parent endorsement while maintaining its own brand and commercial autonomy."
+  },
+  "currentVenture": {
+    "num": "01",
+    "title": "Current venture",
+    "label": "A Rosso Consulting company",
+    "name": "Astia Web.",
+    "description": "A modern hotel website production studio for independent hotel groups, built on a deliberately-chosen MACH stack — Astro, headless CMS, deploy on the edge. Replaces the legacy template-driven hotel website model with something faster, cheaper to maintain, and operator-controllable.",
+    "buttonLabel": "Visit Astia Web →",
+    "buttonHref": "https://astiaweb.com",
+    "whyExistsLabel": "Why it exists",
+    "whyExistsParagraphs": [
+      "Independent hotels spend disproportionate budget on websites that don't perform. Vendors charge enterprise fees for template builds the operator can't control. The handoff is painful. The maintenance is worse.",
+      "Astia Web solves the underlying architectural problem. The hotel ends up with a fast, owned, CMS-managed site that costs less in five-year TCO than the legacy alternative."
+    ],
+    "stats": [
+      { "label": "Status", "value": "Live, accepting briefs" },
+      { "label": "Stack", "value": "Astro · Netlify · Sveltia" },
+      { "label": "Market", "value": "Indep. hotels (EMEA)" }
+    ]
+  },
+  "spinoutLogic": {
+    "num": "02",
+    "title": "Spinout architecture",
+    "intro": "A pattern becomes a venture only when four conditions are true. Most patterns fail this test and remain as advisory or consulting work. The few that pass are built deliberately.",
+    "conditions": [
+      { "n": "01", "h": "Repeatable need", "p": "The pattern recurs across multiple clients in similar shape. A single advisory engagement that solves it once does not address the underlying volume of demand." },
+      { "n": "02", "h": "Productisable delivery", "p": "The solution has enough structure that it can be delivered as a productised offering or standardised service rather than bespoke consulting. Margins improve with scale." },
+      { "n": "03", "h": "Working economics", "p": "The unit economics work at the scale the market would support — not just in theory, but with conservative assumptions on pricing, conversion, and retention." },
+      { "n": "04", "h": "Separate brand serves better", "p": "The venture serves its market more credibly under its own brand than under the Rosso Consulting parent. The endorsement adds; the brand does not dilute." }
+    ]
+  },
+  "parentSpinout": {
+    "num": "03",
+    "title": "Parent & spinout",
+    "intro": "Three structural commitments hold for every venture, current and future.",
+    "commitments": [
+      { "label": "Brand", "h": "Endorsement lockup", "p": "Each venture carries the \"a Rosso Consulting company\" lockup in its identity system. The operating brand stays distinct; the provenance stays clear." },
+      { "label": "Operations", "h": "Autonomous", "p": "Ventures run their own commercial, product, and operating decisions. The parent provides capital and strategic counsel, not operational control." },
+      { "label": "Time horizon", "h": "Durable", "p": "Ventures are built to operate as standalone companies long term. They are not preparation-for-sale assets — though acquisition is not precluded if the right structure emerges." }
+    ]
+  },
+  "futureVentures": {
+    "num": "04",
+    "title": "Future ventures",
+    "lead": "Two adjacent venture ideas have been under deliberate study and are not yet ready to spin out. Both follow the same four-condition test as Astia Web.",
+    "paragraph": "An AI-native commercial operating system for independent hotels — replacing the patchwork of revenue management, CRM, marketing, and reporting tools most independent operators currently assemble. And a B2B AI packaging engine for independent tour operators, built on the Francorosso Lugano entity retained from the family business — modernising offline distribution rather than disintermediating it.",
+    "pullquote": "Most ideas remain as advisory work or consulting projects. The ventures that exist are those the parent could not serve better by any other means."
+  },
+  "cta": {
+    "label": "Venture-stage founder",
+    "headline": "Building something adjacent",
+    "sub": "If you're building in independent hospitality, distribution, or operator-software, and want a sparring partner with current operating context — reach out.",
+    "accent": "?",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}

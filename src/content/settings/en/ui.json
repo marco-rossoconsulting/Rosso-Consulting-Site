@@ -1,0 +1,15 @@
+{
+  "article": {
+    "minRead": "min read",
+    "relatedWriting": "Related writing",
+    "readArticle": "Read article"
+  },
+  "common": {
+    "languageLabel": "Language",
+    "currentRoleLabel": "Current role"
+  },
+  "seo": {
+    "siteName": "Rosso Consulting",
+    "defaultDescription": "Rosso Consulting is a Swiss-domiciled consulting practice and umbrella entity, founded and led by Marco Rosso. Operator-practitioner expertise in hospitality technology."
+  }
+}

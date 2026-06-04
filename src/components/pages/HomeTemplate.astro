@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Lane from '../Lane.astro';
+import CTABlock from '../CTABlock.astro';
+import { getHomePage, getAdvisoryEntries, getUi, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getHomePage(lang);
+const advisoryEntries = await getAdvisoryEntries({ featuredOnly: true });
+const ui = await getUi(lang);
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="home"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+    meta={page.hero.meta}
+  />
+
+  <!-- Practice lanes -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.practice.num} title={page.practice.title} />
+      <p class="section-intro reveal">{page.practice.intro}</p>
+      <div class="lanes" style="margin-top: var(--s-5);">
+        {page.practice.lanes.map((lane, i) => (
+          <Lane
+            num={lane.num}
+            title={lane.title}
+            body={lane.body}
+            formats={lane.formats}
+            isFirst={i === 0}
+            isLast={i === page.practice.lanes.length - 1}
+          />
+        ))}
+      </div>
+      <div class="reveal" style="margin-top: var(--s-6); text-align: center;">
+        <a href={page.practice.ctaHref} class="link-arrow">{page.practice.ctaLabel} →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audiences -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.audiences.num} title={page.audiences.title} />
+      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
+        {page.audiences.items.map(item => (
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{item.heading}</h3>
+            <p style="color: var(--grigio); font-size: 15px; line-height: 1.6;">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Active engagements (dynamic from advisory collection + overrides) -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.active.num} title={page.active.title} />
+      <p class="section-intro reveal">{page.active.intro}</p>
+      <div class="grid-2 reveal" style="margin-top: var(--s-6); gap: var(--s-4) var(--s-5);">
+        {advisoryEntries.map(entry => (
+          <div style="padding: var(--s-4); background: var(--bianco); border: 1px solid var(--nebbia-deep);">
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{entry.data.role}</div>
+            <h3 style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{entry.data.name}</h3>
+            <p style="color: var(--grigio); font-size: 14px; line-height: 1.55;">{entry.data.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="reveal" style="margin-top: var(--s-6); text-align: center;">
+        <a href={page.active.ctaHref} class="link-arrow">{page.active.ctaLabel} →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operating now -->
+  <section class="section-dark">
+    <div class="container">
+      <SectionHeader num={page.operatingNow.num} title={page.operatingNow.title} dark />
+      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
+        <div>
+          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{page.operatingNow.roleLabel}</div>
+          <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--bianco); text-transform: uppercase; margin-bottom: var(--s-3); letter-spacing: 0.005em;" set:html={page.operatingNow.roleTitle} />
+          <p style="color: var(--grigio-soft); font-size: 16px; line-height: 1.6;">{page.operatingNow.company}</p>
+        </div>
+        <div>
+          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{page.operatingNow.whyMattersLabel}</div>
+          <p style="color: var(--grigio-soft); font-size: 16px; line-height: 1.6;">{page.operatingNow.whyMattersBody}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    label={page.cta.label}
+    headline={page.cta.headline}
+    sub={page.cta.sub}
+    accent={page.cta.accent}
+    buttonLabel={page.cta.buttonLabel}
+    buttonHref={page.cta.buttonHref}
+  />
+</BaseLayout>

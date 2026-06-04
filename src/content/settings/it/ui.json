@@ -1,0 +1,15 @@
+{
+  "article": {
+    "minRead": "min di lettura",
+    "relatedWriting": "Articoli correlati",
+    "readArticle": "Leggi articolo"
+  },
+  "common": {
+    "languageLabel": "Lingua",
+    "currentRoleLabel": "Ruolo corrente"
+  },
+  "seo": {
+    "siteName": "Rosso Consulting",
+    "defaultDescription": "Rosso Consulting è uno studio di consulenza con sede in Svizzera ed entità ombrello, fondato e diretto da Marco Rosso. Competenza operatore-praticante nella tecnologia dell'ospitalità."
+  }
+}

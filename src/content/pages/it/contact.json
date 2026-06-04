@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Contatto · Rosso Consulting",
+    "description": "Contatta Rosso Consulting — Marco Rosso, fondatore e principale.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "06",
+    "eyebrowLabel": "Inizia un Dialogo",
+    "headline": "Parliamone",
+    "sub": "Le conversazioni iniziali non sono fatturate e durano circa trenta minuti. Porta la domanda. La forma dell'incarico arriva dopo."
+  },
+  "direct": {
+    "num": "01",
+    "title": "Diretto",
+    "cards": [
+      { "kind": "email", "label": "Email", "displayValue": "marco@rossoconsulting.ch", "href": "mailto:marco@rossoconsulting.ch", "description": "Il percorso più veloce. Inbox controllata quotidianamente, risposte tipicamente entro ventiquattro ore nei giorni lavorativi." },
+      { "kind": "linkedin", "label": "LinkedIn", "displayValue": "linkedin.com<br>/in/mprosso", "href": "https://linkedin.com/in/mprosso", "description": "Per fondatori, peer e contatti di settore. I messaggi diretti con contesto vengono risposti; le proposte a freddo generalmente no." }
+    ]
+  },
+  "coordinates": {
+    "num": "02",
+    "title": "Coordinate",
+    "items": [
+      { "label": "Sede", "h": "Lugano, Svizzera", "p": "Lo studio è registrato in Svizzera sotto il diritto commerciale svizzero. La fatturazione è in CHF; tariffe cross-border disponibili per incarichi EU e non-EU." },
+      { "label": "Lingue", "h": "EN · IT · ES", "p": "Gli incarichi si svolgono in qualsiasi delle tre lingue di lavoro. Italiano e inglese sono primarie; lo spagnolo è padronanza professionale completa da precedenti ruoli commerciali a Madrid e Barcellona." },
+      { "label": "Copertura", "h": "EMEA primaria", "p": "La maggior parte degli incarichi si svolge su DACH, Iberia, Italia, Francia e UK. Lavoro selettivo fuori EMEA dove c'è chiaro fit di settore o di relazione." }
+    ]
+  },
+  "whatToInclude": {
+    "num": "03",
+    "title": "Cosa includere",
+    "lead": "Una nota iniziale utile copre tre cose. La nota stessa può essere breve — due paragrafi sono solitamente sufficienti.",
+    "items": [
+      { "n": "01", "h": "La domanda", "p": "Una breve descrizione del problema o dell'opportunità, in linguaggio semplice. La specificità aiuta; la certezza non è richiesta." },
+      { "n": "02", "h": "Il contesto", "p": "Dove ti collochi — operatore, fondatore, investitore, peer — e la scala approssimativa o lo stadio a cui stai operando. Due o tre righe." },
+      { "n": "03", "h": "Il timing", "p": "Se questa è una situazione in movimento rapido o una conversazione esplorativa. Entrambe sono benvenute; la cadenza di risposta differisce." }
+    ],
+    "referencesNote": "Le referenze da clienti precedenti e advisory board sono disponibili su richiesta dopo che una conversazione iniziale ha stabilito il fit reciproco."
+  }
+}

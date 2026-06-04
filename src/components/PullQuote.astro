@@ -1,0 +1,9 @@
+---
+interface Props {
+  quote: string;
+}
+const { quote } = Astro.props;
+---
+<div class="pullquote reveal">
+  <p>{quote}</p>
+</div>

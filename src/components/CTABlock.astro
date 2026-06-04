@@ -1,0 +1,32 @@
+---
+// CTABlock — pure props, takes data from page JSON
+interface Props {
+  label: string;
+  headline: string;
+  sub: string;
+  accent?: string;
+  buttonLabel: string;
+  buttonHref: string;
+}
+
+const { label, headline, sub, accent = '', buttonLabel, buttonHref } = Astro.props;
+---
+
+<section style="padding-top: 0; padding-bottom: clamp(64px, 10vh, 144px);">
+  <div class="container">
+    <div class="cta-block reveal">
+      <div>
+        <div class="label" style="color: var(--grigio-soft); margin-bottom: var(--s-2);">{label}</div>
+        <h2>
+          {headline}<span class="accent">{accent}</span><br>
+          {sub && (
+            <span style="color: var(--grigio-soft); font-family: var(--font-body); font-weight: 400; font-size: 0.6em; letter-spacing: 0; text-transform: none; line-height: 1.5; display: block; margin-top: var(--s-2); max-width: 48ch;">
+              {sub}
+            </span>
+          )}
+        </h2>
+      </div>
+      <a href={buttonHref} class="btn btn-primary">{buttonLabel}</a>
+    </div>
+  </div>
+</section>

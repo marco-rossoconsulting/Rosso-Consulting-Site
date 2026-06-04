@@ -1,0 +1,71 @@
+{
+  "seo": {
+    "title": "Advisory · Rosso Consulting",
+    "description": "Advisory portfolio of Rosso Consulting — four active roles in hospitality technology, expert network work, and independence framework.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "04",
+    "eyebrowLabel": "Advisory Portfolio",
+    "headline": "Advisory",
+    "sub": "Four formal advisory roles in hospitality technology, plus expert network and investor work. The portfolio is curated; positions are taken only where the relationship offers strategic alignment with the wider practice.",
+    "meta": [
+      { "label": "Active seats", "value": "4" },
+      { "label": "Sector focus", "value": "Hospitality tech" },
+      { "label": "Stages", "value": "Pre-seed to Series D" },
+      { "label": "Structure", "value": "Cash · equity · in-kind" }
+    ]
+  },
+  "roles": {
+    "num": "01",
+    "title": "Current advisory roles",
+    "intro": "Active advisory positions, listed in order of joining."
+  },
+  "advisoryOverrides": {
+    "lobbyai": {
+      "fullDescription": "AI-native hospitality startup. Marco joined the advisory board as the company closed its pre-seed financing. The engagement spans go-to-market design, sales and commercial strategy, and operator-side perspective on product direction.",
+      "formats": ["GTM strategy", "Commercial scaling", "Product feedback", "Operator perspective"]
+    },
+    "canary-technologies": {
+      "fullDescription": "Established hospitality SaaS company. Marco serves as GTM Strategic Advisor focused on EU expansion and partnerships. The relationship continues a working history that began during Marco's tenure as Director of Sales and Go-To-Market EMEA at the company.",
+      "formats": ["EU expansion", "Partnerships", "Regional GTM"]
+    },
+    "room-price-genie": {
+      "fullDescription": "Revenue management SaaS for independent hotels. Marco serves on the advisory board with focus on product direction and industry trends. The relationship contributes to Rosso Consulting's broader competitive intelligence in the revenue management category.",
+      "formats": ["Product direction", "Industry trends", "Independent-hotel buyer voice"]
+    },
+    "snapfix": {
+      "fullDescription": "Operations and facilities management SaaS for hotels and adjacent verticals. Marco serves on the advisory board with focus on product feedback and GTM perspective. Cadence of approximately 30 to 60 minutes per week.",
+      "formats": ["Product feedback", "GTM perspective", "Operator deployment"]
+    }
+  },
+  "expertNetwork": {
+    "num": "02",
+    "title": "Expert network & investor work",
+    "intro": "Beyond formal advisory seats, Marco accepts paid consultations for venture capital, private equity, and corporate investors evaluating the hospitality technology sector. Engagement formats are flexible.",
+    "cards": [
+      { "label": "Single calls", "h": "Expert network bookings", "p": "30 to 60 minute consultations booked through major expert networks. Used for due diligence on specific companies, sector orientation, or stress-testing a thesis." },
+      { "label": "Project-based", "h": "Deal diligence", "p": "Multi-week engagements supporting investors through a specific transaction. Stack assessment, GTM evaluation, founder reference, and operator-side perspective on the target company." },
+      { "label": "Retained", "h": "Sector advisor", "p": "Longer-term relationships with funds developing a thesis in the sector. Quarterly cadence with ad-hoc availability for fast-moving deals." }
+    ]
+  },
+  "independence": {
+    "num": "03",
+    "title": "Independence & disclosure",
+    "intro": "Holding both client engagements and advisory positions creates an obvious conflict surface. The conflicts are managed explicitly rather than left to circumstance.",
+    "items": [
+      { "label": "Default", "h": "Disclose first", "p": "Where an advisory company's product may be relevant to a client engagement, the relationship is disclosed at the outset, before any vendor evaluation begins." },
+      { "label": "Practice", "h": "Information barriers", "p": "Client confidential information is never shared with advisory companies. Advisory company confidential information is never shared with clients. The barrier holds regardless of seeming overlap." },
+      { "label": "Vendor evaluation", "h": "Symmetric criteria", "p": "When advisory companies are in a competitive evaluation set, they are scored against the same rubric as every other vendor, with the client retaining sole decision authority." },
+      { "label": "Limit", "h": "Right to decline", "p": "Either side can end the relationship if the conflict cannot be honestly managed. This has not yet been necessary; the option matters anyway." }
+    ]
+  },
+  "cta": {
+    "label": "Need an advisor",
+    "headline": "Exploring an advisory seat",
+    "sub": "Founders building hospitality technology — pre-seed through Series B — can reach out about new advisory capacity. The bar is high; the reply is honest.",
+    "accent": "?",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}

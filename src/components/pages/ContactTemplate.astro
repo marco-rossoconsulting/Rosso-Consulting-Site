@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import SectionHeader from '../SectionHeader.astro';
+import { getContactPage, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getContactPage(lang);
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="contact"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+  />
+
+  <!-- Direct contact -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.direct.num} title={page.direct.title} />
+      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
+        {page.direct.cards.map(card => (
+          <a href={card.href} {...(card.kind === 'linkedin' ? { target: '_blank', rel: 'noopener' } : {})}
+             style="display: block; padding: var(--s-5); background: var(--nebbia); border: 1px solid var(--nebbia-deep); text-decoration: none; color: inherit; transition: border-color 200ms ease, transform 200ms ease;"
+             onmouseover="this.style.borderColor='var(--rosso)';this.style.transform='translateY(-2px)';"
+             onmouseout="this.style.borderColor='var(--nebbia-deep)';this.style.transform='translateY(0)';">
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-3);">{card.label}</div>
+            <div style="font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px); text-transform: lowercase; letter-spacing: 0.005em; color: var(--carbone); margin-bottom: var(--s-3); word-break: break-word;" set:html={card.displayValue} />
+            <p style="color: var(--grigio); font-size: 14px; line-height: 1.55;">{card.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Coordinates -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.coordinates.num} title={page.coordinates.title} />
+      <div class="grid-3 reveal" style="gap: var(--s-5); margin-top: var(--s-6);">
+        {page.coordinates.items.map(item => (
+          <div>
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{item.label}</div>
+            <h3 style="font-family: var(--font-display); font-size: 18px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{item.h}</h3>
+            <p style="color: var(--grigio); font-size: 14px; line-height: 1.6;">{item.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What to include -->
+  <section class="section-dark">
+    <div class="container">
+      <SectionHeader num={page.whatToInclude.num} title={page.whatToInclude.title} dark />
+      <p class="section-intro reveal" style="color: var(--grigio-soft);">{page.whatToInclude.lead}</p>
+      <div class="principles reveal" style="margin-top: var(--s-6);">
+        {page.whatToInclude.items.map(item => (
+          <div class="principle" style="border-color: rgba(255,255,255,0.15);">
+            <span class="principle-num" style="color: var(--rosso);">{item.n}</span>
+            <div>
+              <h3 style="color: var(--bianco);">{item.h}</h3>
+              <p style="color: var(--grigio-soft);">{item.p}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="reveal" style="margin-top: var(--s-5); color: var(--grigio-soft); font-size: 13px; font-style: italic; max-width: 65ch;">
+        {page.whatToInclude.referencesNote}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

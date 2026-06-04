@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../Hero.astro';
+import SectionHeader from '../SectionHeader.astro';
+import PullQuote from '../PullQuote.astro';
+import CTABlock from '../CTABlock.astro';
+import { getVenturesPage, type Lang } from '../../lib/cms';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const page = await getVenturesPage(lang);
+---
+
+<BaseLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  image={page.seo.ogImage}
+  lang={lang}
+  currentPage="ventures"
+>
+  <Hero
+    eyebrowNum={page.hero.eyebrowNum}
+    eyebrowLabel={page.hero.eyebrowLabel}
+    headline={page.hero.headline}
+    sub={page.hero.sub}
+  />
+
+  <!-- Current venture: Astia Web -->
+  <section class="section-dark">
+    <div class="container">
+      <SectionHeader num={page.currentVenture.num} title={page.currentVenture.title} dark />
+      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6); align-items: start;">
+        <div>
+          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-3);">{page.currentVenture.label}</div>
+          <h3 style="font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); color: var(--bianco); text-transform: uppercase; margin-bottom: var(--s-4); letter-spacing: 0.005em; line-height: 0.9;">
+            {page.currentVenture.name}
+          </h3>
+          <p style="color: var(--grigio-soft); font-size: 17px; line-height: 1.6; margin-bottom: var(--s-4);">{page.currentVenture.description}</p>
+          <a href={page.currentVenture.buttonHref} target="_blank" rel="noopener" class="btn btn-primary">{page.currentVenture.buttonLabel}</a>
+        </div>
+        <div>
+          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-3);">{page.currentVenture.whyExistsLabel}</div>
+          {page.currentVenture.whyExistsParagraphs.map(p => (
+            <p style="color: var(--grigio-soft); font-size: 15px; line-height: 1.65; margin-bottom: var(--s-3);">{p}</p>
+          ))}
+          <div style="margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid rgba(255,255,255,0.15); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-3);">
+            {page.currentVenture.stats.map(stat => (
+              <div>
+                <span class="label" style="color: var(--grigio-soft); display: block; margin-bottom: 4px;">{stat.label}</span>
+                <span style="color: var(--bianco); font-family: var(--font-display); font-size: 14px; text-transform: uppercase; letter-spacing: 0.02em;">{stat.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spinout logic -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.spinoutLogic.num} title={page.spinoutLogic.title} />
+      <p class="section-intro reveal">{page.spinoutLogic.intro}</p>
+      <div class="principles reveal" style="margin-top: var(--s-6);">
+        {page.spinoutLogic.conditions.map(c => (
+          <div class="principle">
+            <span class="principle-num">{c.n}</span>
+            <div>
+              <h3>{c.h}</h3>
+              <p>{c.p}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Parent / Spinout commitments -->
+  <section style="background: var(--nebbia);">
+    <div class="container">
+      <SectionHeader num={page.parentSpinout.num} title={page.parentSpinout.title} />
+      <p class="section-intro reveal">{page.parentSpinout.intro}</p>
+      <div class="grid-3 reveal" style="margin-top: var(--s-6); gap: var(--s-5);">
+        {page.parentSpinout.commitments.map(c => (
+          <div style="padding: var(--s-5); background: var(--bianco); border: 1px solid var(--nebbia-deep);">
+            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{c.label}</div>
+            <h3 style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{c.h}</h3>
+            <p style="color: var(--grigio); font-size: 14px; line-height: 1.6;">{c.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Future ventures -->
+  <section>
+    <div class="container">
+      <SectionHeader num={page.futureVentures.num} title={page.futureVentures.title} />
+      <div class="reveal" style="margin-top: var(--s-4); max-width: 75ch;">
+        <p style="font-size: 18px; line-height: 1.55; color: var(--carbone); margin-bottom: var(--s-4);"><strong>{page.futureVentures.lead}</strong></p>
+        <p style="font-size: 16px; line-height: 1.65; color: var(--grigio);">{page.futureVentures.paragraph}</p>
+      </div>
+    </div>
+  </section>
+
+  <PullQuote quote={page.futureVentures.pullquote} />
+
+  <CTABlock
+    label={page.cta.label}
+    headline={page.cta.headline}
+    sub={page.cta.sub}
+    accent={page.cta.accent}
+    buttonLabel={page.cta.buttonLabel}
+    buttonHref={page.cta.buttonHref}
+  />
+</BaseLayout>

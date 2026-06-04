@@ -1,0 +1,91 @@
+---
+import { getSite, type Lang } from '../lib/cms';
+
+interface Props {
+  type: 'website' | 'article' | 'person' | 'organization';
+  lang?: Lang;
+  data?: any;
+}
+
+const { type, lang = 'en', data = {} } = Astro.props;
+const site = await getSite(lang);
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: site.name,
+  alternateName: site.name,
+  url: site.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL(site.logoMark, site.url).toString(),
+    width: 120,
+    height: 100,
+  },
+  email: site.contact.email,
+  founder: {
+    '@type': 'Person',
+    '@id': `${site.url}/#${site.principal.fullName.toLowerCase().replace(/\s+/g, '-')}`,
+    name: site.principal.fullName,
+  },
+  foundingLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.founding.addressLocality,
+      addressRegion: site.founding.addressRegion,
+      addressCountry: site.founding.addressCountry,
+    },
+  },
+  knowsLanguage: site.principal.knowsLanguage,
+  sameAs: [site.contact.linkedin],
+};
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.url}/#${site.principal.fullName.toLowerCase().replace(/\s+/g, '-')}`,
+  name: site.principal.fullName,
+  givenName: site.principal.givenName,
+  familyName: site.principal.familyName,
+  jobTitle: site.principal.jobTitle,
+  worksFor: { '@id': `${site.url}/#organization` },
+  email: site.contact.email,
+  url: site.url,
+  homeLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.founding.addressLocality,
+      addressCountry: site.founding.addressCountry,
+    },
+  },
+  knowsLanguage: site.principal.knowsLanguage,
+  alumniOf: site.principal.alumniOf.map(name => ({
+    '@type': 'EducationalOrganization',
+    name,
+  })),
+  sameAs: [site.contact.linkedin],
+};
+
+const article = type === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${data.url || ''}#article`,
+  headline: data.title,
+  description: data.description,
+  author: { '@id': person['@id'] },
+  publisher: { '@id': organization['@id'] },
+  datePublished: data.publishedTime?.toISOString(),
+  dateModified: (data.modifiedTime || data.publishedTime)?.toISOString(),
+  articleSection: data.category,
+  inLanguage: data.lang || lang,
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organization)} />
+<script type="application/ld+json" set:html={JSON.stringify(person)} />
+{type === 'article' && article && (
+  <script type="application/ld+json" set:html={JSON.stringify(article)} />
+)}

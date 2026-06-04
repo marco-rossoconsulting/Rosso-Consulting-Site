@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Contact · Rosso Consulting",
+    "description": "Contact Rosso Consulting — Marco Rosso, founder and principal.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "06",
+    "eyebrowLabel": "Start a Conversation",
+    "headline": "Let's talk",
+    "sub": "Initial conversations are unbilled and last about thirty minutes. Bring the question. The shape of the engagement comes later."
+  },
+  "direct": {
+    "num": "01",
+    "title": "Direct",
+    "cards": [
+      { "kind": "email", "label": "Email", "displayValue": "marco@rossoconsulting.ch", "href": "mailto:marco@rossoconsulting.ch", "description": "The fastest route. Inbox checked daily, responses typically within twenty-four hours on weekdays." },
+      { "kind": "linkedin", "label": "LinkedIn", "displayValue": "linkedin.com<br>/in/mprosso", "href": "https://linkedin.com/in/mprosso", "description": "For founders, peers, and industry contacts. Direct messages with context are answered; cold pitches generally are not." }
+    ]
+  },
+  "coordinates": {
+    "num": "02",
+    "title": "Coordinates",
+    "items": [
+      { "label": "Domicile", "h": "Lugano, Switzerland", "p": "The studio is registered in Switzerland under Swiss commercial law. Invoicing is in CHF; cross-border rates available for EU and non-EU engagements." },
+      { "label": "Languages", "h": "EN · IT · ES", "p": "Engagements run in any of three working languages. Italian and English are primary; Spanish is full professional fluency from prior commercial roles in Madrid and Barcelona." },
+      { "label": "Coverage", "h": "EMEA primary", "p": "Most engagements run across DACH, Iberia, Italy, France, and the UK. Selective work outside EMEA where there is clear sectoral or relational fit." }
+    ]
+  },
+  "whatToInclude": {
+    "num": "03",
+    "title": "What to include",
+    "lead": "A useful initial note covers three things. The note itself can be short — two paragraphs is usually enough.",
+    "items": [
+      { "n": "01", "h": "The question", "p": "A short description of the problem or opportunity, in plain language. Specificity helps; certainty is not required." },
+      { "n": "02", "h": "The context", "p": "Where you sit — operator, founder, investor, peer — and the rough scale or stage you are operating at. Two or three lines." },
+      { "n": "03", "h": "The timing", "p": "Whether this is a fast-moving situation or an exploratory conversation. Both are welcome; response cadence differs." }
+    ],
+    "referencesNote": "References from prior clients and advisory boards are available on request after an initial conversation has established mutual fit."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "seo": {
+    "title": "Principale · Rosso Consulting",
+    "description": "Marco Rosso — fondatore e principale di Rosso Consulting. Carriera, formazione e record operativo.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "03",
+    "eyebrowLabel": "Principale",
+    "headline": "Marco<br>Rosso",
+    "sub": "Fondatore e principale di Rosso Consulting. Attualmente Chief Digital Strategy and Business Automation Officer presso Planhotel Hospitality Group. Circa un decennio di leadership commerciale in Triptease, SiteMinder, Cloudbeds e Canary Technologies prima del ritorno all'operativo.",
+    "meta": [
+      { "label": "Sede", "value": "Lugano, CH" },
+      { "label": "Lingue", "value": "EN · IT · ES" },
+      { "label": "Formazione", "value": "EHL · Cornell · HBS" },
+      { "label": "Ruoli advisory", "value": "4 attivi" }
+    ]
+  },
+  "careerArc": {
+    "num": "01",
+    "title": "Arco di carriera",
+    "intro": "Quattro ruoli commerciali SaaS, scalati da account executive a global director. Ritorno all'operativo nel 2024.",
+    "careerBars": [
+      { "company": "Triptease", "years": "2015–2019", "heightPct": 100 },
+      { "company": "SiteMinder", "years": "2019–2020", "heightPct": 35 },
+      { "company": "Cloudbeds", "years": "2020–2023", "heightPct": 75 },
+      { "company": "Canary Tech.", "years": "2023–2024", "heightPct": 35 },
+      { "company": "Planhotel", "years": "2024–oggi", "heightPct": 55, "current": true }
+    ],
+    "note": "Ruolo corrente. Altezza della barra proporzionale alla durata."
+  },
+  "background": {
+    "num": "02",
+    "title": "Background",
+    "leadParagraph": "Nato in una famiglia di ospitalità multi-generazionale. Formato in ospitalità e revenue management a Cornell e all'EHL Losanna. Circa un decennio passato non negli hotel ma nella tecnologia che li serve. Ritorno all'operativo nel 2024 per guidare strategia digitale e deployment AI presso Planhotel Hospitality Group, il gruppo alberghiero fondato dalla famiglia.",
+    "paragraphs": [
+      "L'eredità di Marco è l'ospitalità. Suo nonno ha fondato Francorosso International — pionieristico tour operator italiano — e Planhotel Hospitality Group, il gruppo alberghiero con sede svizzera che Marco ora aiuta a operare. L'ospitalità non è un settore in cui si entra; è la lingua imparata fin dall'infanzia.",
+      "Dopo EHL, il percorso è andato lateralmente nel SaaS dell'ospitalità. Da account executive a Head of Sales EMEA in Triptease. Senior Regional Sales Manager in SiteMinder, costruendo la Spagna come una delle regioni EU di maggior successo. Global Director di Inside Sales e CSM in Cloudbeds attraverso un periodo di alta crescita. Director of Sales and Go-To-Market EMEA in Canary Technologies, costruendo la funzione commerciale EMEA da zero.",
+      "Il ritorno all'operativo è stato deliberato. Una poltrona operativa in un gruppo alberghiero multi-proprietà rende il precedente lavoro commerciale lato vendor materialmente più utile — e rende la consulenza da quella poltrona materialmente più credibile. Rosso Consulting esiste nello spazio tra le due cose: le persone che costruiscono software per l'ospitalità e le persone che lo comprano e lo operano."
+    ],
+    "pullquote": "Le raccomandazioni sono filtrate attraverso la lente di un operatore attivo, non di un costruttore di slide."
+  },
+  "experience": {
+    "num": "03",
+    "title": "Esperienza",
+    "entries": [
+      { "year": "2024 – Presente", "current": true, "role": "Chief Digital Strategy & Business Automation Officer", "detail": "<strong>Planhotel Hospitality Group.</strong> Gruppo alberghiero italo-svizzero, 11 proprietà su tre brand (Diamonds, Sandies, Exploreans) operativi a Zanzibar, alle Maldive e in Kenya. Definizione e implementazione della strategia digitale, dell'adozione AI e di programmi cross-funzionali di processo e tecnologia. Preceduto da Group Revenue and Ecommerce Director (2024–2025)." },
+      { "year": "2023 – 2024", "role": "Director of Sales & Go-To-Market EMEA", "detail": "<strong>Canary Technologies.</strong> Costruito e scalato la funzione commerciale EMEA per un'azienda hospitality SaaS Series-D." },
+      { "year": "2020 – 2023", "role": "Director, Inside Sales & CSM (Global)", "detail": "<strong>Cloudbeds.</strong> Scalato le organizzazioni commerciale e customer success attraverso un periodo di alta crescita. Diretto il team inside sales globale e costruito la funzione customer success sopra di esso." },
+      { "year": "2019 – 2020", "role": "Senior Regional Sales Manager (Spagna)", "detail": "<strong>SiteMinder.</strong> Costruito la Spagna come una delle regioni EU di maggior successo per l'azienda in quel periodo." },
+      { "year": "2015 – 2019", "role": "Account Executive → Head of Sales EMEA", "detail": "<strong>Triptease.</strong> Progredito da individual contributor a leadership regionale delle vendite in un'azienda SaaS hospitality category-defining." }
+    ]
+  },
+  "education": {
+    "num": "04",
+    "title": "Formazione",
+    "entries": [
+      { "years": "2024 – 2025", "school": "Harvard Business School", "detail": "Executive Education — Program for Leadership Development (PLD), Class 39." },
+      { "years": "2011 – 2015", "school": "EHL Lausanne", "detail": "Bachelor of Science — International Hospitality Management. La prima scuola alberghiera del mondo." },
+      { "years": "2010", "school": "Cornell University", "detail": "Diploma — Hospitality & Revenue Management. Ithaca, NY." }
+    ]
+  },
+  "fluencies": {
+    "num": "05",
+    "title": "Aree di competenza",
+    "items": [
+      { "label": "Distribuzione e Revenue", "p": "Channel manager, OTA, metasearch, direct, GDS. Revenue management e pricing strategy a livello di proprietà e portfolio." },
+      { "label": "SaaS Go-To-Market", "p": "B2B pipeline, AE motion, customer success, NDR, design di team commerciali. Scalato organizzazioni commerciali da poche unità a 80+ persone." },
+      { "label": "Stack lato operatore", "p": "PMS, CRM, F&B POS, contabilità, BI, identity. Familiarità diretta di lavoro con Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, HubSpot, Power BI." },
+      { "label": "AI e automazione", "p": "Workflow aumentati da LLM, briefing di intelligence, automazione di processo. Framework di deployment AI operativi a scala di gruppo alberghiero." },
+      { "label": "Modern Web Architecture", "p": "Principi MACH, pattern headless CMS. Astro, Netlify, Sveltia, Apaleo. Modernizzazione degli stack ospitalità lontano dal lock-in monolitico dei vendor." },
+      { "label": "Operations e Finance", "p": "Capex, opex e design di SOP nelle operazioni multi-proprietà. Contabilità cross-border e allocazione costi intercompany." }
+    ]
+  },
+  "cta": {
+    "label": "Inizia un dialogo",
+    "headline": "Parliamone",
+    "sub": "Una breve nota è sufficiente per iniziare. Le conversazioni iniziali non sono fatturate e durano circa trenta minuti.",
+    "accent": "",
+    "buttonLabel": "Contattaci →",
+    "buttonHref": "/it/contact/"
+  }
+}

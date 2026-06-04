@@ -1,0 +1,71 @@
+{
+  "seo": {
+    "title": "Advisory · Rosso Consulting",
+    "description": "Portafolio advisory de Rosso Consulting — cuatro roles activos en tecnología hotelera, expert network, y framework de independencia.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "04",
+    "eyebrowLabel": "Portafolio Advisory",
+    "headline": "Advisory",
+    "sub": "Cuatro roles advisory formales en tecnología hotelera, más expert network y trabajo para inversores. El portafolio es curado; las posiciones se toman solo donde la relación ofrece alineación estratégica con la práctica más amplia.",
+    "meta": [
+      { "label": "Posiciones activas", "value": "4" },
+      { "label": "Foco sectorial", "value": "Hospitality tech" },
+      { "label": "Etapas", "value": "Pre-seed a Series D" },
+      { "label": "Estructura", "value": "Cash · equity · in-kind" }
+    ]
+  },
+  "roles": {
+    "num": "01",
+    "title": "Roles advisory actuales",
+    "intro": "Posiciones advisory activas, listadas en orden de incorporación."
+  },
+  "advisoryOverrides": {
+    "lobbyai": {
+      "fullDescription": "Startup hotelera AI-native. Marco se incorporó al advisory board mientras la empresa cerraba su financiación pre-seed. El mandato abarca diseño go-to-market, estrategia de ventas y comercial, y perspectiva del lado operador sobre la dirección del producto.",
+      "formats": ["Estrategia GTM", "Escalado comercial", "Feedback de producto", "Perspectiva operador"]
+    },
+    "canary-technologies": {
+      "fullDescription": "Empresa SaaS hotelera consolidada. Marco sirve como GTM Strategic Advisor con foco en expansión EU y partnerships. La relación continúa una historia de trabajo iniciada durante el tenure de Marco como Director of Sales and Go-To-Market EMEA en la empresa.",
+      "formats": ["Expansión EU", "Partnerships", "GTM regional"]
+    },
+    "room-price-genie": {
+      "fullDescription": "SaaS de revenue management para hoteles independientes. Marco sirve en el advisory board con foco en dirección de producto y tendencias del sector. La relación contribuye a la más amplia competitive intelligence de Rosso Consulting en la categoría de revenue management.",
+      "formats": ["Dirección de producto", "Tendencias del sector", "Voz buyer hotel independiente"]
+    },
+    "snapfix": {
+      "fullDescription": "SaaS de operaciones y facilities management para hoteles y verticales adyacentes. Marco sirve en el advisory board con foco en feedback de producto y perspectiva GTM. Cadencia de aproximadamente 30-60 minutos por semana.",
+      "formats": ["Feedback de producto", "Perspectiva GTM", "Despliegue operador"]
+    }
+  },
+  "expertNetwork": {
+    "num": "02",
+    "title": "Expert network y trabajo para inversores",
+    "intro": "Más allá de las posiciones advisory formales, Marco acepta consultas pagadas para venture capital, private equity e inversores corporativos que evalúan el sector de tecnología hotelera. Los formatos de mandato son flexibles.",
+    "cards": [
+      { "label": "Llamadas individuales", "h": "Expert network", "p": "Consultas de 30-60 minutos reservadas mediante los principales expert networks. Usadas para due diligence sobre empresas específicas, orientación de sector o stress-test de una tesis." },
+      { "label": "Project-based", "h": "Deal diligence", "p": "Mandatos de varias semanas apoyando a inversores a través de una transacción específica. Stack assessment, evaluación GTM, founder reference y perspectiva del lado operador sobre la empresa target." },
+      { "label": "Retained", "h": "Sector advisor", "p": "Relaciones de largo plazo con fondos desarrollando una tesis en el sector. Cadencia trimestral con disponibilidad ad-hoc para deals de movimiento rápido." }
+    ]
+  },
+  "independence": {
+    "num": "03",
+    "title": "Independencia y declaración",
+    "intro": "Mantener juntos mandatos cliente y posiciones advisory crea una superficie de conflicto evidente. Los conflictos se gestionan explícitamente en lugar de dejarse a las circunstancias.",
+    "items": [
+      { "label": "Por defecto", "h": "Declarar primero", "p": "Cuando el producto de una empresa advisory puede ser relevante para un mandato cliente, la relación se declara al inicio, antes de que comience cualquier evaluación de vendor." },
+      { "label": "Práctica", "h": "Barreras informativas", "p": "La información confidencial del cliente nunca se comparte con empresas advisory. La información confidencial de empresas advisory nunca se comparte con clientes. La barrera se mantiene independientemente de la aparente superposición." },
+      { "label": "Evaluación vendor", "h": "Criterios simétricos", "p": "Cuando las empresas advisory están en un set de evaluación competitivo, se puntúan contra la misma rúbrica que cualquier otro vendor, con el cliente reteniendo la autoridad decisoria única." },
+      { "label": "Límite", "h": "Derecho a rechazar", "p": "Cualquiera de las dos partes puede terminar la relación si el conflicto no puede ser gestionado honestamente. Esto aún no ha sido necesario; la opción importa de todos modos." }
+    ]
+  },
+  "cta": {
+    "label": "Buscas un advisor",
+    "headline": "Estás explorando una posición advisory",
+    "sub": "Los fundadores que construyen tecnología hotelera — pre-seed a Series B — pueden contactar para discutir nueva capacidad advisory. El listón es alto; la respuesta es honesta.",
+    "accent": "?",
+    "buttonLabel": "Contáctanos →",
+    "buttonHref": "/es/contact/"
+  }
+}

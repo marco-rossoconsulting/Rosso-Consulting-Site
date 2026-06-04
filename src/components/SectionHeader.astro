@@ -1,0 +1,13 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  dark?: boolean;
+}
+const { num, title, dark = false } = Astro.props;
+---
+<div class="section-header reveal">
+  <span class="section-number">{num}</span>
+  <span class="section-rule" style={dark ? 'background: var(--bianco);' : ''}></span>
+  <h2 style={dark ? 'color: var(--bianco);' : ''}>{title}</h2>
+</div>

@@ -1,0 +1,86 @@
+{
+  "seo": {
+    "title": "Rosso Consulting · An independent voice in hospitality technology",
+    "description": "Rosso Consulting is a Swiss-domiciled consulting practice and umbrella entity, founded and led by Marco Rosso. Operator-practitioner expertise in hospitality technology.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "01",
+    "eyebrowLabel": "Independent Practice",
+    "headline": "An independent voice<br>in hospitality<br>technology",
+    "sub": "A Swiss-domiciled consulting practice and umbrella entity, founded and led by Marco Rosso. Operator-practitioner expertise — built inside the industry, refined by a decade scaling US SaaS commercial teams, deployed from Lugano.",
+    "meta": [
+      { "label": "Practice", "value": "Independent" },
+      { "label": "Domicile", "value": "Lugano, CH" },
+      { "label": "Working in", "value": "EN · IT · ES" },
+      { "label": "Active since", "value": "2026" }
+    ]
+  },
+  "practice": {
+    "num": "02",
+    "title": "Practice",
+    "intro": "Rosso Consulting operates across four lanes. Services are outcome-led, not productised — but the four lanes describe how work is structured and contracted.",
+    "lanes": [
+      {
+        "num": "01",
+        "title": "Consulting Engagements",
+        "body": "Defined client projects with explicit scope, deliverables, and timeline. Strategic advisory, technology audits, transformation programs, AI deployment design, commercial operating models.",
+        "formats": ["Strategic advisory", "Stack audits", "Transformation programs", "Fractional commercial leadership"]
+      },
+      {
+        "num": "02",
+        "title": "Advisory Roles",
+        "body": "Formal advisory board or strategic advisor positions with hospitality technology companies. Long-form relationships, regular cadence, mix of cash, equity, and in-kind structures.",
+        "formats": ["Board seats", "Strategic GTM advisor", "Pre-seed and seed"]
+      },
+      {
+        "num": "03",
+        "title": "Expert Network & Investor Work",
+        "body": "Paid consultations for VC, PE, and corporate investors evaluating the hospitality technology sector. Single calls through major expert networks; longer retained relationships for thesis development.",
+        "formats": ["Due diligence calls", "Market mapping", "Thesis pressure-testing"]
+      },
+      {
+        "num": "04",
+        "title": "Operating Ventures",
+        "body": "Companies built or operated under the Rosso Consulting umbrella. Ventures carry the parent endorsement — \"a Rosso Consulting company\" — while maintaining their own brand and commercial autonomy.",
+        "formats": ["Astia Web (current)", "Spinout architecture"]
+      }
+    ],
+    "ctaLabel": "See how we work",
+    "ctaHref": "/practice/"
+  },
+  "audiences": {
+    "num": "03",
+    "title": "Who we serve",
+    "items": [
+      { "heading": "SaaS Founders", "body": "Pre-seed to Series C founders building hospitality and travel software. Advisory, GTM, fractional commercial leadership." },
+      { "heading": "VC & PE Investors", "body": "Funds evaluating travel and hospitality tech. Due diligence, market mapping, thesis development." },
+      { "heading": "Hotel Operators", "body": "Independent groups and family-owned operators. Digital transformation, AI deployment, technology stack work." },
+      { "heading": "Peer Operators", "body": "C-suite peers and industry events. Speaking, thought leadership, community contribution." }
+    ]
+  },
+  "active": {
+    "num": "04",
+    "title": "Active engagements",
+    "intro": "Four active advisory roles in hospitality technology, plus the firm's first operating venture. The portfolio is curated; positions are accepted only where the relationship offers strategic alignment with the wider practice.",
+    "ctaLabel": "View advisory portfolio",
+    "ctaHref": "/advisory/"
+  },
+  "operatingNow": {
+    "num": "05",
+    "title": "Operating now",
+    "roleLabel": "Primary Role",
+    "roleTitle": "Chief Digital Strategy<br>& Business Automation Officer",
+    "company": "Planhotel Hospitality Group — Swiss-Italian hotel group, 11 properties across three brands operating in Zanzibar, the Maldives, and Kenya.",
+    "whyMattersLabel": "Why it matters",
+    "whyMattersBody": "Marco's operator role is current and active. Every recommendation made in consulting and advisory work passes a single test: would he deploy this in a property he runs? The operator seat is not a credential to be cited — it is the working environment from which the practice is delivered."
+  },
+  "cta": {
+    "label": "Start a conversation",
+    "headline": "Ready to talk",
+    "sub": "Engagement scoping starts with a single call. No fees apply to initial conversations.",
+    "accent": ".",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}

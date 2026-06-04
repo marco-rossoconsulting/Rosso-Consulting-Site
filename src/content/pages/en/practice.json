@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Practice · Rosso Consulting",
+    "description": "How Rosso Consulting operates — methodology, engagement formats, and technology approach.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "02",
+    "eyebrowLabel": "Practice",
+    "headline": "How we<br>work",
+    "sub": "Engagements follow seven principles. These are not slideware frameworks — they are how the work is actually conducted. Four lanes, six formats, one operating method."
+  },
+  "methodology": {
+    "num": "01",
+    "title": "Methodology",
+    "intro": "Seven principles. Applied across every engagement, regardless of size.",
+    "principles": [
+      { "n": "01", "h": "Operator-first", "p": "Every recommendation passes a single test: would Marco deploy this in a property he runs? Recommendations that wouldn't survive contact with an operational environment do not get made, however elegant they may appear on paper." },
+      { "n": "02", "h": "Evidence-led", "p": "Conclusions are backed by data, observable behaviour, or first-hand operating experience. \"Best practice\" is not accepted as evidence without sources. Where data is unavailable, the limit is named explicitly rather than hidden." },
+      { "n": "03", "h": "Time-boxed", "p": "Defined scope, defined deliverables, defined exit. Open-ended retainers create scope creep and incentive misalignment. Renewals are explicit choices, not the path of least resistance." },
+      { "n": "04", "h": "AI-native", "p": "Modern AI tools used throughout — for research, analysis, drafting, and process automation. This is not branding methodology; it is the operating reality of a 2026 practice. Clients benefit from speed and depth, with clear disclosure of where AI is and is not in the loop." },
+      { "n": "05", "h": "Plain language", "p": "Recommendations are written in language an operator can act on. Consulting clichés — \"transformation journey\", \"unlock value\", \"leverage synergies\" — are absent. If a finding cannot be explained in one paragraph to a general manager, it is not yet a finding." },
+      { "n": "06", "h": "Independent", "p": "No referral fees from vendors, no kickbacks, no resale arrangements. When Marco holds advisory positions with companies whose products may be relevant, the relationship is disclosed at the outset and the client decides whether to consider the vendor in the evaluation set." },
+      { "n": "07", "h": "Documented", "p": "Engagements produce written artifacts that travel — findings documents, decision logs, vendor evaluations, operational playbooks. Verbal advisory is supplementary, not substitutional. The client retains usable IP after the engagement closes." }
+    ]
+  },
+  "formats": {
+    "num": "02",
+    "title": "Engagement formats",
+    "intro": "Across the four service lanes, engagements typically take one of six shapes. The format is agreed during scoping and reflected in the Statement of Work.",
+    "items": [
+      { "n": "A", "h": "Discovery sprint", "p": "One to two weeks. Used to scope a larger engagement, validate a hypothesis, or produce an initial diagnostic. Output: written brief plus working session. Often the bridge from \"we should talk\" to a defined project." },
+      { "n": "B", "h": "Audit or assessment", "p": "Four to six weeks. Deep dive on a specific question — technology stack, commercial operations, vendor evaluation, AI readiness. Output: structured findings document, prioritised recommendations, and executive readout." },
+      { "n": "C", "h": "Transformation engagement", "p": "Three to six months, sometimes longer. Full programs covering diagnosis, design, vendor selection, implementation oversight, and team enablement. Billed against milestones, with explicit exit criteria at each phase." },
+      { "n": "D", "h": "Fractional commercial leadership", "p": "Ongoing, typically one to two days per week. Used by SaaS founders who need senior commercial leadership but cannot yet justify the full-time hire. Marco operates as embedded leadership — running forecast calls, managing pipeline review, mentoring team leads, reporting to the CEO." },
+      { "n": "E", "h": "Advisory retainer", "p": "Monthly cadence. Defined commitment (typically a fixed number of hours and one board or strategic session per quarter). Used by founders and CEOs who want a senior independent voice in regular orbit, not a one-off intervention." },
+      { "n": "F", "h": "Expert call", "p": "Single consultation, typically 30 to 60 minutes. Used for due diligence, sector orientation, or specific tactical questions. Booked through expert networks or directly." }
+    ]
+  },
+  "pullquote": "Operator-practitioner expertise — built inside the industry, refined by a decade scaling US SaaS commercial teams, deployed from Lugano with Swiss precision and Italian directness.",
+  "techApproach": {
+    "num": "03",
+    "title": "Technology approach",
+    "intro": "Technology is not adjacent to the practice; it is the practice. The studio's technical orientation is informed by Marco's current operating role, his prior vendor-side career, and AI-native operating practices built in daily work.",
+    "blocks": [
+      { "label": "Stack fluency", "h": "Hospitality systems", "p": "First-hand familiarity with PMS, channel managers, CRM, revenue management, BI, finance, F&B POS, and identity systems across the hospitality stack — Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, Guezzt, HubSpot, Room Price Genie, Power BI." },
+      { "label": "AI & automation", "h": "Deployed, not pitched", "p": "LLM-augmented research and analysis across all engagements. Custom automation pipelines for intelligence briefings, document generation, and operational reporting. AI-first SOP frameworks deployed at operator level." },
+      { "label": "Architecture", "h": "MACH-oriented", "p": "For technology selection and infrastructure work, the studio orients toward MACH principles where appropriate, against the prevalent pattern of vendor-locked monolithic stacks. A stance, not a religion — legacy stays where it earns its place." }
+    ],
+    "vendorIndependence": {
+      "label": "Vendor independence",
+      "body": "No reseller agreements, no implementation partnerships, no vendor referral fees. Advisory relationships with hospitality SaaS companies are disclosed where those companies may be in scope. The studio's economic interest is aligned with the client's outcomes, not with any particular vendor's placement."
+    }
+  },
+  "lifecycle": {
+    "num": "04",
+    "title": "Engagement lifecycle",
+    "intro": "Most engagements follow a five-phase lifecycle. Phases scale up or down with engagement size; the structure remains the same.",
+    "phases": [
+      { "y": "Phase 01", "h": "Introduction & mutual fit", "p": "Initial conversation, typically a single call. The purpose is to understand the question, not to sell a service. If the question is outside the studio's operating scope, the conversation ends with a referral or a polite decline. No fees apply to this phase." },
+      { "y": "Phase 02", "h": "Scoping", "p": "Where there is fit, scoping produces a Statement of Work covering scope, deliverables, timeline, pricing structure, IP ownership, and termination. Scoping is unbilled on most engagements." },
+      { "y": "Phase 03", "h": "Discovery", "p": "Structured information gathering at the start of execution — stakeholder interviews, system access, data review. Produces a working understanding and a Discovery Findings memo for client review before deeper execution." },
+      { "y": "Phase 04", "h": "Execution", "p": "Core work against the SoW. Cadence and deliverables vary by engagement type. Weekly written progress notes are standard for engagements longer than four weeks. Mid-engagement scope reviews happen at defined checkpoints." },
+      { "y": "Phase 05", "h": "Handoff", "p": "Closing artifacts delivered to the client in editable form. A handoff session walks key stakeholders through the materials. Post-engagement availability for follow-up questions is included for 30 days after handoff at no additional cost." }
+    ]
+  },
+  "cta": {
+    "label": "Start a conversation",
+    "headline": "Have a scope in mind",
+    "sub": "Send a short note. Scoping starts with a single call, and the first conversation is unbilled.",
+    "accent": "?",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}

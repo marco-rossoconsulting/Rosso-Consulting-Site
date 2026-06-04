@@ -1,0 +1,83 @@
+{
+  "seo": {
+    "title": "Principal · Rosso Consulting",
+    "description": "Marco Rosso — founder and principal of Rosso Consulting. Career, education, and operating record.",
+    "ogImage": ""
+  },
+  "hero": {
+    "eyebrowNum": "03",
+    "eyebrowLabel": "Principal",
+    "headline": "Marco<br>Rosso",
+    "sub": "Founder and principal of Rosso Consulting. Currently Chief Digital Strategy and Business Automation Officer at Planhotel Hospitality Group. Approximately a decade of commercial leadership across Triptease, SiteMinder, Cloudbeds, and Canary Technologies preceded the return to the operating side.",
+    "meta": [
+      { "label": "Based", "value": "Lugano, CH" },
+      { "label": "Languages", "value": "EN · IT · ES" },
+      { "label": "Education", "value": "EHL · Cornell · HBS" },
+      { "label": "Advisory seats", "value": "4 active" }
+    ]
+  },
+  "careerArc": {
+    "num": "01",
+    "title": "Career arc",
+    "intro": "Four SaaS commercial roles, scaled from account executive to global director. Return to the operating side in 2024.",
+    "careerBars": [
+      { "company": "Triptease", "years": "2015–2019", "heightPct": 100 },
+      { "company": "SiteMinder", "years": "2019–2020", "heightPct": 35 },
+      { "company": "Cloudbeds", "years": "2020–2023", "heightPct": 75 },
+      { "company": "Canary Tech.", "years": "2023–2024", "heightPct": 35 },
+      { "company": "Planhotel", "years": "2024–present", "heightPct": 55, "current": true }
+    ],
+    "note": "Current role. Bar height is proportional to duration."
+  },
+  "background": {
+    "num": "02",
+    "title": "Background",
+    "leadParagraph": "Born into a multi-generational hospitality family. Trained in hospitality and revenue management at Cornell and EHL Lausanne. About a decade spent not in hotels but in the technology that serves them. Return to the operating side in 2024 to lead digital strategy and AI deployment at Planhotel Hospitality Group, the hotel group the family founded.",
+    "paragraphs": [
+      "Marco's heritage is hospitality. His grandfather founded Francorosso International — a pioneering Italian tour operator — and Planhotel Hospitality Group, the Swiss-headquartered hotel group Marco now helps operate. Hospitality is not a sector you enter; it is the language learned in childhood.",
+      "After EHL, the path went sideways into hospitality SaaS. Account executive to Head of Sales EMEA at Triptease. Senior Regional Sales Manager at SiteMinder, building Spain into one of the most successful EU regions. Global Director of Inside Sales and CSM at Cloudbeds through a period of high growth. Director of Sales and Go-To-Market EMEA at Canary Technologies, building the EMEA commercial function from zero.",
+      "The return to the operating side was deliberate. An operating seat in a multi-property hotel group makes prior vendor-side commercial work materially more useful — and makes consulting from that seat materially more credible. Rosso Consulting exists in the space between the two: the people building hospitality software, and the people who buy and operate it."
+    ],
+    "pullquote": "Recommendations are filtered through the lens of an active operator, not a slide-builder."
+  },
+  "experience": {
+    "num": "03",
+    "title": "Experience",
+    "entries": [
+      { "year": "2024 – Present", "current": true, "role": "Chief Digital Strategy & Business Automation Officer", "detail": "<strong>Planhotel Hospitality Group.</strong> Swiss-Italian hotel group, 11 properties across three brands (Diamonds, Sandies, Exploreans) operating in Zanzibar, the Maldives, and Kenya. Defining and implementing digital strategy, AI adoption, and cross-functional process and technology programs. Preceded by Group Revenue and Ecommerce Director (2024–2025)." },
+      { "year": "2023 – 2024", "role": "Director of Sales & Go-To-Market EMEA", "detail": "<strong>Canary Technologies.</strong> Built and scaled the EMEA commercial function for a Series-D hospitality SaaS company." },
+      { "year": "2020 – 2023", "role": "Director, Inside Sales & CSM (Global)", "detail": "<strong>Cloudbeds.</strong> Scaled the commercial and customer success organisations through a period of high growth. Ran the global inside sales team and built the customer success function above it." },
+      { "year": "2019 – 2020", "role": "Senior Regional Sales Manager (Spain)", "detail": "<strong>SiteMinder.</strong> Built Spain into one of the most successful EU regions for the company during that period." },
+      { "year": "2015 – 2019", "role": "Account Executive → Head of Sales EMEA", "detail": "<strong>Triptease.</strong> Progressed from individual contributor to regional sales leadership at a category-defining hospitality SaaS company." }
+    ]
+  },
+  "education": {
+    "num": "04",
+    "title": "Education",
+    "entries": [
+      { "years": "2024 – 2025", "school": "Harvard Business School", "detail": "Executive Education — Program for Leadership Development (PLD), Class 39." },
+      { "years": "2011 – 2015", "school": "EHL Lausanne", "detail": "Bachelor of Science — International Hospitality Management. The world's first hospitality school." },
+      { "years": "2010", "school": "Cornell University", "detail": "Diploma — Hospitality & Revenue Management. Ithaca, NY." }
+    ]
+  },
+  "fluencies": {
+    "num": "05",
+    "title": "Areas of fluency",
+    "items": [
+      { "label": "Distribution & Revenue", "p": "Channel managers, OTAs, metasearch, direct, GDS. Revenue management and pricing strategy at property and portfolio level." },
+      { "label": "SaaS Go-To-Market", "p": "B2B pipeline, AE motion, customer success, NDR, commercial team design. Scaled commercial organisations from single digits to 80+ across multiple companies." },
+      { "label": "Operator-side stack", "p": "PMS, CRM, F&B POS, accounting, BI, identity. First-hand working familiarity with Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, HubSpot, Power BI." },
+      { "label": "AI & automation", "p": "LLM-augmented workflows, intelligence briefings, process automation. AI deployment frameworks operationalised at hotel-group scale." },
+      { "label": "Modern Web Architecture", "p": "MACH principles, headless CMS patterns. Astro, Netlify, Sveltia, Apaleo. Modernising hospitality stacks away from vendor-locked monoliths." },
+      { "label": "Operations & Finance", "p": "Capex, opex, and SOP design across multi-property hotel operations. Cross-border accounting and intercompany cost allocation." }
+    ]
+  },
+  "cta": {
+    "label": "Start a conversation",
+    "headline": "Let's talk",
+    "sub": "A short note is enough to begin. Initial conversations are unbilled and last about thirty minutes.",
+    "accent": "",
+    "buttonLabel": "Get in touch →",
+    "buttonHref": "/contact/"
+  }
+}
