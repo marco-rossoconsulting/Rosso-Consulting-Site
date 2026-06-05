@@ -327,18 +327,22 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
   }
   .nav-menu {
     display: none;
-    position: absolute;
+    position: fixed;
     top: clamp(80px, 9vw, 130px);
-    left: 0;
     right: 0;
+    left: auto;
+    width: min(280px, 80vw);
+    height: calc(100vh - clamp(80px, 9vw, 130px));
     background: var(--bianco);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     padding: var(--s-4) clamp(20px, 4vw, 60px);
     gap: var(--s-3);
-    border-bottom: var(--border-hairline);
+    border-left: var(--border-hairline);
+    box-shadow: -4px 8px 24px rgba(0,0,0,0.08);
     margin: 0;
     justify-self: auto;
+    overflow-y: auto;
   }
   .nav-toggle-check:checked + .nav-inner .nav-menu {
     display: flex;
@@ -351,7 +355,7 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
   .nav-list {
     flex-direction: column;
     gap: var(--s-3);
-    align-items: flex-start;
+    align-items: flex-end;
     width: 100%;
   }
   .nav-toggle {
