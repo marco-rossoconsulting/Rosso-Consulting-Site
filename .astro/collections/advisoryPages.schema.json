@@ -1,0 +1,248 @@
+{
+  "$ref": "#/definitions/advisoryPages",
+  "definitions": {
+    "advisoryPages": {
+      "type": "object",
+      "properties": {
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "ogImage": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "eyebrowNum": {
+              "type": "string"
+            },
+            "eyebrowLabel": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "meta": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "eyebrowNum",
+            "eyebrowLabel",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "roles": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro"
+          ],
+          "additionalProperties": false
+        },
+        "advisoryOverrides": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "fullDescription": {
+                "type": "string"
+              },
+              "formats": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "fullDescription",
+              "formats"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "expertNetwork": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "cards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "cards"
+          ],
+          "additionalProperties": false
+        },
+        "independence": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "items"
+          ],
+          "additionalProperties": false
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "accent": {
+              "type": "string",
+              "default": ""
+            },
+            "buttonLabel": {
+              "type": "string"
+            },
+            "buttonHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "headline",
+            "sub",
+            "buttonLabel",
+            "buttonHref"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "seo",
+        "hero",
+        "roles",
+        "expertNetwork",
+        "independence",
+        "cta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

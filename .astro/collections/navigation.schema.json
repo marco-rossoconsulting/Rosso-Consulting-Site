@@ -1,0 +1,104 @@
+{
+  "$ref": "#/definitions/navigation",
+  "definitions": {
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string"
+        },
+        "header": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "page": {
+                    "type": "string"
+                  },
+                  "external": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "label",
+                  "href"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "cta": {
+              "$ref": "#/definitions/navigation/properties/header/properties/items/items"
+            }
+          },
+          "required": [
+            "items",
+            "cta"
+          ],
+          "additionalProperties": false
+        },
+        "footer": {
+          "type": "object",
+          "properties": {
+            "tagline": {
+              "type": "string"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/navigation/properties/header/properties/items/items"
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "links"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "copyright": {
+              "type": "string"
+            },
+            "bottom": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tagline",
+            "columns",
+            "copyright",
+            "bottom"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand",
+        "header",
+        "footer"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

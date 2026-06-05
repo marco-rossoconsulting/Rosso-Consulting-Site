@@ -1,0 +1,275 @@
+{
+  "$ref": "#/definitions/pages",
+  "definitions": {
+    "pages": {
+      "type": "object",
+      "properties": {
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "object",
+              "properties": {
+                "en": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                },
+                "es": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "en",
+                "it",
+                "es"
+              ],
+              "additionalProperties": false
+            },
+            "description": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "ogImage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "ogImage"
+          ],
+          "additionalProperties": false
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "eyebrow": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "headline": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "sub": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            }
+          },
+          "required": [
+            "eyebrow",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "meta": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "$ref": "#/definitions/pages/properties/seo/properties/title"
+              },
+              "value": {
+                "$ref": "#/definitions/pages/properties/seo/properties/title"
+              }
+            },
+            "required": [
+              "label",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "practice": {
+          "type": "object",
+          "properties": {
+            "intro": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "lanes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "$ref": "#/definitions/pages/properties/seo/properties/title"
+                  },
+                  "body": {
+                    "$ref": "#/definitions/pages/properties/seo/properties/title"
+                  },
+                  "formats": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "it": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "es": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "en",
+                      "it",
+                      "es"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "num",
+                  "title",
+                  "body",
+                  "formats"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "seeHowWeWork": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            }
+          },
+          "required": [
+            "intro",
+            "lanes",
+            "seeHowWeWork"
+          ],
+          "additionalProperties": false
+        },
+        "whoWeServe": {
+          "type": "object",
+          "properties": {
+            "heading": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "audiences": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "$ref": "#/definitions/pages/properties/seo/properties/title"
+                  },
+                  "body": {
+                    "$ref": "#/definitions/pages/properties/seo/properties/title"
+                  }
+                },
+                "required": [
+                  "title",
+                  "body"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "heading",
+            "audiences"
+          ],
+          "additionalProperties": false
+        },
+        "activeEngagements": {
+          "type": "object",
+          "properties": {
+            "heading": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "intro": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "viewPortfolio": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            }
+          },
+          "required": [
+            "heading",
+            "intro",
+            "viewPortfolio"
+          ],
+          "additionalProperties": false
+        },
+        "operatingNow": {
+          "type": "object",
+          "properties": {
+            "heading": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "primaryRoleLabel": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "cdoTitle": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "cdoCompany": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "whyMattersLabel": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "whyMattersBody": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            }
+          },
+          "required": [
+            "heading",
+            "primaryRoleLabel",
+            "cdoTitle",
+            "cdoCompany",
+            "whyMattersLabel",
+            "whyMattersBody"
+          ],
+          "additionalProperties": false
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "headline": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            },
+            "sub": {
+              "$ref": "#/definitions/pages/properties/seo/properties/title"
+            }
+          },
+          "required": [
+            "label",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "seo",
+        "hero",
+        "meta",
+        "practice",
+        "whoWeServe",
+        "activeEngagements",
+        "operatingNow",
+        "cta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

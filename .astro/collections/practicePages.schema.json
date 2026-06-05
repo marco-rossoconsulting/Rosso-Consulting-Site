@@ -1,0 +1,316 @@
+{
+  "$ref": "#/definitions/practicePages",
+  "definitions": {
+    "practicePages": {
+      "type": "object",
+      "properties": {
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "ogImage": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "eyebrowNum": {
+              "type": "string"
+            },
+            "eyebrowLabel": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "meta": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "eyebrowNum",
+            "eyebrowLabel",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "methodology": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "principles": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "n",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "principles"
+          ],
+          "additionalProperties": false
+        },
+        "formats": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "n",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "items"
+          ],
+          "additionalProperties": false
+        },
+        "pullquote": {
+          "type": "string"
+        },
+        "techApproach": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "blocks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "vendorIndependence": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "blocks",
+            "vendorIndependence"
+          ],
+          "additionalProperties": false
+        },
+        "lifecycle": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "phases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "y": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "y",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "phases"
+          ],
+          "additionalProperties": false
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "accent": {
+              "type": "string",
+              "default": ""
+            },
+            "buttonLabel": {
+              "type": "string"
+            },
+            "buttonHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "headline",
+            "sub",
+            "buttonLabel",
+            "buttonHref"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "seo",
+        "hero",
+        "methodology",
+        "formats",
+        "pullquote",
+        "techApproach",
+        "lifecycle",
+        "cta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

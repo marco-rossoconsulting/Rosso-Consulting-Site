@@ -1,0 +1,83 @@
+{
+  "$ref": "#/definitions/advisory",
+  "definitions": {
+    "advisory": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Advisory Board",
+            "GTM Strategic Advisor",
+            "Strategic Advisor",
+            "Board Observer",
+            "Founding Advisor"
+          ]
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "Pre-seed",
+            "Seed",
+            "Series A",
+            "Series B",
+            "Series C",
+            "Series D",
+            "Growth Stage",
+            "Public",
+            "Other"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "fullDescription": {
+          "type": "string"
+        },
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logo": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 99
+        },
+        "active": {
+          "type": "boolean",
+          "default": true
+        },
+        "featured": {
+          "type": "boolean",
+          "default": true
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "role",
+        "stage",
+        "description",
+        "fullDescription",
+        "url",
+        "order"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

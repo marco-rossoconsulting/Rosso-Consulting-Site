@@ -1,0 +1,302 @@
+{
+  "$ref": "#/definitions/venturesPages",
+  "definitions": {
+    "venturesPages": {
+      "type": "object",
+      "properties": {
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "ogImage": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "eyebrowNum": {
+              "type": "string"
+            },
+            "eyebrowLabel": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "meta": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "eyebrowNum",
+            "eyebrowLabel",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "currentVenture": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "buttonLabel": {
+              "type": "string"
+            },
+            "buttonHref": {
+              "type": "string"
+            },
+            "whyExistsLabel": {
+              "type": "string"
+            },
+            "whyExistsParagraphs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "stats": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "label",
+            "name",
+            "description",
+            "buttonLabel",
+            "buttonHref",
+            "whyExistsLabel",
+            "whyExistsParagraphs",
+            "stats"
+          ],
+          "additionalProperties": false
+        },
+        "spinoutLogic": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "n",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "conditions"
+          ],
+          "additionalProperties": false
+        },
+        "parentSpinout": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "commitments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "h": {
+                    "type": "string"
+                  },
+                  "p": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "h",
+                  "p"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "commitments"
+          ],
+          "additionalProperties": false
+        },
+        "futureVentures": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "lead": {
+              "type": "string"
+            },
+            "paragraph": {
+              "type": "string"
+            },
+            "pullquote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "lead",
+            "paragraph",
+            "pullquote"
+          ],
+          "additionalProperties": false
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "accent": {
+              "type": "string",
+              "default": ""
+            },
+            "buttonLabel": {
+              "type": "string"
+            },
+            "buttonHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "headline",
+            "sub",
+            "buttonLabel",
+            "buttonHref"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "seo",
+        "hero",
+        "currentVenture",
+        "spinoutLogic",
+        "parentSpinout",
+        "futureVentures",
+        "cta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

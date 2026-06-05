@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/ui",
+  "definitions": {
+    "ui": {
+      "type": "object",
+      "properties": {
+        "article": {
+          "type": "object",
+          "properties": {
+            "minRead": {
+              "type": "string"
+            },
+            "relatedWriting": {
+              "type": "string"
+            },
+            "readArticle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "minRead",
+            "relatedWriting",
+            "readArticle"
+          ],
+          "additionalProperties": false
+        },
+        "common": {
+          "type": "object",
+          "properties": {
+            "languageLabel": {
+              "type": "string"
+            },
+            "currentRoleLabel": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "languageLabel",
+            "currentRoleLabel"
+          ],
+          "additionalProperties": false
+        },
+        "seo": {
+          "type": "object",
+          "properties": {
+            "siteName": {
+              "type": "string"
+            },
+            "defaultDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "siteName",
+            "defaultDescription"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "article",
+        "common",
+        "seo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

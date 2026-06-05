@@ -1,0 +1,278 @@
+{
+  "$ref": "#/definitions/homePages",
+  "definitions": {
+    "homePages": {
+      "type": "object",
+      "properties": {
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "ogImage": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "eyebrowNum": {
+              "type": "string"
+            },
+            "eyebrowLabel": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "meta": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "eyebrowNum",
+            "eyebrowLabel",
+            "headline",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        "practice": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "lanes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "formats": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "num",
+                  "title",
+                  "body",
+                  "formats"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "ctaLabel": {
+              "type": "string"
+            },
+            "ctaHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "lanes",
+            "ctaLabel",
+            "ctaHref"
+          ],
+          "additionalProperties": false
+        },
+        "audiences": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "body"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "items"
+          ],
+          "additionalProperties": false
+        },
+        "active": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "ctaLabel": {
+              "type": "string"
+            },
+            "ctaHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "intro",
+            "ctaLabel",
+            "ctaHref"
+          ],
+          "additionalProperties": false
+        },
+        "operatingNow": {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "roleLabel": {
+              "type": "string"
+            },
+            "roleTitle": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "whyMattersLabel": {
+              "type": "string"
+            },
+            "whyMattersBody": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "title",
+            "roleLabel",
+            "roleTitle",
+            "company",
+            "whyMattersLabel",
+            "whyMattersBody"
+          ],
+          "additionalProperties": false
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "sub": {
+              "type": "string"
+            },
+            "accent": {
+              "type": "string",
+              "default": ""
+            },
+            "buttonLabel": {
+              "type": "string"
+            },
+            "buttonHref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "headline",
+            "sub",
+            "buttonLabel",
+            "buttonHref"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "seo",
+        "hero",
+        "practice",
+        "audiences",
+        "active",
+        "operatingNow",
+        "cta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

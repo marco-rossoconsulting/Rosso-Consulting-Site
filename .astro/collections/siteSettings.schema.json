@@ -1,0 +1,135 @@
+{
+  "$ref": "#/definitions/siteSettings",
+  "definitions": {
+    "siteSettings": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "favicon": {
+          "type": "string"
+        },
+        "defaultOgImage": {
+          "type": "string"
+        },
+        "logoMark": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "linkedin": {
+              "type": "string",
+              "format": "uri"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email",
+            "linkedin",
+            "location"
+          ],
+          "additionalProperties": false
+        },
+        "social": {
+          "type": "object",
+          "properties": {
+            "twitter": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "principal": {
+          "type": "object",
+          "properties": {
+            "fullName": {
+              "type": "string"
+            },
+            "givenName": {
+              "type": "string"
+            },
+            "familyName": {
+              "type": "string"
+            },
+            "jobTitle": {
+              "type": "string"
+            },
+            "alumniOf": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "knowsLanguage": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "fullName",
+            "givenName",
+            "familyName",
+            "jobTitle",
+            "alumniOf",
+            "knowsLanguage"
+          ],
+          "additionalProperties": false
+        },
+        "founding": {
+          "type": "object",
+          "properties": {
+            "addressLocality": {
+              "type": "string"
+            },
+            "addressRegion": {
+              "type": "string"
+            },
+            "addressCountry": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "addressLocality",
+            "addressRegion",
+            "addressCountry"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "tagline",
+        "url",
+        "favicon",
+        "defaultOgImage",
+        "logoMark",
+        "contact",
+        "social",
+        "principal",
+        "founding"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

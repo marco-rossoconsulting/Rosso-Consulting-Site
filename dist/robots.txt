@@ -1,0 +1,63 @@
+# Rosso Consulting — robots.txt
+# Last updated: 2026
+
+# All standard crawlers are welcome.
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# AI / LLM crawlers — explicitly permitted.
+# We want our public content to be discoverable in AI-driven research,
+# Q&A interfaces, and search experiences.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Sitemap location for traditional crawlers
+Sitemap: https://rossoconsulting.ch/sitemap-index.xml
+
+# LLM-friendly summary
+# See: https://rossoconsulting.ch/llms.txt
