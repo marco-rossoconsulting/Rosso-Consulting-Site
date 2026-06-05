@@ -1108,6 +1108,207 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
 }
 
 /* =========================================================
+   PRACTICE PAGE — CARD LAYOUTS
+   ========================================================= */
+
+/* Principles grid — 2 columns on desktop, 1 on tablet/mobile */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-5);
+}
+
+.principle-card {
+  background: var(--nebbia);
+  padding: var(--s-5);
+  border-left: 4px solid var(--rosso);
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.principle-card:hover {
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+}
+
+.principle-num {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 900;
+  color: var(--carbone);
+  line-height: 1;
+  margin-bottom: var(--s-3);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.principle-card h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--carbone);
+  line-height: 1.2;
+  margin: 0 0 var(--s-2) 0;
+}
+
+.principle-card p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--carbone);
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+}
+
+/* Formats grid — 2 columns on desktop, 1 on tablet/mobile */
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-5);
+}
+
+.format-card {
+  background: var(--bianco);
+  padding: var(--s-5);
+  border-left: 4px solid var(--rosso);
+  border-radius: 8px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.format-card:hover {
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+}
+
+.format-letter {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 900;
+  color: var(--carbone);
+  line-height: 1;
+  margin-bottom: var(--s-3);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.format-card h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--carbone);
+  line-height: 1.2;
+  margin: 0 0 var(--s-2) 0;
+}
+
+.format-card p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--carbone);
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+}
+
+/* Lifecycle stack — vertical on all breakpoints */
+.lifecycle-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.phase-card {
+  background: var(--bianco);
+  border-left: 4px solid var(--rosso);
+  padding: var(--s-5);
+  padding-left: 28px;
+  border-radius: 8px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.phase-card:hover {
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+}
+
+.phase-label {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 900;
+  color: var(--carbone);
+  line-height: 1;
+  margin-bottom: var(--s-2);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.phase-card h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--carbone);
+  line-height: 1.2;
+  margin: 0 0 var(--s-2) 0;
+}
+
+.phase-card p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--carbone);
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+}
+
+/* Tech approach blocks */
+.tech-block {
+  padding: var(--s-5);
+  background: var(--nebbia);
+  border: 1px solid var(--nebbia-deep);
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.tech-block:hover {
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+  border-color: var(--carbone);
+}
+
+.vendor-independence {
+  margin-top: var(--s-6);
+  padding: var(--s-4);
+  background: var(--nebbia);
+  border-left: 4px solid var(--rosso);
+  border-radius: 8px;
+}
+
+/* Responsive breakpoints for practice cards */
+@media (max-width: 1023px) {
+  .principles-grid,
+  .formats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .principle-card,
+  .format-card,
+  .phase-card {
+    padding: var(--s-4);
+  }
+
+  .principle-num,
+  .format-letter {
+    font-size: 32px;
+  }
+
+  .phase-label {
+    font-size: 24px;
+  }
+}
+
+/* =========================================================
    ARTICLE PAGES
    ========================================================= */
 

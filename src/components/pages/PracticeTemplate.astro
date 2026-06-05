@@ -30,14 +30,12 @@ const page = await getPracticePage(lang);
     <div class="container">
       <SectionHeader num={page.methodology.num} title={page.methodology.title} />
       <p class="section-intro reveal">{page.methodology.intro}</p>
-      <div class="principles reveal" style="margin-top: var(--s-6);">
+      <div class="principles-grid reveal" style="margin-top: var(--s-6);">
         {page.methodology.principles.map(pr => (
-          <div class="principle">
+          <div class="principle-card">
             <span class="principle-num">{pr.n}</span>
-            <div>
-              <h3>{pr.h}</h3>
-              <p>{pr.p}</p>
-            </div>
+            <h3>{pr.h}</h3>
+            <p>{pr.p}</p>
           </div>
         ))}
       </div>
@@ -49,14 +47,12 @@ const page = await getPracticePage(lang);
     <div class="container">
       <SectionHeader num={page.formats.num} title={page.formats.title} />
       <p class="section-intro reveal">{page.formats.intro}</p>
-      <div class="formats reveal" style="margin-top: var(--s-6);">
+      <div class="formats-grid reveal" style="margin-top: var(--s-6);">
         {page.formats.items.map(f => (
-          <div class="format-row">
+          <div class="format-card">
             <span class="format-letter">{f.n}</span>
-            <div>
-              <h3>{f.h}</h3>
-              <p>{f.p}</p>
-            </div>
+            <h3>{f.h}</h3>
+            <p>{f.p}</p>
           </div>
         ))}
       </div>
@@ -72,14 +68,14 @@ const page = await getPracticePage(lang);
       <p class="section-intro reveal">{page.techApproach.intro}</p>
       <div class="grid-3 reveal" style="margin-top: var(--s-6); gap: var(--s-5);">
         {page.techApproach.blocks.map(block => (
-          <div style="padding: var(--s-5); background: var(--nebbia); border: 1px solid var(--nebbia-deep);">
+          <div class="tech-block">
             <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{block.label}</div>
             <h3 style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{block.h}</h3>
             <p style="color: var(--grigio); font-size: 14px; line-height: 1.6;">{block.p}</p>
           </div>
         ))}
       </div>
-      <div class="reveal" style="margin-top: var(--s-6); padding: var(--s-4); background: var(--nebbia); border-left: 3px solid var(--rosso);">
+      <div class="reveal vendor-independence">
         <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{page.techApproach.vendorIndependence.label}</div>
         <p style="color: var(--carbone); font-size: 15px; line-height: 1.6; max-width: 75ch;">{page.techApproach.vendorIndependence.body}</p>
       </div>
@@ -91,14 +87,12 @@ const page = await getPracticePage(lang);
     <div class="container">
       <SectionHeader num={page.lifecycle.num} title={page.lifecycle.title} dark />
       <p class="section-intro reveal" style="color: var(--grigio-soft);">{page.lifecycle.intro}</p>
-      <div class="timeline reveal" style="margin-top: var(--s-6);">
+      <div class="lifecycle-stack reveal" style="margin-top: var(--s-6);">
         {page.lifecycle.phases.map(ph => (
-          <div class="timeline-item">
-            <span class="timeline-year" style="color: var(--rosso);">{ph.y}</span>
-            <div>
-              <h3 style="color: var(--bianco);">{ph.h}</h3>
-              <p style="color: var(--grigio-soft);">{ph.p}</p>
-            </div>
+          <div class="phase-card">
+            <span class="phase-label">{ph.y}</span>
+            <h3>{ph.h}</h3>
+            <p>{ph.p}</p>
           </div>
         ))}
       </div>
