@@ -1,15 +1,14 @@
 # ============================================================
 # Rosso Consulting — Sveltia CMS Configuration
 # ============================================================
-# Sveltia is config-compatible with Decap/Netlify CMS, so this same YAML
-# works on either CMS. Sveltia adds a modern editor UI on top.
-#
-# Editor sign-in: Netlify Identity + Git Gateway.
-# Content saves: commit to GitHub via the Netlify Identity proxy.
+# Sveltia CMS loads this config via the GitHub backend.
+# Editor sign-in: GitHub OAuth or Personal Access Token.
+# Content saves: direct commits to the GitHub repo.
 # ============================================================
 
 backend:
-  name: git-gateway
+  name: github
+  repo: marco-rossoconsulting/Rosso-Consulting-Site
   branch: main
   commit_messages:
     create: 'Content: create {{collection}} "{{slug}}"'
@@ -26,8 +25,8 @@ public_folder: "/uploads"
 publish_mode: simple
 
 # Site URLs (Sveltia uses these for preview pane)
-site_url: https://rossoconsulting.ch
-display_url: https://rossoconsulting.ch
+site_url: https://rossoconsulting.netlify.app
+display_url: https://rossoconsulting.netlify.app
 logo_url: /favicon.svg
 
 # ============================================================

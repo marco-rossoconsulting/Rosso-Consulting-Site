@@ -19,7 +19,7 @@
   "practice": {
     "num": "02",
     "title": "Pratica",
-    "intro": "Rosso Consulting opera su quattro filoni. I servizi sono guidati dai risultati, non standardizzati — ma i quattro filoni descrivono come il lavoro è strutturato e contrattualizzato.",
+    "intro": "Quattro filoni, guidati dai risultati. Ognuno descrive come il lavoro è strutturato e contrattualizzato.",
     "lanes": [
       {
         "num": "01",
@@ -62,7 +62,7 @@
   "active": {
     "num": "04",
     "title": "Incarichi attivi",
-    "intro": "Quattro ruoli advisory attivi nella tecnologia per l'ospitalità, più la prima venture operativa dello studio. Il portfolio è curato; le posizioni vengono accettate solo dove la relazione offre allineamento strategico con la pratica più ampia.",
+    "intro": "Quattro ruoli advisory e una venture operativa. Accettati solo dove c'è allineamento strategico.",
     "ctaLabel": "Vedi portfolio advisory",
     "ctaHref": "/it/advisory/"
   },

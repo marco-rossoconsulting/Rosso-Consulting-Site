@@ -19,7 +19,7 @@
   "practice": {
     "num": "02",
     "title": "Práctica",
-    "intro": "Rosso Consulting opera a través de cuatro líneas. Los servicios son outcome-led, no productizados — pero las cuatro líneas describen cómo el trabajo se estructura y contrata.",
+    "intro": "Cuatro líneas, outcome-led. Cada una describe cómo el trabajo se estructura y contrata.",
     "lanes": [
       {
         "num": "01",
@@ -62,7 +62,7 @@
   "active": {
     "num": "04",
     "title": "Mandatos activos",
-    "intro": "Cuatro roles advisory activos en tecnología hotelera, más la primera venture operativa del estudio. El portafolio es curado; las posiciones se aceptan solo donde la relación ofrece alineación estratégica con la práctica más amplia.",
+    "intro": "Cuatro roles advisory y una venture operativa. Aceptados solo donde hay alineación estratégica.",
     "ctaLabel": "Ver portafolio advisory",
     "ctaHref": "/es/advisory/"
   },

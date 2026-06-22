@@ -88,8 +88,8 @@ const page = await getPracticePage(lang);
       <SectionHeader num={page.lifecycle.num} title={page.lifecycle.title} dark />
       <p class="section-intro reveal" style="color: var(--grigio-soft);">{page.lifecycle.intro}</p>
       <div class="lifecycle-stack reveal" style="margin-top: var(--s-6);">
-        {page.lifecycle.phases.map(ph => (
-          <div class="phase-card">
+        {page.lifecycle.phases.map((ph, i) => (
+          <div class="phase-card" style={i === page.lifecycle.phases.length - 1 ? 'margin-bottom: 0;' : ''}>
             <span class="phase-label">{ph.y}</span>
             <h3>{ph.h}</h3>
             <p>{ph.p}</p>

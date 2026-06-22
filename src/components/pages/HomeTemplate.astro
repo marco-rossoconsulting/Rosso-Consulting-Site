@@ -52,14 +52,19 @@ const ui = await getUi(lang);
   </section>
 
   <!-- Audiences -->
-  <section style="background: var(--nebbia);">
-    <div class="container">
-      <SectionHeader num={page.audiences.num} title={page.audiences.title} />
-      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
-        {page.audiences.items.map(item => (
-          <div>
-            <h3 style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{item.heading}</h3>
-            <p style="color: var(--grigio); font-size: 15px; line-height: 1.6;">{item.body}</p>
+  <section style="background: var(--nebbia); padding-top: 0; padding-bottom: 0;">
+    <div class="container" style="padding-left: 0; padding-right: 0; max-width: var(--container);">
+      <div class="section-header reveal" style="padding: clamp(64px, 10vh, 144px) var(--gutter) var(--s-8);">
+        <span class="section-number">{page.audiences.num}</span>
+        <span class="section-rule"></span>
+        <h2>{page.audiences.title}</h2>
+      </div>
+      <div class="audience-bar reveal">
+        {page.audiences.items.map((item, i) => (
+          <div class="audience-item">
+            <span class="audience-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{item.heading}</h3>
+            <p>{item.body}</p>
           </div>
         ))}
       </div>
@@ -73,10 +78,10 @@ const ui = await getUi(lang);
       <p class="section-intro reveal">{page.active.intro}</p>
       <div class="grid-2 reveal" style="margin-top: var(--s-6); gap: var(--s-4) var(--s-5);">
         {advisoryEntries.map(entry => (
-          <div style="padding: var(--s-4); background: var(--bianco); border: 1px solid var(--nebbia-deep);">
-            <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{entry.data.role}</div>
-            <h3 style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: var(--s-2);">{entry.data.name}</h3>
-            <p style="color: var(--grigio); font-size: 14px; line-height: 1.55;">{entry.data.description}</p>
+          <div class="card-premium">
+            <div class="card-label">{entry.data.role} · {entry.data.stage}</div>
+            <h3>{entry.data.name}</h3>
+            <p>{entry.data.description}</p>
           </div>
         ))}
       </div>
@@ -90,15 +95,15 @@ const ui = await getUi(lang);
   <section class="section-dark">
     <div class="container">
       <SectionHeader num={page.operatingNow.num} title={page.operatingNow.title} dark />
-      <div class="grid-2 reveal" style="gap: var(--s-5) var(--s-8); margin-top: var(--s-6);">
-        <div>
-          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{page.operatingNow.roleLabel}</div>
-          <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--bianco); text-transform: uppercase; margin-bottom: var(--s-3); letter-spacing: 0.005em;" set:html={page.operatingNow.roleTitle} />
-          <p style="color: var(--grigio-soft); font-size: 16px; line-height: 1.6;">{page.operatingNow.company}</p>
+      <div class="editorial-split reveal" style="margin-top: var(--s-6);">
+        <div class="split-accent">
+          <div class="section-hero-label">{page.operatingNow.roleLabel}</div>
+          <h3 class="section-hero-title" set:html={page.operatingNow.roleTitle} />
+          <p class="section-body">{page.operatingNow.company}</p>
         </div>
         <div>
-          <div class="label" style="color: var(--rosso); margin-bottom: var(--s-2);">{page.operatingNow.whyMattersLabel}</div>
-          <p style="color: var(--grigio-soft); font-size: 16px; line-height: 1.6;">{page.operatingNow.whyMattersBody}</p>
+          <div class="section-hero-label">{page.operatingNow.whyMattersLabel}</div>
+          <p class="section-body">{page.operatingNow.whyMattersBody}</p>
         </div>
       </div>
     </div>

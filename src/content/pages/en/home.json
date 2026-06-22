@@ -19,7 +19,7 @@
   "practice": {
     "num": "02",
     "title": "Practice",
-    "intro": "Rosso Consulting operates across four lanes. Services are outcome-led, not productised — but the four lanes describe how work is structured and contracted.",
+    "intro": "Four lanes, outcome-led. Each describes how work is structured and contracted.",
     "lanes": [
       {
         "num": "01",
@@ -62,7 +62,7 @@
   "active": {
     "num": "04",
     "title": "Active engagements",
-    "intro": "Four active advisory roles in hospitality technology, plus the firm's first operating venture. The portfolio is curated; positions are accepted only where the relationship offers strategic alignment with the wider practice.",
+    "intro": "Four advisory roles and one operating venture. Accepted only where there is strategic alignment.",
     "ctaLabel": "View advisory portfolio",
     "ctaHref": "/advisory/"
   },
