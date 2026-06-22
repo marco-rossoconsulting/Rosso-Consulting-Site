@@ -167,7 +167,7 @@ const practicePages = defineCollection({
       num: z.string(), title: z.string(), intro: z.string(),
       items: z.array(z.object({ n: z.string(), h: z.string(), p: z.string() })),
     }),
-    pullquote: z.string(),
+    pullquote: z.string().optional(),
     techApproach: z.object({
       num: z.string(), title: z.string(), intro: z.string(),
       blocks: z.array(z.object({ label: z.string(), h: z.string(), p: z.string() })),
@@ -195,7 +195,7 @@ const principalPages = defineCollection({
     }),
     background: z.object({
       num: z.string(), title: z.string(),
-      leadParagraph: z.string(), paragraphs: z.array(z.string()), pullquote: z.string(),
+      leadParagraph: z.string(), paragraphs: z.array(z.string()), pullquote: z.string().optional(),
     }),
     experience: z.object({
       num: z.string(), title: z.string(),
@@ -257,7 +257,7 @@ const venturesPages = defineCollection({
     }),
     futureVentures: z.object({
       num: z.string(), title: z.string(),
-      lead: z.string(), paragraph: z.string(), pullquote: z.string(),
+      lead: z.string(), paragraph: z.string(), pullquote: z.string().optional(),
     }),
     cta: ctaSchema,
   }),

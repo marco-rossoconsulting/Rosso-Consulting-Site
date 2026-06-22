@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../Hero.astro';
 import SectionHeader from '../SectionHeader.astro';
-import PullQuote from '../PullQuote.astro';
 import CTABlock from '../CTABlock.astro';
 import { getVenturesPage, type Lang } from '../../lib/cms';
 
@@ -102,8 +101,6 @@ const page = await getVenturesPage(lang);
       </div>
     </div>
   </section>
-
-  <PullQuote quote={page.futureVentures.pullquote} />
 
   <CTABlock
     label={page.cta.label}

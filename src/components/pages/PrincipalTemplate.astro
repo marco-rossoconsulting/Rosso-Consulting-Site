@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../Hero.astro';
 import SectionHeader from '../SectionHeader.astro';
-import PullQuote from '../PullQuote.astro';
 import CareerChart from '../CareerChart.astro';
 import CTABlock from '../CTABlock.astro';
 import { getPrincipalPage, getUi, type Lang } from '../../lib/cms';
@@ -51,8 +50,6 @@ const ui = await getUi(lang);
       </div>
     </div>
   </section>
-
-  <PullQuote quote={page.background.pullquote} />
 
   <!-- Experience -->
   <section>
