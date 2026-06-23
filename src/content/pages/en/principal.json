@@ -2,7 +2,7 @@
   "seo": {
     "title": "Principal · Rosso Consulting",
     "description": "Marco Rosso — founder and principal of Rosso Consulting. Career, education, and operating record.",
-    "ogImage": ""
+    "ogImage": "/uploads/Marco Rosso Principal of RossoConsulting in Switzerland.png"
   },
   "hero": {
     "eyebrowNum": "03",
@@ -12,10 +12,22 @@
     "imgSrc": "/uploads/marco-rosso-principal.jpg",
     "imgAlt": "Marco Rosso",
     "meta": [
-      { "label": "Based", "value": "Lugano, CH" },
-      { "label": "Languages", "value": "EN · IT · ES" },
-      { "label": "Education", "value": "EHL · Cornell · HBS" },
-      { "label": "Advisory seats", "value": "4 active" }
+      {
+        "label": "Based",
+        "value": "Lugano, CH"
+      },
+      {
+        "label": "Languages",
+        "value": "EN · IT · ES"
+      },
+      {
+        "label": "Education",
+        "value": "EHL · Cornell · HBS"
+      },
+      {
+        "label": "Advisory seats",
+        "value": "4 active"
+      }
     ]
   },
   "careerArc": {
@@ -23,11 +35,32 @@
     "title": "Career arc",
     "intro": "Four SaaS commercial roles, scaled from account executive to global director. Return to the operating side in 2024.",
     "careerBars": [
-      { "company": "Triptease", "years": "2015–2019", "heightPct": 100 },
-      { "company": "SiteMinder", "years": "2019–2020", "heightPct": 35 },
-      { "company": "Cloudbeds", "years": "2020–2023", "heightPct": 75 },
-      { "company": "Canary Tech.", "years": "2023–2024", "heightPct": 35 },
-      { "company": "Planhotel", "years": "2024–present", "heightPct": 55, "current": true }
+      {
+        "company": "Triptease",
+        "years": "2015–2019",
+        "heightPct": 100
+      },
+      {
+        "company": "SiteMinder",
+        "years": "2019–2020",
+        "heightPct": 35
+      },
+      {
+        "company": "Cloudbeds",
+        "years": "2020–2023",
+        "heightPct": 75
+      },
+      {
+        "company": "Canary Tech.",
+        "years": "2023–2024",
+        "heightPct": 35
+      },
+      {
+        "company": "Planhotel",
+        "years": "2024–present",
+        "heightPct": 55,
+        "current": true
+      }
     ],
     "note": "Current role. Bar height is proportional to duration."
   },
@@ -45,32 +78,83 @@
     "num": "03",
     "title": "Experience",
     "entries": [
-      { "year": "2024 – Present", "current": true, "role": "Chief Digital Strategy & Business Automation Officer", "detail": "<strong>Planhotel Hospitality Group.</strong> Swiss-Italian hotel group, 11 properties across three brands (Diamonds, Sandies, Exploreans) operating in Zanzibar, the Maldives, and Kenya. Defining and implementing digital strategy, AI adoption, and cross-functional process and technology programs. Preceded by Group Revenue and Ecommerce Director (2024–2025)." },
-      { "year": "2023 – 2024", "role": "Director of Sales & Go-To-Market EMEA", "detail": "<strong>Canary Technologies.</strong> Built and scaled the EMEA commercial function for a Series-D hospitality SaaS company." },
-      { "year": "2020 – 2023", "role": "Director, Inside Sales & CSM (Global)", "detail": "<strong>Cloudbeds.</strong> Scaled the commercial and customer success organisations through a period of high growth. Ran the global inside sales team and built the customer success function above it." },
-      { "year": "2019 – 2020", "role": "Senior Regional Sales Manager (Spain)", "detail": "<strong>SiteMinder.</strong> Built Spain into one of the most successful EU regions for the company during that period." },
-      { "year": "2015 – 2019", "role": "Account Executive → Head of Sales EMEA", "detail": "<strong>Triptease.</strong> Progressed from individual contributor to regional sales leadership at a category-defining hospitality SaaS company." }
+      {
+        "year": "2024 – Present",
+        "role": "Chief Digital Strategy & Business Automation Officer",
+        "detail": "<strong>Planhotel Hospitality Group.</strong> Swiss-Italian hotel group, 11 properties across three brands (Diamonds, Sandies, Exploreans) operating in Zanzibar, the Maldives, and Kenya. Defining and implementing digital strategy, AI adoption, and cross-functional process and technology programs. Preceded by Group Revenue and Ecommerce Director (2024–2025).",
+        "current": true
+      },
+      {
+        "year": "2023 – 2024",
+        "role": "Director of Sales & Go-To-Market EMEA",
+        "detail": "<strong>Canary Technologies.</strong> Built and scaled the EMEA commercial function for a Series-D hospitality SaaS company."
+      },
+      {
+        "year": "2020 – 2023",
+        "role": "Director, Inside Sales & CSM (Global)",
+        "detail": "<strong>Cloudbeds.</strong> Scaled the commercial and customer success organisations through a period of high growth. Ran the global inside sales team and built the customer success function above it."
+      },
+      {
+        "year": "2019 – 2020",
+        "role": "Senior Regional Sales Manager (Spain)",
+        "detail": "<strong>SiteMinder.</strong> Built Spain into one of the most successful EU regions for the company during that period."
+      },
+      {
+        "year": "2015 – 2019",
+        "role": "Account Executive → Head of Sales EMEA",
+        "detail": "<strong>Triptease.</strong> Progressed from individual contributor to regional sales leadership at a category-defining hospitality SaaS company."
+      }
     ]
   },
   "education": {
     "num": "04",
     "title": "Education",
     "entries": [
-      { "years": "2024 – 2025", "school": "Harvard Business School", "detail": "Executive Education — Program for Leadership Development (PLD), Class 39." },
-      { "years": "2011 – 2015", "school": "EHL Lausanne", "detail": "Bachelor of Science — International Hospitality Management. The world's first hospitality school." },
-      { "years": "2010", "school": "Cornell University", "detail": "Diploma — Hospitality & Revenue Management. Ithaca, NY." }
+      {
+        "years": "2024 – 2025",
+        "school": "Harvard Business School",
+        "detail": "Executive Education — Program for Leadership Development (PLD), Class 39."
+      },
+      {
+        "years": "2011 – 2015",
+        "school": "EHL Lausanne",
+        "detail": "Bachelor of Science — International Hospitality Management. The world's first hospitality school."
+      },
+      {
+        "years": "2010",
+        "school": "Cornell University",
+        "detail": "Diploma — Hospitality & Revenue Management. Ithaca, NY."
+      }
     ]
   },
   "fluencies": {
     "num": "05",
     "title": "Areas of fluency",
     "items": [
-      { "label": "Distribution & Revenue", "p": "Channel managers, OTAs, metasearch, direct, GDS. Revenue management and pricing strategy at property and portfolio level." },
-      { "label": "SaaS Go-To-Market", "p": "B2B pipeline, AE motion, customer success, NDR, commercial team design. Scaled commercial organisations from single digits to 80+ across multiple companies." },
-      { "label": "Operator-side stack", "p": "PMS, CRM, F&B POS, accounting, BI, identity. First-hand working familiarity with Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, HubSpot, Power BI." },
-      { "label": "AI & automation", "p": "LLM-augmented workflows, intelligence briefings, process automation. AI deployment frameworks operationalised at hotel-group scale." },
-      { "label": "Modern Web Architecture", "p": "MACH principles, headless CMS patterns. Astro, Netlify, Sveltia, Apaleo. Modernising hospitality stacks away from vendor-locked monoliths." },
-      { "label": "Operations & Finance", "p": "Capex, opex, and SOP design across multi-property hotel operations. Cross-border accounting and intercompany cost allocation." }
+      {
+        "label": "Distribution & Revenue",
+        "p": "Channel managers, OTAs, metasearch, direct, GDS. Revenue management and pricing strategy at property and portfolio level."
+      },
+      {
+        "label": "SaaS Go-To-Market",
+        "p": "B2B pipeline, AE motion, customer success, NDR, commercial team design. Scaled commercial organisations from single digits to 80+ across multiple companies."
+      },
+      {
+        "label": "Operator-side stack",
+        "p": "PMS, CRM, F&B POS, accounting, BI, identity. First-hand working familiarity with Protel Air, Apaleo, SiteMinder, SimpleBooking, D-Edge, HubSpot, Power BI."
+      },
+      {
+        "label": "AI & automation",
+        "p": "LLM-augmented workflows, intelligence briefings, process automation. AI deployment frameworks operationalised at hotel-group scale."
+      },
+      {
+        "label": "Modern Web Architecture",
+        "p": "MACH principles, headless CMS patterns. Astro, Netlify, Sveltia, Apaleo. Modernising hospitality stacks away from vendor-locked monoliths."
+      },
+      {
+        "label": "Operations & Finance",
+        "p": "Capex, opex, and SOP design across multi-property hotel operations. Cross-border accounting and intercompany cost allocation."
+      }
     ]
   },
   "cta": {
