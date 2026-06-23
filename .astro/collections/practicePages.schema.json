@@ -57,6 +57,12 @@
                 ],
                 "additionalProperties": false
               }
+            },
+            "imgSrc": {
+              "type": "string"
+            },
+            "imgAlt": {
+              "type": "string"
             }
           },
           "required": [
@@ -304,7 +310,6 @@
         "hero",
         "methodology",
         "formats",
-        "pullquote",
         "techApproach",
         "lifecycle",
         "cta"

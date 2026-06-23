@@ -57,6 +57,12 @@
                 ],
                 "additionalProperties": false
               }
+            },
+            "imgSrc": {
+              "type": "string"
+            },
+            "imgAlt": {
+              "type": "string"
             }
           },
           "required": [

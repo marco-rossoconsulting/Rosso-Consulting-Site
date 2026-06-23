@@ -116,6 +116,8 @@ const heroSchema = z.object({
   headline: z.string(),
   sub: z.string(),
   meta: z.array(metaItem).optional(),
+  imgSrc: z.string().optional(),
+  imgAlt: z.string().optional(),
 });
 const ctaSchema = z.object({
   label: z.string(),

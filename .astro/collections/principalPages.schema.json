@@ -57,6 +57,12 @@
                 ],
                 "additionalProperties": false
               }
+            },
+            "imgSrc": {
+              "type": "string"
+            },
+            "imgAlt": {
+              "type": "string"
             }
           },
           "required": [
@@ -144,8 +150,7 @@
             "num",
             "title",
             "leadParagraph",
-            "paragraphs",
-            "pullquote"
+            "paragraphs"
           ],
           "additionalProperties": false
         },

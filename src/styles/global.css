@@ -442,6 +442,54 @@ section.section-tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: cla
 .hero-meta-item .label { display: block; margin-bottom: 4px; }
 .hero-meta-item .value { font-size: 15px; font-weight: 500; color: var(--carbone); }
 
+/* Hero with image layout (Principal page) */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+}
+
+.hero-inner.hero-has-image {
+  justify-content: space-between;
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hero-image-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-circle {
+  width: clamp(140px, 18vw, 260px);
+  height: clamp(140px, 18vw, 260px);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--bianco);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 768px) {
+  .hero-inner.hero-has-image {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: var(--s-6);
+  }
+  .hero-image-wrap {
+    align-self: center;
+  }
+  .hero-image-circle {
+    width: clamp(120px, 40vw, 200px);
+    height: clamp(120px, 40vw, 200px);
+  }
+}
+
 /* ---------- SECTION HEADERS ---------- */
 .section-header {
   display: flex;

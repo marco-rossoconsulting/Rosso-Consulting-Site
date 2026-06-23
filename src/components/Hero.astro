@@ -5,40 +5,46 @@ interface Props {
   headline: string;
   sub: string;
   meta?: Array<{ label: string; value: string }>;
+  imgSrc?: string;
+  imgAlt?: string;
 }
 
-const { eyebrowNum, eyebrowLabel, headline, sub, meta } = Astro.props;
+const { eyebrowNum, eyebrowLabel, headline, sub, meta, imgSrc, imgAlt } = Astro.props;
 ---
 
 <header class="hero">
   <div class="container">
-    <div class="hero-ornament reveal reveal-1" aria-hidden="true">
-      <span class="bar bar-1"></span>
-      <span class="bar bar-2"></span>
-      <span class="bar bar-3"></span>
-    </div>
+    <div class={`hero-inner ${imgSrc ? 'hero-has-image' : ''}`}>
+      <div class="hero-text">
+        <div class="hero-eyebrow-row reveal reveal-1">
+          <span class="hero-num">{eyebrowNum}</span>
+          <span class="hero-eyebrow-line"></span>
+          <span class="hero-eyebrow-label">{eyebrowLabel}</span>
+        </div>
 
-    <div class="hero-eyebrow-row reveal reveal-1">
-      <span class="hero-num">{eyebrowNum}</span>
-      <span class="hero-eyebrow-line"></span>
-      <span class="hero-eyebrow-label">{eyebrowLabel}</span>
-    </div>
+        <h1 class="hero-headline reveal reveal-2">
+          <Fragment set:html={headline} /><span class="accent">.</span>
+        </h1>
 
-    <h1 class="hero-headline reveal reveal-2">
-      <Fragment set:html={headline} /><span class="accent">.</span>
-    </h1>
+        <p class="hero-sub reveal reveal-3" set:html={sub}></p>
 
-    <p class="hero-sub reveal reveal-3" set:html={sub}></p>
-
-    {meta && meta.length > 0 && (
-      <div class="hero-meta-row reveal reveal-4">
-        {meta.map((item) => (
-          <div class="hero-meta-item">
-            <span class="label">{item.label}</span>
-            <span class="value">{item.value}</span>
+        {meta && meta.length > 0 && (
+          <div class="hero-meta-row reveal reveal-4">
+            {meta.map((item) => (
+              <div class="hero-meta-item">
+                <span class="label">{item.label}</span>
+                <span class="value">{item.value}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
-    )}
+
+      {imgSrc && (
+        <div class="hero-image-wrap reveal reveal-2">
+          <img src={imgSrc} alt={imgAlt || ''} class="hero-image-circle" />
+        </div>
+      )}
+    </div>
   </div>
 </header>
