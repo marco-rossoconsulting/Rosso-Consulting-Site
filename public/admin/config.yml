@@ -358,7 +358,6 @@ collections:
                   - { label: "Letter (A, B, …)", name: n, widget: string, i18n: duplicate }
                   - { label: "Heading", name: h, widget: string, i18n: true }
                   - { label: "Paragraph", name: p, widget: text, i18n: true }
-          - { label: "Pull quote", name: pullquote, widget: text, i18n: true }
           - label: "Technology approach"
             name: techApproach
             widget: object
@@ -435,6 +434,8 @@ collections:
               - { label: "Eyebrow label", name: eyebrowLabel, widget: string, i18n: true }
               - { label: "Headline", name: headline, widget: text, i18n: true }
               - { label: "Subtitle", name: sub, widget: text, i18n: true }
+              - { label: "Hero image", name: imgSrc, widget: image, i18n: duplicate, required: false, hint: "Circular photo shown on the right side of the hero." }
+              - { label: "Hero image alt text", name: imgAlt, widget: string, i18n: duplicate, required: false, default: "Marco Rosso" }
               - label: "Meta items"
                 name: meta
                 widget: list
@@ -469,7 +470,6 @@ collections:
               - { label: "Title", name: title, widget: string, i18n: true }
               - { label: "Lead paragraph (bold)", name: leadParagraph, widget: text, i18n: true }
               - { label: "Paragraphs", name: paragraphs, widget: list, i18n: true, field: { label: "Paragraph", name: text, widget: text } }
-              - { label: "Pull quote", name: pullquote, widget: text, i18n: true }
           - label: "Experience"
             name: experience
             widget: object
@@ -721,7 +721,6 @@ collections:
               - { label: "Title", name: title, widget: string, i18n: true }
               - { label: "Lead (bold)", name: lead, widget: text, i18n: true }
               - { label: "Paragraph", name: paragraph, widget: text, i18n: true }
-              - { label: "Pull quote", name: pullquote, widget: text, i18n: true }
           - label: "Page CTA"
             name: cta
             widget: object
