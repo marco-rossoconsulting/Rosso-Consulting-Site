@@ -1,84 +1,120 @@
 {
   "seo": {
-    "title": "Rosso Consulting · Una voce indipendente nella tecnologia dell'ospitalità",
-    "description": "Rosso Consulting è uno studio di consulenza con sede in Svizzera ed entità ombrello, fondato e diretto da Marco Rosso. Competenza operatore-praticante nella tecnologia dell'ospitalità.",
+    "title": "Consulenza tecnologica alberghiera | Rosso Consulting",
+    "description": "Strategia ed esecuzione indipendenti per operatori alberghieri, fondatori SaaS hospitality e investitori. Basata su esperienza operativa attuale e un decennio di scalabilità aziendale nel settore tecnologico hospitality.",
     "ogImage": ""
   },
   "hero": {
     "eyebrowNum": "01",
-    "eyebrowLabel": "Studio Indipendente",
-    "headline": "Una voce<br>indipendente<br>nella tecnologia<br>dell'ospitalità",
-    "sub": "Uno studio di consulenza con sede in Svizzera ed entità ombrello, fondato e diretto da Marco Rosso. Competenza operatore-praticante — costruita dentro al settore, affinata da un decennio scalando team commerciali SaaS statunitensi, dispiegata da Lugano.",
+    "eyebrowLabel": "Rosso Consulting",
+    "headline": "Una voce indipendente<br>nella tecnologia<br>dell'ospitalità",
+    "sub": "Strategia ed esecuzione indipendenti per operatori alberghieri, fondatori SaaS hospitality e investitori. Basata su esperienza operativa attuale e un decennio nel settore tecnologico hospitality.",
     "meta": [
-      { "label": "Pratica", "value": "Indipendente" },
-      { "label": "Sede", "value": "Lugano, CH" },
-      { "label": "Lingue", "value": "EN · IT · ES" },
-      { "label": "Attivo dal", "value": "2026" }
+      {
+        "label": "Pratica",
+        "value": "Indipendente"
+      },
+      {
+        "label": "Sede",
+        "value": "Lugano, CH"
+      },
+      {
+        "label": "Lingue",
+        "value": "EN · IT · ES"
+      }
     ]
   },
   "practice": {
     "num": "02",
-    "title": "Pratica",
-    "intro": "Quattro filoni, guidati dai risultati. Ognuno descrive come il lavoro è strutturato e contrattualizzato.",
+    "title": "Cosa facciamo",
+    "intro": "Quattro modalità di collaborazione. Ognuna è orientata al risultato e calibrata sul problema da risolvere.",
     "lanes": [
       {
         "num": "01",
-        "title": "Consulenza su Progetto",
-        "body": "Progetti clienti con scope esplicito, deliverable e tempistiche. Consulenza strategica, audit tecnologici, programmi di trasformazione, AI deployment, modelli operativi commerciali.",
-        "formats": ["Consulenza strategica", "Audit dello stack", "Programmi di trasformazione", "Leadership commerciale frazionale"]
+        "title": "Mandati di Consulenza",
+        "body": "Progetti definiti con scope, tempistiche e deliverable chiari. Consulenza strategica, audit tecnologici, programmi di trasformazione, deployment AI e modelli operativi commerciali.",
+        "formats": [
+          "Consulenza strategica",
+          "Audit tecnologici",
+          "Programmi di trasformazione",
+          "Leadership commerciale frazionata"
+        ]
       },
       {
         "num": "02",
         "title": "Ruoli Advisory",
-        "body": "Posizioni formali di advisory board o consulente strategico presso aziende di tecnologia per l'ospitalità. Relazioni di lungo periodo, cadenza regolare, mix di cash, equity e strutture in-kind.",
-        "formats": ["Board seats", "Strategic GTM advisor", "Pre-seed e seed"]
+        "body": "Posizioni formali di advisory board con aziende tecnologiche nel settore hospitality. Relazioni a lungo termine con cadenza regolare e allineamento strategico.",
+        "formats": [
+          "Advisory board",
+          "Consulente GTM strategico",
+          "Pre-seed a Series B"
+        ]
       },
       {
         "num": "03",
-        "title": "Expert Network e Lavoro per Investitori",
-        "body": "Consulenze pagate per VC, PE e investitori corporate che valutano il settore della tecnologia per l'ospitalità. Chiamate singole tramite expert network; relazioni più lunghe per lo sviluppo di tesi di investimento.",
-        "formats": ["Chiamate di due diligence", "Market mapping", "Stress-test di tesi"]
+        "title": "Supporto agli Investitori",
+        "body": "Consulenze per VC, PE e investitori corporate che valutano il settore tecnologico hospitality. Due diligence, mappatura di mercato e validazione di tesi.",
+        "formats": [
+          "Due diligence",
+          "Mappatura di mercato",
+          "Validazione tesi"
+        ]
       },
       {
         "num": "04",
-        "title": "Operating Ventures",
-        "body": "Aziende costruite o gestite sotto l'ombrello di Rosso Consulting. Le ventures portano l'endorsement della parent — \"a Rosso Consulting company\" — mantenendo brand e autonomia commerciale propri.",
-        "formats": ["Astia Web (corrente)", "Architettura di spinout"]
+        "title": "Ventures Operative",
+        "body": "Aziende costruite sotto l'ombrello Rosso Consulting. Ognuna porta l'endorsement della parent pur mantenendo brand e autonomia commerciale indipendenti.",
+        "formats": [
+          "Astia Web (attuale)",
+          "Future ventures"
+        ]
       }
     ],
-    "ctaLabel": "Scopri come operiamo",
+    "ctaLabel": "Esplora i servizi",
     "ctaHref": "/it/practice/"
   },
   "audiences": {
     "num": "03",
-    "title": "Chi serviamo",
+    "title": "Chi aiutiamo",
     "items": [
-      { "heading": "Fondatori SaaS", "body": "Fondatori da pre-seed a Series C che costruiscono software per ospitalità e travel. Advisory, GTM, leadership commerciale frazionale." },
-      { "heading": "Investitori VC e PE", "body": "Fondi che valutano travel e hospitality tech. Due diligence, mappatura di mercato, sviluppo di tesi." },
-      { "heading": "Operatori Alberghieri", "body": "Gruppi indipendenti e a conduzione familiare. Trasformazione digitale, AI deployment, lavoro sullo stack tecnologico." },
-      { "heading": "Pari Operatori", "body": "Pari del C-suite ed eventi di settore. Speaking, thought leadership, contributo alla community." }
+      {
+        "heading": "Operatori Alberghieri",
+        "body": "Gruppi indipendenti e operatori familiari. Strategia tecnologica, deployment AI, ottimizzazione distribuzione e trasformazione digitale."
+      },
+      {
+        "heading": "Fondatori SaaS Hospitality",
+        "body": "Fondatori da pre-seed a Series B che costruiscono software hospitality. Strategia go-to-market, scalabilità commerciale, product-market fit e insight operatore."
+      },
+      {
+        "heading": "Investitori",
+        "body": "Fondi che valutano travel e hospitality technology. Due diligence commerciale, intelligence di mercato e validazione operatore."
+      },
+      {
+        "heading": "Pari Operatore",
+        "body": "Peer C-suite e eventi di settore. Speaking, thought leadership e contributo alla community."
+      }
     ]
   },
   "active": {
     "num": "04",
-    "title": "Incarichi attivi",
-    "intro": "Quattro ruoli advisory e una venture operativa. Accettati solo dove c'è allineamento strategico.",
+    "title": "Portfolio advisory",
+    "intro": "Ruoli advisory attuali con aziende tecnologiche hospitality. Accettati solo dove esiste un reale allineamento strategico.",
     "ctaLabel": "Vedi portfolio advisory",
     "ctaHref": "/it/advisory/"
   },
   "operatingNow": {
     "num": "05",
-    "title": "In operatività ora",
-    "roleLabel": "Ruolo Principale",
+    "title": "Perché questa prospettiva è diversa",
+    "roleLabel": "Operatore oggi",
     "roleTitle": "Chief Digital Strategy<br>& Business Automation Officer",
-    "company": "Planhotel Hospitality Group — gruppo alberghiero italo-svizzero, 11 proprietà su tre brand operativi a Zanzibar, alle Maldive e in Kenya.",
-    "whyMattersLabel": "Perché conta",
-    "whyMattersBody": "Il ruolo operativo di Marco è corrente e attivo. Ogni raccomandazione fatta in consulenza e advisory supera un singolo test: la dispiegherei in una proprietà che gestisco? Il seat operativo non è un titolo da citare — è l'ambiente di lavoro da cui la pratica è erogata."
+    "company": "Planhotel Hospitality Group — gruppo alberghiero internazionale con proprietà in Svizzera, Italia, Zanzibar, Maldives e Kenya.",
+    "whyMattersLabel": "Esperienza lato vendor",
+    "whyMattersBody": "Più di un decennio all'interno di aziende tecnologiche hospitality — da SaaS in crescita a piattaforme globali tra cui Triptease, SiteMinder, Cloudbeds e Canary Technologies."
   },
   "cta": {
-    "label": "Inizia un dialogo",
-    "headline": "Pronti a parlare",
-    "sub": "La definizione dell'incarico inizia con una singola chiamata. Le prime conversazioni non sono fatturate.",
+    "label": "Inizia una conversazione",
+    "headline": "Porta la domanda",
+    "sub": "La forma dell'incarico verrà dopo. Le conversazioni iniziali sono gratuite e durano circa trenta minuti.",
     "accent": ".",
     "buttonLabel": "Contattaci →",
     "buttonHref": "/it/contact/"

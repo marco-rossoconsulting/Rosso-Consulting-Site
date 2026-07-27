@@ -1,34 +1,14 @@
 {
   "seo": {
-    "title": "Principal · Rosso Consulting",
-    "description": "Marco Rosso — fundador y principal de Rosso Consulting. Trayectoria, formación y récord operativo.",
+    "title": "Marco Rosso | Operador hospitality technology y advisor SaaS",
+    "description": "Marco Rosso — operador hospitality, executive tecnológico y advisor SaaS. Rol operativo actual en Planhotel Hospitality Group, precedido por una década en Triptease, SiteMinder, Cloudbeds y Canary Technologies.",
     "ogImage": "/uploads/marco-rosso-principal.jpg"
   },
   "hero": {
     "eyebrowNum": "03",
-    "eyebrowLabel": "Principal",
+    "eyebrowLabel": "Nosotros",
     "headline": "Marco<br>Rosso",
-    "sub": "Fundador y principal de Rosso Consulting. Actualmente Chief Digital Strategy and Business Automation Officer en Planhotel Hospitality Group. Aproximadamente una década de liderazgo comercial en Triptease, SiteMinder, Cloudbeds y Canary Technologies precedió el regreso al lado operador.",
-    "imgSrc": "/uploads/marco-rosso-principal.jpg",
-    "imgAlt": "Marco Rosso",
-    "meta": [
-      {
-        "label": "Ubicación",
-        "value": "Lugano, CH"
-      },
-      {
-        "label": "Idiomas",
-        "value": "EN · IT · ES"
-      },
-      {
-        "label": "Formación",
-        "value": "EHL · Cornell · HBS"
-      },
-      {
-        "label": "Roles advisory",
-        "value": "4 activos"
-      }
-    ]
+    "sub": "Operador hospitality, executive tecnológico y advisor SaaS. Actualmente Chief Digital Strategy and Business Automation Officer en Planhotel Hospitality Group. Precedido por una década escalando empresas tecnológicas hospitality."
   },
   "careerArc": {
     "num": "01",

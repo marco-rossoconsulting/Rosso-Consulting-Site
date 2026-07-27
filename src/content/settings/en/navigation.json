@@ -2,40 +2,95 @@
   "brand": "Rosso Consulting",
   "header": {
     "items": [
-      { "label": "Practice", "href": "/practice/", "page": "practice" },
-      { "label": "Principal", "href": "/principal/", "page": "principal" },
-      { "label": "Advisory", "href": "/advisory/", "page": "advisory" },
-      { "label": "Ventures", "href": "/ventures/", "page": "ventures" },
-      { "label": "Writing", "href": "/writing/", "page": "writing" }
+      {
+        "label": "Services",
+        "href": "/practice/",
+        "page": "practice"
+      },
+      {
+        "label": "About",
+        "href": "/principal/",
+        "page": "principal"
+      },
+      {
+        "label": "Advisory",
+        "href": "/advisory/",
+        "page": "advisory"
+      },
+      {
+        "label": "Ventures",
+        "href": "/ventures/",
+        "page": "ventures"
+      },
+      {
+        "label": "Insights",
+        "href": "/writing/",
+        "page": "writing"
+      }
     ],
-    "cta": { "label": "Get in touch", "href": "/contact/", "page": "contact" }
+    "cta": {
+      "label": "Get in touch",
+      "href": "/contact/",
+      "page": "contact"
+    }
   },
   "footer": {
     "tagline": "An independent consulting practice and umbrella entity. Founded and led by Marco Rosso.",
     "columns": [
       {
-        "heading": "Practice",
+        "heading": "Services",
         "links": [
-          { "label": "How we work", "href": "/practice/" },
-          { "label": "Advisory", "href": "/advisory/" },
-          { "label": "Ventures", "href": "/ventures/" },
-          { "label": "Writing", "href": "/writing/" }
+          {
+            "label": "How we work",
+            "href": "/practice/"
+          },
+          {
+            "label": "Advisory",
+            "href": "/advisory/"
+          },
+          {
+            "label": "Ventures",
+            "href": "/ventures/"
+          },
+          {
+            "label": "Insights",
+            "href": "/writing/"
+          }
         ]
       },
       {
         "heading": "Firm",
         "links": [
-          { "label": "Principal", "href": "/principal/" },
-          { "label": "Contact", "href": "/contact/" },
-          { "label": "LinkedIn", "href": "https://linkedin.com/in/mprosso", "external": true }
+          {
+            "label": "About",
+            "href": "/principal/"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact/"
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://linkedin.com/in/mprosso",
+            "external": true
+          }
         ]
       },
       {
         "heading": "Reach",
         "links": [
-          { "label": "marco@rossoconsulting.ch", "href": "mailto:marco@rossoconsulting.ch" },
-          { "label": "Lugano, Switzerland", "href": "" },
-          { "label": "EN · IT · ES", "href": "" }
+          {
+            "label": "marco@rossoconsulting.ch",
+            "href": "mailto:marco@rossoconsulting.ch"
+          },
+          {
+            "label": "Lugano, Switzerland",
+            "href": ""
+          },
+          {
+            "label": "EN · IT · ES",
+            "href": ""
+          }
         ]
       }
     ],

@@ -1,7 +1,7 @@
 {
   "article": {
     "minRead": "min de lectura",
-    "relatedWriting": "Artículos relacionados",
+    "relatedWriting": "Insights relacionados",
     "readArticle": "Leer artículo"
   },
   "common": {
@@ -10,6 +10,6 @@
   },
   "seo": {
     "siteName": "Rosso Consulting",
-    "defaultDescription": "Rosso Consulting es una consultora con sede en Suiza y entidad paraguas, fundada y dirigida por Marco Rosso. Experiencia operador-practicante en tecnología hotelera."
+    "defaultDescription": "Estrategia y ejecución independientes para operadores hoteleros, fundadores SaaS hospitality e inversores. Basada en experiencia operativa actual y una década en el sector tecnológico hospitality."
   }
 }

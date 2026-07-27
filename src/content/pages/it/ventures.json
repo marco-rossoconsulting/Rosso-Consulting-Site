@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Ventures · Rosso Consulting",
-    "description": "Operating ventures costruite sotto l'ombrello di Rosso Consulting. Astia Web è la prima.",
+    "title": "Ventures tecnologiche hospitality | Rosso Consulting",
+    "description": "Ventures operative costruite sotto l'ombrello Rosso Consulting. Astia Web è la prima — uno studio moderno di produzione siti web per gruppi alberghieri indipendenti.",
     "ogImage": ""
   },
   "hero": {
     "eyebrowNum": "05",
-    "eyebrowLabel": "Operating Ventures",
+    "eyebrowLabel": "Ventures",
     "headline": "Ventures<br>costruite sotto<br>l'ombrello",
-    "sub": "Alcuni pattern emergono ripetutamente attraverso gli incarichi clienti al punto che la risposta giusta non è un altro progetto di consulenza — è una soluzione productizzata. Rosso Consulting le spinoffa come aziende operative. Ognuna porta l'endorsement della parent pur mantenendo il proprio brand e la propria autonomia commerciale."
+    "sub": "Alcuni problemi si ripresentano con tale frequenza che la consulenza non è più la risposta giusta. Dove il bisogno è ripetibile e la soluzione può stare in piedi da sola, Rosso Consulting può costruire un'azienda operativa dedicata."
   },
   "currentVenture": {
     "num": "01",
@@ -24,9 +24,18 @@
       "Astia Web risolve il problema architetturale sottostante. L'hotel finisce con un sito veloce, posseduto, gestito via CMS che costa meno nel TCO a cinque anni rispetto all'alternativa legacy."
     ],
     "stats": [
-      { "label": "Status", "value": "Live, accetta brief" },
-      { "label": "Stack", "value": "Astro · Netlify · Sveltia" },
-      { "label": "Mercato", "value": "Hotel indip. (EMEA)" }
+      {
+        "label": "Status",
+        "value": "Live, accetta brief"
+      },
+      {
+        "label": "Stack",
+        "value": "Astro · Netlify · Sveltia"
+      },
+      {
+        "label": "Mercato",
+        "value": "Hotel indip. (EMEA)"
+      }
     ]
   },
   "spinoutLogic": {
@@ -34,10 +43,26 @@
     "title": "Architettura di spinout",
     "intro": "Un pattern diventa una venture solo quando quattro condizioni sono vere. La maggior parte dei pattern non supera questo test e rimangono come lavoro advisory o di consulenza. I pochi che lo superano sono costruiti deliberatamente.",
     "conditions": [
-      { "n": "01", "h": "Necessità ripetibile", "p": "Il pattern si ripresenta attraverso più clienti in forma simile. Un singolo incarico advisory che lo risolve una volta non affronta il volume sottostante di domanda." },
-      { "n": "02", "h": "Erogazione productizzabile", "p": "La soluzione ha abbastanza struttura da poter essere erogata come prodotto o servizio standardizzato piuttosto che come consulenza bespoke. I margini migliorano con la scala." },
-      { "n": "03", "h": "Economics funzionanti", "p": "L'economia unitaria funziona alla scala che il mercato supporterebbe — non solo in teoria, ma con assunzioni conservative su prezzo, conversione e retention." },
-      { "n": "04", "h": "Brand separato serve meglio", "p": "La venture serve il proprio mercato in modo più credibile sotto il proprio brand che sotto il brand parent Rosso Consulting. L'endorsement aggiunge; il brand non diluisce." }
+      {
+        "n": "01",
+        "h": "Necessità ripetibile",
+        "p": "Il pattern si ripresenta attraverso più clienti in forma simile. Un singolo incarico advisory che lo risolve una volta non affronta il volume sottostante di domanda."
+      },
+      {
+        "n": "02",
+        "h": "Erogazione productizzabile",
+        "p": "La soluzione ha abbastanza struttura da poter essere erogata come prodotto o servizio standardizzato piuttosto che come consulenza bespoke. I margini migliorano con la scala."
+      },
+      {
+        "n": "03",
+        "h": "Economics funzionanti",
+        "p": "L'economia unitaria funziona alla scala che il mercato supporterebbe — non solo in teoria, ma con assunzioni conservative su prezzo, conversione e retention."
+      },
+      {
+        "n": "04",
+        "h": "Brand separato serve meglio",
+        "p": "La venture serve il proprio mercato in modo più credibile sotto il proprio brand che sotto il brand parent Rosso Consulting. L'endorsement aggiunge; il brand non diluisce."
+      }
     ]
   },
   "parentSpinout": {
@@ -45,9 +70,21 @@
     "title": "Parent e spinout",
     "intro": "Tre impegni strutturali valgono per ogni venture, corrente e futura.",
     "commitments": [
-      { "label": "Brand", "h": "Endorsement lockup", "p": "Ogni venture porta il lockup \"a Rosso Consulting company\" nel proprio sistema di identità. Il brand operativo rimane distinto; la provenienza rimane chiara." },
-      { "label": "Operations", "h": "Autonoma", "p": "Le ventures gestiscono le proprie decisioni commerciali, di prodotto e operative. La parent fornisce capitale e consiglio strategico, non controllo operativo." },
-      { "label": "Orizzonte temporale", "h": "Duraturo", "p": "Le ventures sono costruite per operare come aziende standalone nel lungo termine. Non sono asset preparati per la vendita — anche se l'acquisizione non è preclusa se emerge la struttura giusta." }
+      {
+        "label": "Brand",
+        "h": "Endorsement lockup",
+        "p": "Ogni venture porta il lockup \"a Rosso Consulting company\" nel proprio sistema di identità. Il brand operativo rimane distinto; la provenienza rimane chiara."
+      },
+      {
+        "label": "Operations",
+        "h": "Autonoma",
+        "p": "Le ventures gestiscono le proprie decisioni commerciali, di prodotto e operative. La parent fornisce capitale e consiglio strategico, non controllo operativo."
+      },
+      {
+        "label": "Orizzonte temporale",
+        "h": "Duraturo",
+        "p": "Le ventures sono costruite per operare come aziende standalone nel lungo termine. Non sono asset preparati per la vendita — anche se l'acquisizione non è preclusa se emerge la struttura giusta."
+      }
     ]
   },
   "futureVentures": {
