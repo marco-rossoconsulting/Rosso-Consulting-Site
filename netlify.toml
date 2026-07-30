@@ -52,6 +52,12 @@
   status = 301
   force = true
 
+# Redirect legacy /sitemap.xml to Astro's sitemap-index.xml
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+
 # llms.txt and robots.txt
 [[headers]]
   for = "/llms.txt"
