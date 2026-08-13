@@ -8,7 +8,27 @@
     "eyebrowNum": "03",
     "eyebrowLabel": "Nosotros",
     "headline": "Marco<br>Rosso",
-    "sub": "Operador hospitality, executive tecnológico y advisor SaaS. Actualmente Chief Digital Strategy and Business Automation Officer en Planhotel Hospitality Group. Precedido por una década escalando empresas tecnológicas hospitality."
+    "sub": "Operador hospitality, executive tecnológico y advisor SaaS. Actualmente Chief Digital Strategy and Business Automation Officer en Planhotel Hospitality Group. Precedido por una década escalando empresas tecnológicas hospitality.",
+    "imgSrc": "/uploads/marco-rosso-principal.jpg",
+    "imgAlt": "Marco Rosso",
+    "meta": [
+      {
+        "label": "Base",
+        "value": "Lugano, CH"
+      },
+      {
+        "label": "Idiomas",
+        "value": "EN · IT · ES"
+      },
+      {
+        "label": "Formación",
+        "value": "EHL · Cornell · HBS"
+      },
+      {
+        "label": "Puestos advisory",
+        "value": "4 activos"
+      }
+    ]
   },
   "careerArc": {
     "num": "01",
