@@ -10,6 +10,13 @@ interface Props {
 const { type, lang = 'en', data = {} } = Astro.props;
 const site = await getSite(lang);
 
+const localityAddress = {
+  '@type': 'PostalAddress',
+  addressLocality: site.founding.addressLocality,
+  addressRegion: site.founding.addressRegion,
+  addressCountry: site.founding.addressCountry,
+};
+
 const organization = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -31,12 +38,7 @@ const organization = {
   },
   foundingLocation: {
     '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: site.founding.addressLocality,
-      addressRegion: site.founding.addressRegion,
-      addressCountry: site.founding.addressCountry,
-    },
+    address: localityAddress,
   },
   knowsLanguage: site.principal.knowsLanguage,
   sameAs: [site.contact.linkedin],
@@ -69,6 +71,25 @@ const person = {
   sameAs: [site.contact.linkedin],
 };
 
+const professionalService = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${site.url}/#professionalservice`,
+  name: site.name,
+  url: site.url,
+  description: site.tagline,
+  parentOrganization: { '@id': `${site.url}/#organization` },
+  email: site.contact.email,
+  areaServed: {
+    '@type': 'Country',
+    name: 'CH',
+  },
+  serviceType: 'Hospitality technology consulting',
+  knowsAbout: 'hospitality',
+  address: localityAddress,
+  sameAs: [site.contact.linkedin],
+};
+
 const article = type === 'article' ? {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -86,6 +107,7 @@ const article = type === 'article' ? {
 
 <script type="application/ld+json" set:html={JSON.stringify(organization)} />
 <script type="application/ld+json" set:html={JSON.stringify(person)} />
+<script type="application/ld+json" set:html={JSON.stringify(professionalService)} />
 {type === 'article' && article && (
   <script type="application/ld+json" set:html={JSON.stringify(article)} />
 )}
