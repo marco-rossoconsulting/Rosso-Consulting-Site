@@ -29,9 +29,9 @@
       }
     ],
     "cta": {
-      "label": "Contáctanos",
-      "href": "/es/contact/",
-      "page": "contact"
+        "label": "Contáctanos",
+        "href": "/es/contact/",
+        "page": "contact"
     }
   },
   "footer": {
@@ -71,7 +71,7 @@
           },
           {
             "label": "LinkedIn",
-            "href": "https://linkedin.com/in/mprosso",
+            "href": "https://www.linkedin.com/in/mprosso/",
             "external": true
           }
         ]
