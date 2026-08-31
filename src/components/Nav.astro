@@ -1,6 +1,7 @@
 ---
 // Nav.astro — renders header navigation from navigation.{lang}.json
 import { getNavigation, type Lang } from '../lib/cms';
+import { pathForLocale } from '../lib/i18n';
 
 interface Props {
   lang: Lang;
@@ -10,12 +11,13 @@ interface Props {
 const { lang, currentPage } = Astro.props;
 const nav = await getNavigation(lang);
 
-// Language switcher: preserves current path across locales
-const currentPath = Astro.url.pathname.replace(/^\/(it|es)/, '') || '/';
+// Language switcher: preserves current path across locales.
+// EN-only essays (no IT/ES [slug] pages) send IT/ES to the writing index.
+const pathname = Astro.url.pathname;
 const langPaths = {
-  en: currentPath,
-  it: currentPath === '/' ? '/it/' : `/it${currentPath}`,
-  es: currentPath === '/' ? '/es/' : `/es${currentPath}`,
+  en: pathForLocale(pathname, 'en'),
+  it: pathForLocale(pathname, 'it'),
+  es: pathForLocale(pathname, 'es'),
 } as const;
 ---
 
