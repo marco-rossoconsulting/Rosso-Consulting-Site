@@ -1,0 +1,391 @@
+---
+/**
+ * How the parts compound (Business Foundation, 09). A real diagram, not
+ * decoration: the red point travels the loop once when it comes into view,
+ * lighting each part in turn. Click any part to read it. Under reduced
+ * motion the loop is drawn in full and nothing moves.
+ */
+import Icon from '../Icon.astro';
+import { getCopy, em, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getCopy(lang);
+const w = t.home.wheel;
+// Positions around the loop, clockwise from the top.
+const angles = [-90, 0, 90, 180];
+const R = 150;
+const C = 200;
+const circ = 2 * Math.PI * R;
+---
+
+<section class="section wheel" aria-labelledby="wheel-title">
+  <div class="container wheel__grid">
+    <div class="wheel__copy">
+      <p class="label" data-reveal>{w.label}</p>
+      <h2 id="wheel-title" class="h1" data-reveal style="--i:1" set:html={em(w.title)} />
+      <p class="body muted" data-reveal style="--i:2">{w.intro}</p>
+    </div>
+
+    <div class="wheel__figure" data-wheel data-reveal style="--i:1">
+      <div class="wheel__stage">
+        <svg viewBox="0 0 400 400" class="wheel__svg" aria-hidden="true">
+          <circle cx={C} cy={C} r={R} class="wheel__track"></circle>
+          <circle
+            cx={C}
+            cy={C}
+            r={R}
+            class="wheel__progress"
+            style={`stroke-dasharray:${circ.toFixed(2)};stroke-dashoffset:${circ.toFixed(2)}`}
+            transform={`rotate(-90 ${C} ${C})`}
+            data-progress></circle>
+          {
+            angles.map((a) => {
+              const rad = (a * Math.PI) / 180;
+              return <circle cx={C + R * Math.cos(rad)} cy={C + R * Math.sin(rad)} r="5" class="wheel__node" />;
+            })
+          }
+          <circle cx={C} cy={C - R} r="8" class="wheel__dot" data-dot></circle>
+        </svg>
+        <p class="wheel__centre">{w.centre}</p>
+        {
+          w.nodes.map((node, i) => (
+            <button
+              type="button"
+              class={`wheel__label wheel__label--${i}`}
+              data-node={i}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              {node.name}
+            </button>
+          ))
+        }
+      </div>
+      <button type="button" class="wheel__replay" data-replay>
+        <Icon name="arrow-clockwise" />
+        {w.replay}
+      </button>
+    </div>
+
+    <div class="wheel__caption" aria-live="polite" data-reveal style="--i:2">
+      {
+        w.nodes.map((node, i) => (
+          <div class="wheel__text" data-caption={i} hidden={i !== 0}>
+            <p class="h2">{node.name}</p>
+            <p class="body">{node.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .wheel__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    column-gap: var(--gutter);
+    row-gap: 1.25rem;
+    align-items: end;
+  }
+  .wheel__copy {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .wheel__caption {
+    grid-column: 1 / span 5;
+    grid-row: 2;
+    align-self: start;
+    margin-top: 1.25rem;
+    padding: 1.5rem 1.5rem 1.6rem;
+    min-height: 11.5rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+  }
+  .wheel__text {
+    display: grid;
+    gap: 0.6rem;
+  }
+  .wheel__text[hidden] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .wheel__text:not([hidden]) {
+      animation: fade-up 0.5s var(--ease-out) both;
+    }
+  }
+  .wheel__text .body {
+    color: var(--fg-muted);
+    font-size: 1.0625rem;
+  }
+
+  .wheel__figure {
+    grid-column: 7 / span 6;
+    grid-row: 1 / span 2;
+    align-self: center;
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+  }
+  .wheel__stage {
+    position: relative;
+    width: min(100%, 500px);
+    aspect-ratio: 1;
+  }
+  .wheel__svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .wheel__track {
+    fill: none;
+    stroke: var(--hairline);
+    stroke-width: 1.5;
+  }
+  .wheel__progress {
+    fill: none;
+    stroke: var(--fg);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+  .wheel__node {
+    fill: var(--bg);
+    stroke: var(--fg);
+    stroke-width: 1.5;
+  }
+  .wheel__dot {
+    fill: var(--accent);
+  }
+
+  .wheel__centre {
+    position: absolute;
+    inset: 32% 26%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1rem, 0.85rem + 0.6vw, 1.3rem);
+    line-height: 1.35;
+    color: var(--fg-muted);
+  }
+
+  .wheel__label {
+    position: absolute;
+    padding: 0.5rem 0.85rem;
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .wheel__label:hover {
+    border-color: var(--fg);
+  }
+  .wheel__label[aria-pressed='true'] {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+  }
+  /* Positions match the SVG nodes: top, right, bottom, left (r = 37.5% of the stage). */
+  .wheel__label--0 {
+    left: 50%;
+    top: calc(12.5% - 2.2rem);
+  }
+  .wheel__label--1 {
+    left: calc(87.5% + 1.1rem);
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  .wheel__label--2 {
+    left: 50%;
+    top: calc(87.5% + 2.2rem);
+  }
+  .wheel__label--3 {
+    left: auto;
+    right: calc(87.5% + 1.1rem);
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  /* On narrow screens there is no room beside the loop: labels sit above the side nodes. */
+  @media (max-width: 1100px) {
+    .wheel__label--1 {
+      left: 87.5%;
+      top: calc(50% - 2.3rem);
+      transform: translate(-50%, -50%);
+    }
+    .wheel__label--3 {
+      left: 12.5%;
+      right: auto;
+      top: calc(50% - 2.3rem);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .wheel__replay {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 2rem;
+    padding: 0.4rem 0.6rem;
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .wheel__replay:hover {
+    color: var(--fg);
+  }
+  .wheel__replay :global(.icon) {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Small screens: heading, then the loop, then its caption right below it. */
+  @media (max-width: 960px) {
+    .wheel__copy,
+    .wheel__figure,
+    .wheel__caption {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+    .wheel__figure {
+      margin-top: 2rem;
+      padding-inline: 1.5rem;
+    }
+    .wheel__caption {
+      margin-top: 0;
+    }
+  }
+  @media (max-width: 520px) {
+    .wheel__label {
+      font-size: 0.8125rem;
+      padding: 0.4rem 0.6rem;
+    }
+    .wheel__centre {
+      inset: 30% 22%;
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script>
+  const R = 150;
+  const C = 200;
+  const CIRC = 2 * Math.PI * R;
+  const SEGMENT_MS = 1100; // four segments: one loop in under five seconds
+
+  document.querySelectorAll<HTMLElement>('[data-wheel]').forEach((figure) => {
+    const section = figure.closest('section');
+    const dot = figure.querySelector<SVGCircleElement>('[data-dot]');
+    const progress = figure.querySelector<SVGCircleElement>('[data-progress]');
+    const labels = Array.from(figure.querySelectorAll<HTMLButtonElement>('[data-node]'));
+    const captions = Array.from(section?.querySelectorAll<HTMLElement>('[data-caption]') ?? []);
+    const replay = figure.querySelector<HTMLButtonElement>('[data-replay]');
+    if (!dot || !progress || !labels.length) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let angle = 0; // degrees travelled clockwise from the top
+    let raf = 0;
+
+    const setActive = (i: number) => {
+      labels.forEach((l, j) => l.setAttribute('aria-pressed', String(i === j)));
+      captions.forEach((c, j) => (c.hidden = i !== j));
+    };
+    const draw = (deg: number, drawn: number) => {
+      const rad = ((deg - 90) * Math.PI) / 180;
+      dot.setAttribute('cx', String(C + R * Math.cos(rad)));
+      dot.setAttribute('cy', String(C + R * Math.sin(rad)));
+      progress.style.strokeDashoffset = String(CIRC * (1 - Math.min(drawn, 360) / 360));
+    };
+    const ease = (p: number) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+
+    // Travel clockwise from the current position to a target angle.
+    const travel = (from: number, to: number, drawnFrom: number, onNode?: (i: number) => void) =>
+      new Promise<void>((resolve) => {
+        cancelAnimationFrame(raf);
+        const dist = to - from;
+        const duration = Math.max(400, (dist / 90) * SEGMENT_MS);
+        const start = performance.now();
+        let lastNode = -1;
+        const tick = (now: number) => {
+          const p = Math.min(1, (now - start) / duration);
+          angle = from + dist * ease(p);
+          draw(angle % 360, drawnFrom + (angle - from));
+          const node = Math.floor((angle + 1) / 90) % 4;
+          if (onNode && node !== lastNode && Math.abs(angle - Math.round(angle / 90) * 90) < 6) {
+            lastNode = node;
+            onNode(node);
+          }
+          if (p < 1) raf = requestAnimationFrame(tick);
+          else resolve();
+        };
+        raf = requestAnimationFrame(tick);
+      });
+
+    const playLoop = async () => {
+      angle = 0;
+      setActive(0);
+      draw(0, 0);
+      await travel(0, 360, 0, (i) => setActive(i));
+      angle = 0;
+      setActive(0);
+    };
+
+    if (reduce) {
+      draw(0, 360);
+    } else if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            io.disconnect();
+            setTimeout(playLoop, 350);
+          }
+        },
+        { threshold: 0.5 },
+      );
+      io.observe(figure);
+    } else {
+      draw(0, 360);
+    }
+
+    labels.forEach((label, i) => {
+      label.addEventListener('click', () => {
+        setActive(i);
+        const target = i * 90;
+        if (reduce) {
+          angle = target;
+          draw(target, 360);
+          return;
+        }
+        let to = target;
+        while (to <= angle) to += 360;
+        if (to - angle >= 360) to -= 360;
+        if (to === angle) return;
+        travel(angle, to, 360).then(() => (angle = target));
+      });
+    });
+
+    replay?.addEventListener('click', () => {
+      if (reduce) return setActive(0);
+      playLoop();
+    });
+  });
+</script>

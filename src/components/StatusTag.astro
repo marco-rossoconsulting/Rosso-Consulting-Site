@@ -1,0 +1,13 @@
+---
+import type { Lang } from '../i18n';
+import { getCopy } from '../i18n';
+
+interface Props {
+  status: 'testing' | 'live' | 'venture' | 'closed';
+  lang: Lang;
+}
+const { status, lang } = Astro.props;
+const t = getCopy(lang);
+---
+
+<span class:list={['tag', `tag--${status}`]}>{t.status[status]}</span>

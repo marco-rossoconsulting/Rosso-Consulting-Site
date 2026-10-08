@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { getCopy, path, em } from '../i18n';
+
+// One 404 for the whole site, in English, with links into every language.
+const lang = 'en' as const;
+const t = getCopy(lang);
+const n = t.notFound;
+const links = [
+  { href: path(lang, 'home'), label: t.ui.home },
+  { href: path(lang, 'advisory'), label: t.ui.nav.advisory },
+  { href: path(lang, 'ai'), label: t.ui.nav.ai },
+  { href: path(lang, 'lab'), label: t.ui.nav.lab },
+  { href: path(lang, 'notes'), label: t.ui.nav.notes },
+];
+---
+
+<Base lang={lang} title={n.seo.title} description={n.seo.description} noindex translated={false}>
+  <section class="page-hero nf" aria-labelledby="page-title">
+    <div class="container page-hero__inner">
+      <div class="page-hero__main">
+        <p class="label fade-up" style="--i:0"><span class="marker" aria-hidden="true"></span>{n.label}</p>
+        <h1 id="page-title" class="display">
+          <span class="mask-line" style="--i:0"><span set:html={em(n.title)} /></span>
+        </h1>
+        <p class="standfirst fade-up" style="--i:1">{n.text}</p>
+        <ul class="nf__links fade-up" style="--i:2" role="list">
+          {
+            links.map((l) => (
+              <li>
+                <a href={l.href} class="arrow-link">
+                  {l.label}
+                  <Icon name="arrow-right" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="small muted fade-up" style="--i:3">
+          <a class="link" href="/it/" hreflang="it" lang="it">Italiano</a> · <a class="link" href="/es/" hreflang="es" lang="es">Español</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    min-height: 60vh;
+  }
+  .nf__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+</style>

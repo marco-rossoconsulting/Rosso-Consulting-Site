@@ -1,0 +1,186 @@
+---
+import '@fontsource-variable/newsreader/opsz.css';
+import '@fontsource-variable/newsreader/opsz-italic.css';
+import '@fontsource-variable/inter/wght.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import '../styles/global.css';
+import newsreaderLatin from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCopy, langs, switchLang, type Lang, type RouteKey } from '../i18n';
+import { site } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  current?: RouteKey;
+  /** false for English-only pages (essays, Field Notes) */
+  translated?: boolean;
+  type?: 'website' | 'article';
+  image?: string;
+  published?: Date;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  lang,
+  title,
+  description,
+  current,
+  translated = true,
+  type = 'website',
+  image = '/og-default.png',
+  published,
+  noindex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const t = getCopy(lang);
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
+const alternates = translated
+  ? langs.map((l) => ({ lang: l, href: new URL(switchLang(pathname, l), Astro.site).toString() }))
+  : [{ lang: 'en' as Lang, href: canonical }];
+const xDefault = translated ? new URL(switchLang(pathname, 'en'), Astro.site).toString() : canonical;
+
+const personId = `${site.url}/#marco-rosso`;
+const orgId = `${site.url}/#rosso-consulting`;
+const graph = [
+  {
+    '@type': 'ProfessionalService',
+    '@id': orgId,
+    name: site.name,
+    url: `${site.url}/`,
+    logo: `${site.url}/brand/rosso-consulting-full.png`,
+    image: `${site.url}/og-default.png`,
+    email: site.email,
+    slogan: 'Tried before advised.',
+    description: getCopy('en').home.seo.description,
+    founder: { '@id': personId },
+    areaServed: 'EMEA',
+    knowsLanguage: site.person.knowsLanguage,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.locality,
+      addressRegion: site.region,
+      addressCountry: site.country,
+    },
+    sameAs: [site.linkedin],
+  },
+  {
+    '@type': 'Person',
+    '@id': personId,
+    name: site.person.fullName,
+    givenName: site.person.givenName,
+    familyName: site.person.familyName,
+    jobTitle: site.person.jobTitle,
+    url: `${site.url}/about/`,
+    email: site.email,
+    worksFor: [{ '@id': orgId }, { '@type': 'Organization', name: 'Planhotel Hospitality Group' }],
+    alumniOf: site.person.alumniOf.map((name) => ({ '@type': 'CollegeOrUniversity', name })),
+    knowsLanguage: site.person.knowsLanguage,
+    homeLocation: { '@type': 'Place', name: 'Lugano, Switzerland' },
+    sameAs: [site.linkedin],
+  },
+  ...jsonLd,
+];
+const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+
+/* Set before first paint: theme (stored choice or system), the js class for
+   progressive reveals, and a safety net that shows content if scripts fail. */
+const themeInit = `(function(){var d=document.documentElement;d.classList.add('js');var s=null;try{s=localStorage.getItem('rc-theme')}catch(e){}if(s==='dark'||s==='light')d.setAttribute('data-theme',s);var m=window.matchMedia('(prefers-color-scheme: dark)');window.__rcResolveTheme=function(){d.setAttribute('data-theme-resolved',d.getAttribute('data-theme')||(m.matches?'dark':'light'))};window.__rcResolveTheme();if(m.addEventListener)m.addEventListener('change',window.__rcResolveTheme);setTimeout(function(){if(!window.__rcReady)d.classList.add('no-reveal')},2500)})();`;
+---
+
+<!doctype html>
+<html lang={t.meta.htmlLang} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Marco Rosso" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large" />}
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <meta name="theme-color" content="#F6F3EE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#2C2C2B" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Rosso Consulting · Notes" href="/rss.xml" />
+    <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href={newsreaderLatin} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Rosso Consulting" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rosso Consulting · Tried before advised." />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    {
+      translated &&
+        langs
+          .filter((l) => l !== lang)
+          .map((l) => <meta property="og:locale:alternate" content={getCopy(l).meta.ogLocale} />)
+    }
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {published && <meta property="article:author" content="Marco Rosso" />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script is:inline set:html={themeInit} />
+    <script type="application/ld+json" set:html={ld} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.ui.skip}</a>
+    <div data-top-sentinel aria-hidden="true" class="top-sentinel"></div>
+    <Header lang={lang} current={current} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
+
+<style is:global>
+  .top-sentinel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 24px;
+    pointer-events: none;
+  }
+  main:focus {
+    outline: none;
+  }
+  .icon {
+    width: 1em;
+    height: 1em;
+    flex: none;
+  }
+  .no-reveal [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+</style>
+
+<script>
+  import '../scripts/site';
+</script>

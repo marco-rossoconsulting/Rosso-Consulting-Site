@@ -1,0 +1,142 @@
+---
+/**
+ * A list of notes or essays. Each row is one link; the deck and the arrow
+ * come forward on hover.
+ */
+import Icon from './Icon.astro';
+import { formatDate, type Lang } from '../i18n';
+
+export interface NoteRow {
+  href: string;
+  title: string;
+  deck: string;
+  date: Date;
+  kicker: string;
+  readTime?: string;
+}
+interface Props {
+  rows: NoteRow[];
+  lang: Lang;
+  /** English-only content listed on an Italian or Spanish page */
+  contentLang?: string;
+  size?: 'large' | 'normal';
+}
+const { rows, lang, contentLang, size = 'normal' } = Astro.props;
+---
+
+<ul class:list={['note-list', `note-list--${size}`]} role="list">
+  {
+    rows.map((row, i) => (
+      <li data-reveal style={`--i:${i}`}>
+        <a href={row.href} class="note-row" hreflang={contentLang} lang={contentLang}>
+          <span class="note-row__meta label label--quiet">
+            <time datetime={row.date.toISOString().slice(0, 10)} lang={lang}>
+              {formatDate(row.date, lang)}
+            </time>
+            <span aria-hidden="true">·</span>
+            <span>{row.kicker}</span>
+          </span>
+          <span class="note-row__title">{row.title}</span>
+          <span class="note-row__deck">{row.deck}</span>
+          {row.readTime && (
+            <span class="note-row__time small muted" lang={lang}>
+              {row.readTime}
+            </span>
+          )}
+          <Icon name="arrow-right" class="note-row__arrow" />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .note-list {
+    border-top: 2px solid var(--rule);
+  }
+  .note-list li {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .note-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+    row-gap: 0.5rem;
+    padding: clamp(1.4rem, 1.1rem + 1vw, 2rem) 0;
+    color: var(--fg);
+    text-decoration: none;
+    isolation: isolate;
+  }
+  .note-row::before {
+    content: '';
+    position: absolute;
+    inset: 0 calc(-1 * var(--side));
+    background: var(--panel);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.35s ease;
+  }
+  .note-row:hover::before {
+    opacity: 0.5;
+  }
+  .note-row__meta {
+    grid-column: 1 / span 3;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding-top: 0.45rem;
+    align-self: start;
+  }
+  .note-row__title {
+    grid-column: 4 / span 7;
+    font-family: var(--serif);
+    font-size: var(--t-h2);
+    font-weight: 400;
+    line-height: 1.22;
+    letter-spacing: -0.008em;
+    text-wrap: balance;
+    transition: transform 0.45s var(--ease-out);
+  }
+  .note-list--large .note-row__title {
+    font-size: clamp(1.625rem, 1.35rem + 1vw, 2.25rem);
+    font-weight: 300;
+  }
+  .note-row__deck {
+    grid-column: 4 / span 7;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--fg-muted);
+    max-width: 36em;
+  }
+  .note-row__time {
+    grid-column: 4 / span 7;
+  }
+  .note-row :global(.note-row__arrow) {
+    grid-column: 12;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    width: 22px;
+    height: 22px;
+    opacity: 0.3;
+    transition: transform 0.45s var(--ease-out), opacity 0.3s ease;
+  }
+  .note-row:hover .note-row__title {
+    transform: translateX(6px);
+  }
+  .note-row:hover :global(.note-row__arrow) {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  @media (max-width: 800px) {
+    .note-row__meta,
+    .note-row__title,
+    .note-row__deck,
+    .note-row__time {
+      grid-column: 1 / span 11;
+    }
+    .note-row :global(.note-row__arrow) {
+      grid-row: 2;
+    }
+  }
+</style>

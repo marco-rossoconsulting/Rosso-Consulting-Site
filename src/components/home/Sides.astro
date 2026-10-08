@@ -1,0 +1,278 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/marco-rosso.png';
+import { getCopy, em, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getCopy(lang);
+const s = t.home.sides;
+---
+
+<section class="section sides" id="sides" aria-labelledby="sides-title">
+  <div class="container sides__grid">
+    <div class="sides__intro">
+      <p class="label" data-reveal>{s.label}</p>
+      <h2 id="sides-title" class="h1" data-reveal style="--i:1" set:html={em(s.title)} />
+      <p class="body muted" data-reveal style="--i:2">{s.intro}</p>
+      <figure class="sides__portrait" data-reveal style="--i:3">
+        <Image src={portrait} alt={s.portraitAlt} width={72} height={72} densities={[1, 2, 3]} loading="lazy" />
+        <figcaption class="label label--quiet">{s.caption}</figcaption>
+      </figure>
+    </div>
+
+    <div class="sides__tabs" data-tabs data-reveal style="--i:1">
+      <div class="sides__tablist" role="tablist" aria-label={s.tabsLabel}>
+        {
+          s.items.map((item, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`tab-${item.key}`}
+              aria-controls={`side-${item.key}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              tabindex={i === 0 ? 0 : -1}
+              data-tab={item.key}
+            >
+              <span class="sides__num">0{i + 1}</span>
+              <span class="sides__tabname">{item.tab}</span>
+            </button>
+          ))
+        }
+        <span class="sides__indicator" aria-hidden="true"></span>
+      </div>
+
+      {
+        s.items.map((item, i) => (
+          <div
+            class="sides__panel"
+            role="tabpanel"
+            id={`side-${item.key}`}
+            aria-labelledby={`tab-${item.key}`}
+            tabindex="0"
+            hidden={i !== 0}
+            data-panel={item.key}
+          >
+            <p class="label label--quiet">{item.seat}</p>
+            <p class="sides__line">{item.line}</p>
+            <p class="body">{item.body}</p>
+            <ul class="sides__proof" role="list">
+              {item.proof.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .sides__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+    row-gap: 3rem;
+    align-items: start;
+  }
+  .sides__intro {
+    grid-column: 1 / span 5;
+    display: grid;
+    gap: 1.25rem;
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+  .sides__portrait {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .sides__portrait img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--sabbia);
+  }
+  .sides__tabs {
+    grid-column: 7 / span 6;
+  }
+
+  .sides__tablist {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 2px solid var(--rule);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .sides__tablist button {
+    display: grid;
+    justify-items: start;
+    gap: 0.35rem;
+    padding: 1.1rem 0.5rem 1.1rem 0;
+    background: none;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    color: var(--fg-muted);
+    transition: color 0.25s ease;
+  }
+  .sides__tablist button:hover,
+  .sides__tablist button[aria-selected='true'] {
+    color: var(--fg);
+  }
+  .sides__num {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+  }
+  .sides__tabname {
+    font-family: var(--serif);
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+  .sides__tablist button[aria-selected='true'] .sides__tabname {
+    font-style: italic;
+  }
+  /* The red rule marks the one column that matters right now. */
+  .sides__indicator {
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: calc(100% / 3);
+    height: 2px;
+    background: var(--accent);
+    transform: translateX(calc(var(--active, 0) * 100%));
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .sides__panel {
+    display: grid;
+    gap: 1.25rem;
+    padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+    min-height: 22rem;
+    outline-offset: 8px;
+  }
+  .sides__panel[hidden] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sides__panel.is-entering > * {
+      animation: fade-up 0.7s var(--ease-out) both;
+    }
+    .sides__panel.is-entering > *:nth-child(2) {
+      animation-delay: 0.06s;
+    }
+    .sides__panel.is-entering > *:nth-child(3) {
+      animation-delay: 0.12s;
+    }
+    .sides__panel.is-entering > *:nth-child(4) {
+      animation-delay: 0.18s;
+    }
+  }
+  .sides__line {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: var(--t-h1);
+    line-height: 1.12;
+    letter-spacing: -0.016em;
+  }
+  .sides__proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .sides__proof li {
+    padding: 0.4rem 0.75rem;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+
+  @media (max-width: 960px) {
+    .sides__intro,
+    .sides__tabs {
+      grid-column: 1 / -1;
+      position: static;
+    }
+    .sides__panel {
+      min-height: 0;
+    }
+  }
+</style>
+
+<script>
+  function initTabs(root: HTMLElement) {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const list = root.querySelector<HTMLElement>('[role="tablist"]');
+    if (!tabs.length || !list) return;
+
+    const select = (index: number, focus = false) => {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(tab.getAttribute('aria-controls') || '');
+        if (!panel) return;
+        if (selected) {
+          panel.hidden = false;
+          panel.classList.remove('is-entering');
+          void panel.offsetWidth;
+          panel.classList.add('is-entering');
+        } else {
+          panel.hidden = true;
+        }
+      });
+      list.style.setProperty('--active', String(index));
+      if (focus) tabs[index].focus();
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i));
+      tab.addEventListener('keydown', (e) => {
+        const last = tabs.length - 1;
+        let next = -1;
+        if (e.key === 'ArrowRight') next = i === last ? 0 : i + 1;
+        if (e.key === 'ArrowLeft') next = i === 0 ? last : i - 1;
+        if (e.key === 'Home') next = 0;
+        if (e.key === 'End') next = last;
+        if (next >= 0) {
+          e.preventDefault();
+          select(next, true);
+        }
+      });
+    });
+
+    // Links from the hero words (#side-operator etc.) open the matching side.
+    const fromHash = () => {
+      const key = location.hash.replace('#side-', '');
+      const index = tabs.findIndex((t) => t.dataset.tab === key);
+      if (index >= 0) select(index);
+    };
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+
+    document.querySelectorAll<HTMLAnchorElement>('[data-side-link]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const index = tabs.findIndex((t) => t.dataset.tab === a.dataset.sideLink);
+        if (index < 0) return;
+        e.preventDefault();
+        select(index);
+        history.replaceState(null, '', `#side-${a.dataset.sideLink}`);
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.getElementById('sides')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach(initTabs);
+</script>

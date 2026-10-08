@@ -1,0 +1,52 @@
+---
+/**
+ * The logo, drawn from the master artwork (Brand Guidelines, 07 · Logo),
+ * extracted as vector paths. The lettering is part of the artwork and is
+ * never retyped.
+ *
+ * Ink (bars, MARCO, CONSULTING) follows --logo-ink, so the same file gives
+ * "colour on light" (Carbone) and "reverse" (white on Carbone).
+ * ROSSO and the marker stay Rosso in both.
+ *
+ * Minimum sizes on screen: full 160px wide, compact 90px, monogram 24px.
+ */
+import paths from '../brand/logo-paths.json';
+
+type Variant = 'full' | 'compact' | 'monogram';
+interface Props {
+  variant?: Variant;
+  class?: string;
+  title?: string;
+}
+
+const { variant = 'full', class: className, title } = Astro.props;
+const p = (paths as Record<Variant, { w: number; h: number; ink: string; red: string }>)[variant];
+---
+
+<svg
+  class:list={['logo', `logo--${variant}`, className]}
+  viewBox={`0 0 ${p.w} ${p.h}`}
+  xmlns="http://www.w3.org/2000/svg"
+  role={title ? 'img' : undefined}
+  aria-label={title}
+  aria-hidden={title ? undefined : 'true'}
+  focusable="false"
+>
+  <path class="logo__ink" d={p.ink}></path>
+  <path class="logo__red" d={p.red}></path>
+</svg>
+
+<style>
+  .logo {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+  .logo__ink {
+    fill: var(--logo-ink);
+    transition: fill 0.3s ease;
+  }
+  .logo__red {
+    fill: var(--rosso);
+  }
+</style>

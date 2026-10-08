@@ -1,0 +1,306 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaPanel from '../../components/CtaPanel.astro';
+import LabItems from '../../components/LabItems.astro';
+import StatusTag from '../../components/StatusTag.astro';
+import Icon from '../../components/Icon.astro';
+import { getCopy, path, em, langStaticPaths, type Lang } from '../../i18n';
+
+export const getStaticPaths = langStaticPaths;
+const { lang } = Astro.props as { lang: Lang };
+const t = getCopy(lang);
+const l = t.lab;
+type Stage = 'testing' | 'live' | 'venture';
+---
+
+<Base lang={lang} title={l.seo.title} description={l.seo.description} current="lab">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container page-hero__inner">
+      <div class="page-hero__main">
+        <p class="label fade-up" style="--i:0">{l.hero.label}</p>
+        <h1 id="page-title" class="display">
+          <span class="mask-line" style="--i:0"><span set:html={em(l.hero.title)} /></span>
+        </h1>
+        <p class="standfirst fade-up" style="--i:1">{l.hero.standfirst}</p>
+        <div class="page-hero__actions fade-up" style="--i:2">
+          <a href={path(lang, 'notes')} class="btn btn--ghost">{l.hero.button}<Icon name="arrow-right" /></a>
+        </div>
+      </div>
+      <figure class="page-hero__aside story fade-up" style="--i:3">
+        <blockquote>
+          <p>“{l.story.quote}”</p>
+        </blockquote>
+        <figcaption class="label label--quiet">{l.story.who}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="stages-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="stages-title" class="h1" data-reveal set:html={em(l.path.title)} />
+      </div>
+      <ol class="stages" role="list" data-stages>
+        {
+          l.path.stages.map((s, i) => (
+            <li class:list={['stage', i === 2 ? 'panel-dark' : i === 1 ? 'panel' : 'card']} data-reveal style={`--i:${i}`}>
+              <div class="stage__top">
+                <span class="label label--quiet">{s.stage}</span>
+                <StatusTag status={s.key as Stage} lang={lang} />
+              </div>
+              <p class="stage__verb">{s.verb}</p>
+              <p class="stage__text">{s.text}</p>
+              {i < 2 && <Icon name="arrow-right" class="stage__arrow" />}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" id="now" aria-labelledby="now-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="label" data-reveal>{l.now.label}</p>
+        <h2 id="now-title" class="h1" data-reveal style="--i:1" set:html={em(l.now.title)} />
+      </div>
+      <LabItems lang={lang} layout="rows" />
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="test-title">
+    <div class="container vtest">
+      <h2 id="test-title" class="h1 vtest__title" data-reveal set:html={em(l.test.title)} />
+      <ul class="vtest__list" role="list">
+        {
+          l.test.items.map((item, i) => (
+            <li data-reveal style={`--i:${i + 1}`}>
+              <span class="vtest__check" aria-hidden="true">
+                <Icon name="check" />
+              </span>
+              <div>
+                <h3 class="h2">{item.name}</h3>
+                <p class="vtest__text">{item.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="run-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="run-title" class="h1" data-reveal set:html={em(l.run.title)} />
+      </div>
+      <ol class="run" role="list">
+        {
+          l.run.steps.map((s, i) => (
+            <li class="run__step rule-heavy" data-reveal style={`--i:${i}`}>
+              <span class="run__num">0{i + 1}</span>
+              <h3 class="h2">{s.name}</h3>
+              <p class="run__text">{s.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <CtaPanel
+    lang={lang}
+    title={l.cta.title}
+    body={l.cta.body}
+    secondary={{ label: l.cta.secondary, href: path(lang, 'notes') }}
+  />
+</Base>
+
+<style>
+  .story {
+    display: grid;
+    gap: 1rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+  }
+  .story blockquote {
+    margin: 0;
+  }
+  .story p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.45;
+  }
+
+  /* Experiment, service, venture */
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+  .stage {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+    min-height: 17rem;
+  }
+  .stage__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .stage__verb {
+    margin-top: 2rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2rem, 1.6rem + 1.5vw, 2.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .stage__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+  .stage :global(.stage__arrow) {
+    position: absolute;
+    right: calc(var(--gutter) / -2);
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    margin-right: -14px;
+    margin-top: -14px;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    z-index: 1;
+    color: var(--fg);
+  }
+  @media (max-width: 900px) {
+    .stages {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .stage {
+      min-height: 0;
+    }
+    .stage__verb {
+      margin-top: 0.5rem;
+    }
+    .stage :global(.stage__arrow) {
+      right: 50%;
+      top: auto;
+      bottom: -1rem;
+      margin: 0 -14px -14px 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Venture test */
+  .vtest {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+    align-items: start;
+  }
+  .vtest__title {
+    grid-column: 1 / span 4;
+  }
+  .vtest__list {
+    grid-column: 6 / span 7;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem var(--gutter);
+  }
+  .vtest__list li {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: 0.9rem;
+  }
+  .vtest__list li > div {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .vtest__check {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--fg);
+  }
+  .vtest__check :global(.icon) {
+    width: 16px;
+    height: 16px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .vtest__list li .vtest__check :global(.icon) {
+      transform: scale(0);
+      transition: transform 0.5s var(--ease-out);
+      transition-delay: calc(0.25s + var(--i, 0) * 0.12s);
+    }
+    :global(.js) .vtest__list li.is-in .vtest__check :global(.icon),
+    :global(.no-reveal) .vtest__list li .vtest__check :global(.icon) {
+      transform: scale(1);
+    }
+  }
+  .vtest__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+  @media (max-width: 900px) {
+    .vtest__title,
+    .vtest__list {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 600px) {
+    .vtest__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* How an experiment runs */
+  .run {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+  .run__step {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+  }
+  .run__num {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+    color: var(--fg-muted);
+  }
+  .run__text {
+    font-family: var(--sans);
+    font-size: var(--t-ui);
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+  @media (max-width: 900px) {
+    .run {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 2.5rem;
+    }
+  }
+  @media (max-width: 520px) {
+    .run {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

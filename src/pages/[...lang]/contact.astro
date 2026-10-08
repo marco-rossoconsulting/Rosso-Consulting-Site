@@ -1,0 +1,493 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { getCopy, path, em, langStaticPaths, type Lang } from '../../i18n';
+import { site } from '../../data/site';
+
+export const getStaticPaths = langStaticPaths;
+const { lang } = Astro.props as { lang: Lang };
+const t = getCopy(lang);
+const c = t.contact;
+const f = c.form;
+// Without JavaScript the form posts natively and Netlify sends the visitor
+// back here with ?sent=1, which shows the same thank-you message.
+const action = `${path(lang, 'contact')}?sent=1`;
+---
+
+<Base lang={lang} title={c.seo.title} description={c.seo.description} current="contact">
+  <section class="page-hero contact-hero" aria-labelledby="page-title">
+    <div class="container page-hero__inner">
+      <div class="page-hero__main">
+        <p class="label fade-up" style="--i:0">{c.hero.label}</p>
+        <h1 id="page-title" class="display">
+          <span class="mask-line" style="--i:0"><span set:html={em(c.hero.title)} /></span>
+        </h1>
+        <p class="standfirst fade-up" style="--i:1">{c.hero.standfirst}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container contact">
+      <div class="contact__form card fade-up" style="--i:2">
+        <h2 class="h2 contact__form-title">{f.title}</h2>
+
+        <form
+          name="contact"
+          method="POST"
+          action={action}
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          data-contact-form
+          data-msg-required={f.required}
+          data-msg-email={f.invalidEmail}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="language" value={lang} />
+          <p class="visually-hidden" aria-hidden="true">
+            <label>{f.honeypot} <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">{f.name}</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err" />
+              <p class="field__error" id="cf-name-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="cf-email">{f.email}</label>
+              <input
+                id="cf-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                aria-describedby="cf-email-err"
+              />
+              <p class="field__error" id="cf-email-err" hidden></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-org">{f.org} <span class="field__opt">({f.optional})</span></label>
+              <input id="cf-org" name="organisation" type="text" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="cf-role">{f.role}</label>
+              <div class="select">
+                <select id="cf-role" name="role" required aria-describedby="cf-role-err">
+                  <option value="" selected disabled>{f.rolePlaceholder}</option>
+                  {f.roles.map((r) => <option value={r}>{r}</option>)}
+                </select>
+              </div>
+              <p class="field__error" id="cf-role-err" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cf-message">{f.message}</label>
+            <p class="field__help" id="cf-message-help">{f.messageHelp}</p>
+            <textarea id="cf-message" name="message" rows="6" required aria-describedby="cf-message-help cf-message-err"
+            ></textarea>
+            <p class="field__error" id="cf-message-err" hidden></p>
+          </div>
+
+          <div class="contact__submit">
+            <button type="submit" class="btn btn--marker btn--submit" data-label={f.submit} data-sending={f.sending}>
+              <span data-submit-label>{f.submit}</span>
+              <Icon name="arrow-right" />
+            </button>
+            <p class="small muted">
+              {f.privacy}
+              <a class="link" href={path(lang, 'privacy')}>{f.privacyLink}</a>
+            </p>
+          </div>
+
+          <div class="form-error" role="alert" hidden data-form-error>
+            <p>{f.error}</p>
+            <a class="link" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </form>
+
+        <div class="form-success" hidden tabindex="-1" data-form-success>
+          <span class="marker" aria-hidden="true"></span>
+          <p class="h1">{f.successTitle}</p>
+          <p class="body muted">{f.successBody}</p>
+        </div>
+      </div>
+
+      <div class="contact__aside">
+        <div class="direct fade-up" style="--i:3">
+          <h2 class="label label--quiet">{c.direct.title}</h2>
+          <dl>
+            <div>
+              <dt>{c.direct.email}</dt>
+              <dd><a class="direct__link" href={`mailto:${site.email}`}><Icon name="envelope-simple" />{site.email}</a></dd>
+            </div>
+            <div>
+              <dt>{c.direct.linkedin}</dt>
+              <dd>
+                <a class="direct__link" href={site.linkedin} target="_blank" rel="me noopener">
+                  <Icon name="linkedin-logo" />{site.linkedinLabel}<span class="visually-hidden">{t.ui.newTab}</span>
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>{c.direct.where}</dt>
+              <dd class="direct__where"><Icon name="map-pin" />{c.direct.whereValue}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="next">
+          <h2 class="h2" data-reveal set:html={em(c.next.title)} />
+          <ol class="next__list" role="list">
+            {
+              c.next.steps.map((s, i) => (
+                <li data-reveal style={`--i:${i}`}>
+                  <span class="next__num">0{i + 1}</span>
+                  <div>
+                    <h3 class="next__name">{s.name}</h3>
+                    <p class="next__text">{s.text}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-hero {
+    padding-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 3rem var(--gutter);
+    align-items: start;
+    padding-bottom: clamp(2rem, 1rem + 3vw, 4rem);
+  }
+  .contact__form {
+    grid-column: 1 / span 7;
+    padding: clamp(1.5rem, 1rem + 2.5vw, 3rem);
+  }
+  .contact__form-title {
+    margin-bottom: 1.75rem;
+  }
+  .contact__aside {
+    grid-column: 9 / span 4;
+    display: grid;
+    gap: 3rem;
+  }
+  @media (max-width: 960px) {
+    .contact__form,
+    .contact__aside {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Form (labels above, errors below, no placeholder-as-label) */
+  form {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem var(--gutter);
+  }
+  @media (max-width: 640px) {
+    .field-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .field {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+  }
+  .field label {
+    font-family: var(--sans);
+    font-size: var(--t-ui);
+    font-weight: 500;
+    color: var(--fg);
+  }
+  .field__opt {
+    font-weight: 400;
+    color: var(--fg-muted);
+  }
+  .field__help {
+    margin-top: -0.25rem;
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    color: var(--fg-muted);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.85rem;
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--fg-muted);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 9rem;
+  }
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover {
+    border-color: var(--fg);
+  }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-color: var(--fg);
+  }
+  .field [aria-invalid='true'] {
+    border-color: var(--rosso-scuro);
+    border-width: 1.5px;
+  }
+  .select {
+    position: relative;
+  }
+  .select::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 9px;
+    height: 7px;
+    margin-top: -3px;
+    background: var(--fg);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    pointer-events: none;
+  }
+  .select select {
+    padding-right: 2.5rem;
+  }
+  .field__error {
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    font-weight: 500;
+    color: var(--rosso-scuro);
+  }
+  :global(:root[data-theme-resolved='dark']) .field__error {
+    color: var(--sabbia);
+  }
+  :global(:root[data-theme-resolved='dark']) .field [aria-invalid='true'] {
+    border-color: var(--sabbia);
+  }
+  .contact__submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .btn--submit {
+    min-width: 9rem;
+  }
+  .form-error {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem 1.25rem;
+    font-family: var(--sans);
+    font-size: var(--t-ui);
+    border-left: 2px solid var(--rosso);
+    background: var(--panel);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .form-success {
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+    padding-block: 2rem;
+    outline: none;
+  }
+  .form-success[hidden],
+  .form-error[hidden],
+  .field__error[hidden] {
+    display: none;
+  }
+  .form-success .marker {
+    font-size: 1.5rem;
+  }
+
+  /* Direct details */
+  .direct {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .direct dl {
+    display: grid;
+    border-top: 2px solid var(--rule);
+  }
+  .direct dl > div {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .direct dt {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 0.35rem;
+  }
+  .direct dd {
+    margin: 0;
+  }
+  .direct__link,
+  .direct__where {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--fg);
+    overflow-wrap: anywhere;
+  }
+  .direct__link {
+    text-decoration: underline;
+    text-decoration-color: var(--link-line);
+    text-underline-offset: 0.25em;
+  }
+  .direct__link:hover {
+    text-decoration-color: currentColor;
+  }
+  .direct :global(.icon) {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* What happens next */
+  .next {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .next__list {
+    display: grid;
+    gap: 0;
+    position: relative;
+  }
+  .next__list li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .next__num {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+    color: var(--label);
+    padding-top: 0.3rem;
+  }
+  .next__name {
+    font-family: var(--serif);
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  .next__text {
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    line-height: 1.5;
+    color: var(--fg-muted);
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  const success = document.querySelector<HTMLElement>('[data-form-success]');
+  const failure = document.querySelector<HTMLElement>('[data-form-error]');
+
+  const showSuccess = () => {
+    if (!form || !success) return;
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+  };
+
+  if (new URLSearchParams(location.search).get('sent') === '1') showSuccess();
+
+  if (form) {
+    form.noValidate = true; // custom, translated messages instead of the browser's
+    const msgRequired = form.dataset.msgRequired ?? '';
+    const msgEmail = form.dataset.msgEmail ?? '';
+    const fields = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]'));
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+
+    const check = (field: (typeof fields)[number]) => {
+      const error = document.getElementById(`${field.id}-err`);
+      let message = '';
+      if (field.validity.valueMissing || !field.value.trim()) message = msgRequired;
+      else if (field.validity.typeMismatch) message = msgEmail;
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      if (error) {
+        error.textContent = message;
+        error.hidden = !message;
+      }
+      return !message;
+    };
+
+    fields.forEach((field) => {
+      field.addEventListener('blur', () => {
+        if (field.getAttribute('aria-invalid')) check(field);
+      });
+      field.addEventListener('input', () => {
+        if (field.getAttribute('aria-invalid') === 'true') check(field);
+      });
+      field.addEventListener('change', () => {
+        if (field.getAttribute('aria-invalid') === 'true') check(field);
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (failure) failure.hidden = true;
+      const results = fields.map(check);
+      const firstInvalid = fields[results.indexOf(false)];
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+      if (submit) submit.disabled = true;
+      if (submitLabel) submitLabel.textContent = submit?.dataset.sending ?? '';
+      try {
+        const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        showSuccess();
+      } catch {
+        if (failure) failure.hidden = false;
+        if (submit) submit.disabled = false;
+        if (submitLabel) submitLabel.textContent = submit?.dataset.label ?? '';
+      }
+    });
+  }
+</script>

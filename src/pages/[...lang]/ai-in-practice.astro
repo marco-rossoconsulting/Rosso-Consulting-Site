@@ -1,0 +1,692 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaPanel from '../../components/CtaPanel.astro';
+import Icon from '../../components/Icon.astro';
+import StatusTag from '../../components/StatusTag.astro';
+import { getCopy, path, em, langStaticPaths, type Lang } from '../../i18n';
+
+export const getStaticPaths = langStaticPaths;
+const { lang } = Astro.props as { lang: Lang };
+const t = getCopy(lang);
+const a = t.ai;
+type ModuleStatus = 'testing' | 'live';
+---
+
+<Base lang={lang} title={a.seo.title} description={a.seo.description} current="ai">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container page-hero__inner">
+      <div class="page-hero__main ai-hero">
+        <p class="label fade-up" style="--i:0">{a.hero.label}</p>
+        <h1 id="page-title" class="display">
+          <span class="mask-line" style="--i:0"><span set:html={em(a.hero.title)} /></span>
+        </h1>
+        <p class="standfirst fade-up" style="--i:1">{a.hero.standfirst}</p>
+        <div class="page-hero__actions fade-up" style="--i:2">
+          <a href={path(lang, 'contact')} class="btn btn--marker">{t.ui.cta}<Icon name="arrow-right" /></a>
+          <a href="#menu" class="arrow-link">{a.hero.secondary}<Icon name="arrow-right" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" aria-label={a.promise.label}>
+    <div class="container promise__inner">
+      <p class="label label--quiet" data-reveal>{a.promise.label}</p>
+      <blockquote class="promise__quote" data-reveal style="--i:1">
+        <p class="h1" set:html={em(a.promise.text)} />
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="who-title">
+    <div class="container who">
+      <div class="who__col rule-heavy" data-reveal>
+        <h2 id="who-title" class="h2">{a.who.title}</h2>
+        <p class="body muted">{a.who.text}</p>
+      </div>
+      <div class="who__col rule-heavy" data-reveal style="--i:1">
+        <h2 class="h2">{a.why.title}</h2>
+        <p class="body muted">{a.why.text}</p>
+      </div>
+      <p class="who__note body" data-reveal style="--i:2">{a.alongside}</p>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="path-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="label" data-reveal>{a.path.label}</p>
+        <h2 id="path-title" class="h1" data-reveal style="--i:1" set:html={em(a.path.title)} />
+      </div>
+      <div class="path-wrap">
+      <span class="path__line" data-reveal="rule" aria-hidden="true"></span>
+      <ol class="path" role="list">
+        {
+          a.path.steps.map((step, i) => (
+            <li class="path__step" data-reveal style={`--i:${i + 1}`}>
+              <span class="path__node" aria-hidden="true" />
+              <p class="path__word">{step.step}</p>
+              <h3 class="h2">{step.name}</h3>
+              <p class="label label--quiet">{step.meta}</p>
+              <p class="path__text">{step.text}</p>
+              <dl class="path__details">
+                {step.details.map((d) => (
+                  <div>
+                    <dt>{d.k}</dt>
+                    <dd>{d.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          ))
+        }
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="menu-title" class="h1" data-reveal set:html={em(a.menu.title)} />
+        <p class="body" data-reveal style="--i:1">{a.menu.intro}</p>
+      </div>
+      <div class="menu" data-menu-explorer>
+        <ul class="menu__list" role="list">
+          {
+            a.menu.modules.map((m, i) => (
+              <li class="module" data-reveal style={`--i:${i}`}>
+                <button
+                  type="button"
+                  class="module__btn"
+                  id={`module-${m.key}-btn`}
+                  aria-expanded={i === 0 ? 'true' : 'false'}
+                  aria-controls={`module-${m.key}`}
+                >
+                  <span class="module__index">0{i + 1}</span>
+                  <span class="module__name">{m.name}</span>
+                  {m.status && <StatusTag status={m.status as ModuleStatus} lang={lang} />}
+                  <span class="module__short">{m.short}</span>
+                  <Icon name="plus" class="module__plus" />
+                </button>
+                <div
+                  class="module__detail card"
+                  id={`module-${m.key}`}
+                  role="region"
+                  aria-labelledby={`module-${m.key}-btn`}
+                  hidden={i !== 0}
+                >
+                  <p class="module__detail-name h1">{m.name}</p>
+                  {m.status === 'testing' && <p class="module__status small">{a.menu.testingNote}</p>}
+                  {m.status === 'live' && <p class="module__status small">{a.menu.liveNote}</p>}
+                  <dl>
+                    <div>
+                      <dt class="label label--quiet">{a.menu.gets}</dt>
+                      <dd>{m.gets}</dd>
+                    </div>
+                    <div>
+                      <dt class="label label--quiet">{a.menu.inputs}</dt>
+                      <dd>{m.inputs}</dd>
+                    </div>
+                    <div class="module__keeps">
+                      <dt class="label label--quiet">{a.menu.keeps}</dt>
+                      <dd>{m.keeps}</dd>
+                    </div>
+                  </dl>
+                  {m.note && <p class="module__note small">{m.note}</p>}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="delivery-title">
+    <div class="container delivery">
+      <div class="delivery__head">
+        <h2 id="delivery-title" class="h1" data-reveal set:html={em(a.delivery.title)} />
+      </div>
+      <ol class="delivery__steps" role="list" data-spy>
+        {
+          a.delivery.steps.map((s, i) => (
+            <li class="delivery__step" data-spy-item>
+              <span class="delivery__num">0{i + 1}</span>
+              <div>
+                <h3 class="h2">{s.name}</h3>
+                <p class="body muted">{s.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="work-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="label" data-reveal>{a.work.label}</p>
+        <h2 id="work-title" class="h1" data-reveal style="--i:1" set:html={em(a.work.title)} />
+      </div>
+      <ul class="work" role="list">
+        {
+          a.work.items.map((w, i) => (
+            <li class:list={['work__item', i === 0 ? 'panel work__item--lead' : 'card']} data-reveal style={`--i:${i}`}>
+              <p class="label label--quiet">{w.kind}</p>
+              <h3 class={i === 0 ? 'h1' : 'h2'}>{w.name}</h3>
+              <p class="work__text">{w.text}</p>
+              {w.more && <p class="work__more small">{w.more}</p>}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-label={`${a.terms.fee.title}. ${a.terms.data.title}`}>
+    <div class="container terms">
+      {
+        [a.terms.fee, a.terms.data].map((col, i) => (
+          <div class="terms__col rule-heavy" data-reveal style={`--i:${i}`}>
+            <h2 class="h2">{col.title}</h2>
+            <ul role="list">
+              {col.items.map((item) => (
+                <li>
+                  <Icon name="check" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaPanel lang={lang} title={a.cta.title} body={a.cta.body} />
+</Base>
+
+<style>
+  .ai-hero {
+    grid-column: 1 / span 10;
+  }
+
+  /* The promise: a pull quote with the red rule */
+  .promise {
+    padding-block: clamp(3rem, 2rem + 4vw, 6rem);
+    border-block: 1px solid var(--hairline);
+  }
+  .promise__inner {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem var(--gutter);
+    align-items: baseline;
+  }
+  .promise__inner > .label {
+    grid-column: 1 / span 3;
+  }
+  .promise__quote {
+    grid-column: 4 / span 9;
+    padding-left: clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+    border-left: 2px solid var(--accent);
+  }
+  .promise__quote .h1 {
+    font-size: clamp(1.875rem, 1.4rem + 1.8vw, 2.875rem);
+  }
+  @media (max-width: 800px) {
+    .promise__inner > .label,
+    .promise__quote {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Who / why */
+  .who {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+  }
+  .who__col {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    padding-top: 1.25rem;
+  }
+  .who__note {
+    grid-column: 1 / -1;
+    max-width: 44rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--rule);
+    font-style: italic;
+  }
+  @media (max-width: 760px) {
+    .who {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Start, Build, Stay */
+  .path-wrap {
+    position: relative;
+  }
+  .path {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+    padding-top: 2.25rem;
+  }
+  .path__line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 6px;
+    height: 1px;
+    background: var(--fg);
+  }
+  .path__step {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+  }
+  .path__node {
+    position: absolute;
+    top: calc(-2.25rem + 1px);
+    left: 0;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--fg);
+  }
+  .path__step:first-child .path__node {
+    background: var(--fg);
+  }
+  .path__word {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2.75rem, 2rem + 3vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .path__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+  .path__details {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .path__details dt {
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    font-weight: 600;
+  }
+  .path__details dd {
+    margin: 0.15rem 0 0;
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    line-height: 1.5;
+    color: var(--fg-muted);
+  }
+  @media (max-width: 900px) {
+    .path {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding-top: 0;
+      padding-left: 2rem;
+    }
+    .path__line {
+      left: 5px;
+      right: auto;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      height: auto;
+      transform-origin: top center;
+    }
+    .js .path__line[data-reveal='rule'] {
+      transform: scaleY(0);
+    }
+    .js .path__line[data-reveal='rule'].is-in {
+      transform: scaleY(1);
+    }
+    .path__node {
+      top: 0.6rem;
+      left: -2rem;
+    }
+  }
+
+  /* Build menu: list on the left, the open module on the right (desktop);
+     an accordion on smaller screens. One markup, disclosure semantics. */
+  .menu {
+    position: relative;
+  }
+  .menu__list {
+    border-top: 2px solid var(--rule);
+  }
+  .module {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .module__btn {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.35rem;
+    width: 100%;
+    padding: 1.25rem 2.5rem 1.25rem 0;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--fg);
+  }
+  .module__index {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.12em;
+    color: var(--fg-muted);
+  }
+  .module__name {
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    line-height: 1.25;
+    transition: transform 0.4s var(--ease-out);
+  }
+  .module__short {
+    grid-column: 2 / -1;
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    line-height: 1.5;
+    color: var(--fg-muted);
+  }
+  .module__btn :global(.module__plus) {
+    position: absolute;
+    right: 0.25rem;
+    top: 1.6rem;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s var(--ease-out);
+  }
+  .module__btn[aria-expanded='true'] :global(.module__plus) {
+    transform: rotate(45deg);
+  }
+  .module__btn[aria-expanded='true'] .module__name {
+    font-style: italic;
+  }
+  .module__btn:hover .module__name {
+    transform: translateX(4px);
+  }
+  .module__detail {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+    margin-bottom: 1.25rem;
+  }
+  .module__detail[hidden] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .module__detail:not([hidden]) {
+      animation: fade-up 0.5s var(--ease-out) both;
+    }
+  }
+  .module__status {
+    color: var(--fg-muted);
+  }
+  .module__detail dl {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .module__detail dt {
+    margin-bottom: 0.35rem;
+  }
+  .module__detail dd {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  .module__keeps {
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius);
+    background: var(--panel);
+    --fg-muted: color-mix(in srgb, var(--panel-fg) 76%, var(--panel));
+  }
+  .module__note {
+    padding-top: 1rem;
+    border-top: 1px solid var(--hairline);
+    color: var(--fg-muted);
+  }
+
+  @media (min-width: 961px) {
+    .menu__list {
+      width: calc(50% - var(--gutter) / 2);
+    }
+    .module__detail {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(50% - var(--gutter) / 2);
+      margin: 0;
+    }
+    .module__detail-name {
+      display: block;
+    }
+  }
+  @media (max-width: 960px) {
+    .module__detail-name {
+      display: none;
+    }
+  }
+
+  /* Delivery: steps light up as they pass the middle of the screen */
+  .delivery {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem var(--gutter);
+  }
+  .delivery__head {
+    grid-column: 1 / span 4;
+  }
+  .delivery__head .h1 {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+  .delivery__steps {
+    grid-column: 6 / span 7;
+    border-top: 2px solid var(--rule);
+  }
+  .delivery__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  /* The current phase gets the red rule (10 · Rules); text stays at full contrast. */
+  .delivery__step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.8s var(--ease-out);
+  }
+  .delivery__step:first-child::before {
+    top: -2px;
+  }
+  .delivery__step.is-current::before {
+    transform: scaleX(1);
+  }
+  .delivery__step > div {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .delivery__num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+    line-height: 1;
+    color: var(--fg-muted);
+    transition: color 0.5s ease;
+  }
+  .delivery__step.is-current .delivery__num {
+    color: var(--fg);
+  }
+  @media (max-width: 900px) {
+    .delivery__head,
+    .delivery__steps {
+      grid-column: 1 / -1;
+    }
+    .delivery__head .h1 {
+      position: static;
+    }
+    .delivery__step {
+      grid-template-columns: 3.5rem 1fr;
+    }
+  }
+
+  /* Work */
+  .work {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+  .work__item {
+    display: grid;
+    align-content: start;
+    gap: 0.9rem;
+    padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+    grid-column: 8 / span 5;
+  }
+  .work__item--lead {
+    grid-column: 1 / span 7;
+    grid-row: span 2;
+    align-content: end;
+    min-height: 24rem;
+  }
+  .work__text {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  .work__more {
+    color: var(--fg-muted);
+    padding-top: 0.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  }
+  @media (max-width: 900px) {
+    .work__item,
+    .work__item--lead {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      min-height: 0;
+    }
+  }
+
+  /* Terms */
+  .terms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+  }
+  .terms__col {
+    display: grid;
+    align-content: start;
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+  }
+  .terms__col ul {
+    display: grid;
+    gap: 0.85rem;
+  }
+  .terms__col li {
+    display: grid;
+    grid-template-columns: 1.25rem 1fr;
+    gap: 0.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .terms__col :global(.icon) {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.25rem;
+  }
+  @media (max-width: 760px) {
+    .terms {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Build menu: one module open at a time. On desktop the open module sits
+  // beside the list, so the container grows to fit whichever is taller.
+  document.querySelectorAll<HTMLElement>('[data-menu-explorer]').forEach((menu) => {
+    const buttons = Array.from(menu.querySelectorAll<HTMLButtonElement>('.module__btn'));
+    const list = menu.querySelector<HTMLElement>('.menu__list');
+    const desktop = window.matchMedia('(min-width: 961px)');
+
+    const fit = () => {
+      const open = menu.querySelector<HTMLElement>('.module__detail:not([hidden])');
+      if (!desktop.matches || !open || !list) {
+        menu.style.minHeight = '';
+        return;
+      }
+      menu.style.minHeight = `${Math.max(list.offsetHeight, open.offsetHeight)}px`;
+    };
+
+    const open = (btn: HTMLButtonElement) => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // On desktop one module always stays open; on mobile a second tap closes it.
+      if (isOpen && desktop.matches) return;
+      buttons.forEach((b) => {
+        const panel = document.getElementById(b.getAttribute('aria-controls') || '');
+        const show = b === btn && !isOpen;
+        b.setAttribute('aria-expanded', String(show));
+        if (panel) panel.hidden = !show;
+      });
+      fit();
+    };
+
+    buttons.forEach((b) => b.addEventListener('click', () => open(b)));
+    desktop.addEventListener('change', () => {
+      if (desktop.matches && !buttons.some((b) => b.getAttribute('aria-expanded') === 'true')) open(buttons[0]);
+      fit();
+    });
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(menu.querySelector('.menu__list')!);
+    fit();
+  });
+
+  // Delivery steps: the step crossing the middle of the screen is the current one.
+  document.querySelectorAll<HTMLElement>('[data-spy]').forEach((root) => {
+    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-spy-item]'));
+    if (!('IntersectionObserver' in window)) return items.forEach((i) => i.classList.add('is-current'));
+    items[0]?.classList.add('is-current');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            items.forEach((i) => i.classList.toggle('is-current', i === entry.target));
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px' },
+    );
+    items.forEach((i) => io.observe(i));
+  });
+</script>

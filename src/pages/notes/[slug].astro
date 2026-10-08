@@ -1,0 +1,38 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { getFieldNotes, noteHref } from '../../lib/notes';
+import { smartQuotes } from '../../lib/typography';
+import { getCopy } from '../../i18n';
+
+export async function getStaticPaths() {
+  const notes = await getFieldNotes();
+  return notes.map((note) => ({ params: { slug: note.id }, props: { note, all: notes } }));
+}
+
+const { note, all } = Astro.props;
+const { Content } = await render(note);
+const t = getCopy('en');
+const number = String(note.data.number).padStart(3, '0');
+const related = all
+  .filter((n) => n.id !== note.id)
+  .slice(0, 2)
+  .map((n) => ({
+    href: noteHref(n.id),
+    title: smartQuotes(n.data.title),
+    deck: smartQuotes(n.data.summary),
+    date: n.data.date,
+    kicker: `${t.article.fieldNote} ${String(n.data.number).padStart(3, '0')}`,
+  }));
+---
+
+<Article
+  title={note.data.title}
+  deck={note.data.summary}
+  date={note.data.date}
+  kicker={`${t.article.fieldNote} ${number}`}
+  status={note.data.status}
+  related={related}
+>
+  <Content />
+</Article>
