@@ -1,0 +1,31 @@
+---
+/**
+ * Line icons from Phosphor (regular weight: a 1.5px stroke at 24px with
+ * rounded ends, as the Brand Guidelines ask). Inlined at build time.
+ */
+const icons = import.meta.glob<string>('../../node_modules/@phosphor-icons/core/assets/regular/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+type IconName = 'arrow-right' | 'arrow-up-right' | 'arrow-left' | 'sun' | 'moon' | 'list' | 'x' | 'copy' | 'check' | 'envelope-simple' | 'linkedin-logo' | 'rss' | 'arrow-clockwise' | 'map-pin' | 'plus';
+
+interface Props {
+  name: IconName;
+  class?: string;
+  label?: string;
+}
+
+const { name, class: className, label } = Astro.props;
+const key = Object.keys(icons).find((k) => k.endsWith(`/${name}.svg`));
+if (!key) throw new Error(`Icon not found: ${name}`);
+
+const svg = icons[key]
+  .replace('<svg ', `<svg class="icon${className ? ` ${className}` : ''}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"'} `)
+  .replace(/ width="[^"]*"/, '')
+  .replace(/ height="[^"]*"/, '')
+  .replace(/fill="#000000"/g, 'fill="currentColor"');
+---
+
+<Fragment set:html={svg} />

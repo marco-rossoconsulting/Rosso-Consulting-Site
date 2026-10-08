@@ -1,49 +1,41 @@
 ---
-import { getCollection, render, getEntry } from 'astro:content';
-import type { GetStaticPaths } from 'astro';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { getUi } from '../../lib/cms';
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { getEssays, essayHref } from '../../lib/notes';
+import { smartQuotes } from '../../lib/typography';
+import { getCopy } from '../../i18n';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = await getCollection('articles', ({ data }) => !data.draft);
-  return articles.map((article) => ({
-    params: { slug: article.id },
-    props: { article },
-  }));
-};
+export async function getStaticPaths() {
+  const essays = await getEssays();
+  return essays.map((essay) => ({ params: { slug: essay.id }, props: { essay, all: essays } }));
+}
 
-const { article } = Astro.props;
-const { Content } = await render(article);
-const ui = await getUi('en');
+const { essay, all } = Astro.props;
+const { Content } = await render(essay);
+const t = getCopy('en');
 
-const relatedRefs = article.data.related || [];
-const relatedArticles = await Promise.all(
-  relatedRefs.map(async (ref) => await getEntry(ref))
-);
-const filteredRelated = relatedArticles.filter(Boolean);
+const relatedIds = essay.data.related?.map((r) => r.id) ?? [];
+const relatedEntries = (relatedIds.length ? all.filter((e) => relatedIds.includes(e.id)) : all.filter((e) => e.id !== essay.id)).slice(0, 2);
+const related = relatedEntries.map((e) => ({
+  href: essayHref(e.id),
+  title: smartQuotes(e.data.title),
+  deck: smartQuotes(e.data.deck),
+  date: e.data.date,
+  kicker: e.data.category,
+  readTime: `${e.data.readTime} ${t.ui.minRead}`,
+}));
 ---
 
-<ArticleLayout article={article} lang="en">
+<Article
+  title={essay.data.title}
+  deck={essay.data.deck}
+  date={essay.data.date}
+  kicker={`${t.article.essay} · ${essay.data.category}`}
+  readTime={essay.data.readTime}
+  seoTitle={essay.data.seo?.title}
+  seoDescription={essay.data.seo?.description}
+  image={essay.data.seo?.image}
+  related={related}
+>
   <Content />
-
-  {filteredRelated.length > 0 && (
-    <Fragment slot="related">
-      <div class="article-footer">
-        <div class="container-narrow">
-          <div class="article-related reveal">
-            <div class="label" style="margin-bottom: var(--s-3);">{ui.article.relatedWriting}</div>
-            {filteredRelated.map((related, i) => related && (
-              <a href={`/writing/${related.id}/`} class="article-related-item">
-                <span class="article-related-num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <div class="article-related-title">{related.data.title}</div>
-                  <div class="article-related-meta">{related.data.category} · {related.data.readTime} {ui.article.minRead}</div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Fragment>
-  )}
-</ArticleLayout>
+</Article>

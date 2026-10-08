@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/home/Hero.astro';
+import Sides from '../../components/home/Sides.astro';
+import Signature from '../../components/home/Signature.astro';
+import Wheel from '../../components/home/Wheel.astro';
+import LabItems from '../../components/LabItems.astro';
+import NoteList, { type NoteRow } from '../../components/NoteList.astro';
+import CtaPanel from '../../components/CtaPanel.astro';
+import Icon from '../../components/Icon.astro';
+import { getCopy, path, em, langStaticPaths, type Lang } from '../../i18n';
+import { getEssays, getFieldNotes, essayHref, noteHref } from '../../lib/notes';
+import { smartQuotes } from '../../lib/typography';
+
+export const getStaticPaths = langStaticPaths;
+const { lang } = Astro.props as { lang: Lang };
+const t = getCopy(lang);
+
+// Field Notes first, then essays: the three most recent.
+const notes = await getFieldNotes();
+const essays = await getEssays();
+const rows: NoteRow[] = [
+  ...notes.map((n) => ({
+    href: noteHref(n.id),
+    title: smartQuotes(n.data.title),
+    deck: smartQuotes(n.data.summary),
+    date: n.data.date,
+    kicker: `${t.article.fieldNote} ${String(n.data.number).padStart(3, '0')}`,
+  })),
+  ...essays.map((e) => ({
+    href: essayHref(e.id),
+    title: smartQuotes(e.data.title),
+    deck: smartQuotes(e.data.deck),
+    date: e.data.date,
+    kicker: t.article.essay,
+    readTime: `${e.data.readTime} ${t.ui.minRead}`,
+  })),
+]
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .slice(0, 3);
+---
+
+<Base lang={lang} title={t.home.seo.title} description={t.home.seo.description}>
+  <Hero lang={lang} />
+  <Sides lang={lang} />
+  <Signature lang={lang} />
+  <Wheel lang={lang} />
+
+  <section class="section section--flush-top" aria-labelledby="lab-title">
+    <div class="container">
+      <div class="home-head">
+        <h2 id="lab-title" class="h1" data-reveal set:html={em(t.home.lab.title)} />
+        <p class="body muted" data-reveal style="--i:1">{t.home.lab.intro}</p>
+      </div>
+      <LabItems lang={lang} layout="bento" />
+      <p class="home-more" data-reveal>
+        <a href={path(lang, 'lab')} class="arrow-link">{t.home.lab.link}<Icon name="arrow-right" /></a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--flush-top" aria-labelledby="notes-title">
+    <div class="container">
+      <div class="home-head">
+        <p class="label" data-reveal>{t.home.notes.label}</p>
+        <h2 id="notes-title" class="h1" data-reveal style="--i:1" set:html={em(t.home.notes.title)} />
+      </div>
+      <NoteList rows={rows} lang={lang} contentLang={lang === 'en' ? undefined : 'en'} />
+      <p class="home-more" data-reveal>
+        <a href={path(lang, 'notes')} class="arrow-link">{t.home.notes.link}<Icon name="arrow-right" /></a>
+      </p>
+    </div>
+  </section>
+
+  <CtaPanel lang={lang} />
+</Base>
+
+<style>
+  .home-head {
+    display: grid;
+    gap: 1rem;
+    max-width: 44rem;
+    margin-bottom: var(--space-block);
+  }
+  .home-more {
+    margin-top: 2rem;
+  }
+</style>

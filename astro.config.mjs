@@ -2,28 +2,22 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+// Languages are routed by src/pages/[...lang]/ (English at the root, /it/ and /es/).
+// Copy lives in src/i18n/.
 export default defineConfig({
   site: 'https://rossoconsulting.ch',
   trailingSlash: 'always',
   build: {
     format: 'directory',
-  },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'it', 'es'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
+    inlineStylesheets: 'auto',
   },
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/404'),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en', it: 'it', es: 'es' },
       },
-      changefreq: 'monthly',
-      priority: 0.7,
-      lastmod: new Date(),
     }),
   ],
 });

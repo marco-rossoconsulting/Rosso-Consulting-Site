@@ -1,40 +1,40 @@
 # Rosso Consulting
 
-> Swiss-domiciled independent consulting practice and umbrella entity in hospitality technology, founded and led by Marco Rosso. Operator-practitioner expertise built from a decade scaling US SaaS commercial teams and current operating role as Chief Digital Strategy & Business Automation Officer at Planhotel Hospitality Group.
+> Rosso Consulting is the personal advisory practice and venture lab of Marco Rosso, based in Lugano, Switzerland. Marco works on hospitality technology from three sides: operator, advisor and builder. Signature: "Tried before advised." Every recommendation rests on something he has run, sold, built or tested.
 
-Rosso Consulting works at the intersection of hospitality and technology, serving SaaS founders, hotel operators, VC/PE investors, and industry peers. Engagements include strategic consulting, advisory board seats, expert network consultations, and operating ventures spun out under the parent endorsement.
+For hotel technology founders, and for hotel owners who want to make real use of what comes next, Rosso Consulting is the personal advisory practice of Marco Rosso: an operator who spent a decade inside hotel technology and now builds with AI himself.
 
-The principal, Marco Rosso, is based in Lugano, Switzerland and works in English, Italian, and Spanish. The firm holds active advisory positions with LobbyAI, Canary Technologies, Room Price Genie, and SnapFix, and operates Astia Web as its first venture.
+- Operator: Chief Digital Strategy & Business Automation Officer at Planhotel Hospitality Group since 2024.
+- Advisor: advisory roles with Canary Technologies (GTM Strategic Advisor), RoomPriceGenie, LobbyAI and Snapfix (Advisory Board), after nearly a decade in commercial roles at Triptease, SiteMinder, Cloudbeds and Canary Technologies, from account executive to global director.
+- Builder: founded Astia Web, a website service for hotels and small businesses, built and run with AI. Brand and website work for Hotel Association Zanzibar, THE VIEW Lugano and Francorosso, made with the same method.
 
-## Core Pages
+Relationships are disclosed and nothing is resold. Consulting prices are not published; every engagement is scoped in conversation and quoted as a fixed fee. The first conversation is unbilled and takes about thirty minutes.
 
-- [Home](https://rossoconsulting.ch/): Firm overview, service lanes, active engagements
-- [Practice](https://rossoconsulting.ch/practice): How the firm works — seven methodology principles, six engagement formats, technology approach, engagement lifecycle
-- [Principal](https://rossoconsulting.ch/principal): Marco Rosso's background, career arc, education, areas of fluency
-- [Advisory](https://rossoconsulting.ch/advisory): Detailed advisory portfolio and expert network work, with independence and disclosure framework
-- [Ventures](https://rossoconsulting.ch/ventures): Operating ventures under the Rosso Consulting umbrella, including Astia Web and the spinout architecture
-- [Contact](https://rossoconsulting.ch/contact): How to reach Marco — email, LinkedIn, coordinates
+## Offers
 
-## Writing
+- [Advisory](https://rossoconsulting.ch/advisory/): Recurring advice for hotel technology founders, leadership teams and investors: product, go-to-market, positioning and introductions. Formats: advisory board seat, strategic GTM advisor, investor support, talks and panels.
+- [AI in Practice](https://rossoconsulting.ch/ai-in-practice/): Hotels get real work done with AI, and keep the method. Start (AI Opportunity Workshop, half a day), Build (fixed-scope modules: Brand Bible, SOP Library, Distribution Consistency Audit, Guest Sentiment Report, Search & AI Visibility Audit, custom workflows), Stay (monthly AI Advisory). A person who knows hotels checks every AI output.
+- [The Lab](https://rossoconsulting.ch/lab/): Where Marco tries what AI makes possible before recommending it. Items carry a status: Testing, Live or Venture. Current venture: Astia Web, "A Rosso Consulting company".
 
-Essays on hospitality distribution, AI deployment, channel economics, and the operator-buyer interface:
+## Read
 
-- [The Rate Parity Trap](https://rossoconsulting.ch/writing/rate-parity-trap): How OTA promotions quietly eat direct bookings while hotels maintain contractual parity (Distribution, 7 min)
-- [Your Hotel Is Winning the Click — and Losing the Booking](https://rossoconsulting.ch/writing/winning-the-click): Why the OTA-vs-direct conversion gap is a product problem, not a pricing problem (Direct, 6 min)
-- [The One Skill That Will Define Luxury Hotel Leadership in the AI Era](https://rossoconsulting.ch/writing/luxury-skill-ai-era): Judgment about the AI/human seam as the new luxury competency (AI · Luxury, 6 min)
-- [Online vs Offline](https://rossoconsulting.ch/writing/online-vs-offline): Why the hotel industry has systematically undervalued offline distribution, with personal context from the Francorosso heritage (Channels, 8 min)
+- [Notes](https://rossoconsulting.ch/notes/): Field Notes (short notes on what was tried, what worked and what did not) and essays.
+- [The Rate Parity Trap](https://rossoconsulting.ch/writing/rate-parity-trap/): How OTA promotions quietly eat direct bookings while hotels maintain parity.
+- [Your hotel is winning the click, and losing the booking](https://rossoconsulting.ch/writing/winning-the-click/): Why the OTA-versus-direct conversion gap is a product problem, not a pricing problem.
+- [The one skill that will define luxury hotel leadership in the AI era](https://rossoconsulting.ch/writing/luxury-skill-ai-era/): Judgement about what stays human, what becomes AI-assisted and what is given over.
+- [Online vs offline](https://rossoconsulting.ch/writing/online-vs-offline/): Why hotels undervalue the offline channel, with context from the Francorosso heritage.
+
+## About
+
+- [About Marco Rosso](https://rossoconsulting.ch/about/): Career, education (EHL Lausanne, Cornell University, Harvard Business School), operating principles and approved bios.
+- [Start a conversation](https://rossoconsulting.ch/contact/): Contact form, email and LinkedIn.
 
 ## Languages
 
-- English (default): /
-- Italian: /it/
-- Spanish: /es/
+English (default, /), Italian (/it/) and Spanish (/es/). Offer names stay in English in every language. Notes and essays are in English.
 
-## Optional
+## Contact
 
-- [LinkedIn](https://linkedin.com/in/mprosso): Active feed of operator commentary
-- [Email](mailto:marco@rossoconsulting.ch): Direct contact
-
-## About the Principal
-
-Marco Rosso spent approximately a decade in hospitality SaaS — Account Executive through Head of Sales EMEA at Triptease, Senior Regional Sales Manager at SiteMinder (Spain), Director of Inside Sales & CSM at Cloudbeds, Director of Sales & GTM EMEA at Canary Technologies — before returning to the operating side as CDSBAO at Planhotel Hospitality Group, the Swiss-Italian hotel group operating 11 properties across three brands (Diamonds, Sandies, Exploreans) in Zanzibar, the Maldives, and Kenya. Educated at EHL Lausanne (BSc), Cornell University (Hospitality & Revenue Management), and Harvard Business School (Program for Leadership Development).
+- Email: marco@rossoconsulting.ch
+- LinkedIn: https://www.linkedin.com/in/mprosso/
+- Location: Lugano, Switzerland. Working across EMEA.

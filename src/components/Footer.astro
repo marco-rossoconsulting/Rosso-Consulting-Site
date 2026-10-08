@@ -1,46 +1,188 @@
 ---
-// Footer.astro — renders footer from navigation.{lang}.json
-import { getNavigation, type Lang } from '../lib/cms';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { getCopy, path, em, type Lang } from '../i18n';
+import { site } from '../data/site';
 
-interface Props { lang: Lang; }
+interface Props {
+  lang: Lang;
+}
 const { lang } = Astro.props;
-const nav = await getNavigation(lang);
-
+const t = getCopy(lang);
 const year = new Date().getFullYear();
-const copyright = nav.footer.copyright.replace('{year}', String(year));
 ---
 
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="/logo.jpg" alt={nav.brand} class="footer-mark" height="56" aria-hidden="false" />
-        <p class="footer-brand-tag">{nav.footer.tagline}</p>
-      </div>
-
-      {nav.footer.columns.map(col => (
-        <div class="footer-col">
-          <h4>{col.heading}</h4>
-          <ul>
-            {col.links.map(link => (
-              <li>
-                {link.href ? (
-                  <a href={link.href} {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-                    {link.label}
-                  </a>
-                ) : (
-                  <span>{link.label}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div class="site-footer__top">
+      <p class="site-footer__signature display" set:html={em(t.footer.signature)} />
+      <a href={path(lang, 'home')} class="site-footer__logo" aria-label="Rosso Consulting">
+        <Logo variant="full" />
+      </a>
     </div>
 
-    <div class="footer-bottom">
-      <span>{copyright}</span>
-      <span>{nav.footer.bottom}</span>
+    <div class="site-footer__grid">
+      <p class="site-footer__about">{t.footer.about}</p>
+
+      <nav class="site-footer__col" aria-labelledby="footer-work">
+        <h2 id="footer-work" class="label label--quiet">{t.footer.work}</h2>
+        <ul role="list">
+          <li><a href={path(lang, 'advisory')}>{t.ui.nav.advisory}</a></li>
+          <li><a href={path(lang, 'ai')}>{t.ui.nav.ai}</a></li>
+          <li><a href={path(lang, 'lab')}>{t.ui.nav.lab}</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-labelledby="footer-read">
+        <h2 id="footer-read" class="label label--quiet">{t.footer.read}</h2>
+        <ul role="list">
+          <li><a href={path(lang, 'notes')}>{t.ui.nav.notes}</a></li>
+          <li><a href={path(lang, 'about')}>{t.ui.nav.about}</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__col">
+        <h2 class="label label--quiet">{t.footer.contact}</h2>
+        <ul role="list">
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li>
+            <a href={site.linkedin} rel="me noopener" target="_blank">
+              LinkedIn <Icon name="arrow-up-right" /><span class="visually-hidden">{t.ui.newTab}</span>
+            </a>
+          </li>
+          <li><span>{t.footer.location}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {year} {t.footer.rights}</p>
+      <p>{t.footer.languages}</p>
+      <a href={path(lang, 'privacy')}>{t.footer.privacy}</a>
     </div>
   </div>
 </footer>
+
+<style>
+  /* The footer is always the dark close of the page: Carbone in light mode,
+     a deeper charcoal in dark mode. The logo is the reverse version
+     (bars, MARCO and CONSULTING in white; 07 · Colour versions). */
+  .site-footer {
+    --fg: var(--carta);
+    --fg-muted: #a9a49b;
+    --label: #a9a49b;
+    --hairline: color-mix(in srgb, var(--carta) 16%, transparent);
+    --focus: var(--carta);
+    --logo-ink: var(--bianco);
+    background: var(--footer-bg);
+    color: var(--carta);
+    border-top: 1px solid var(--footer-line);
+    padding-top: clamp(4rem, 3rem + 4vw, 7rem);
+    padding-bottom: 2rem;
+  }
+
+  .site-footer__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+  }
+  .site-footer__signature {
+    max-width: 14ch;
+  }
+  .site-footer__logo {
+    display: block;
+    width: clamp(170px, 14vw, 220px);
+    padding: 4px;
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+    padding-block: 2.5rem;
+    border-top: 2px solid var(--fg);
+  }
+  .site-footer__about {
+    grid-column: 1 / span 5;
+    max-width: 30em;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+  .site-footer__col {
+    grid-column: span 2;
+  }
+  .site-footer__col:last-child {
+    grid-column: span 3;
+  }
+  .site-footer__col h2 {
+    margin-bottom: 1rem;
+  }
+  .site-footer__col ul {
+    display: grid;
+    gap: 0.55rem;
+  }
+  .site-footer__col a,
+  .site-footer__col span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--sans);
+    font-size: var(--t-ui);
+    color: var(--fg);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .site-footer__col a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .site-footer__col :global(.icon) {
+    width: 14px;
+    height: 14px;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .site-footer__bottom a {
+    color: var(--fg-muted);
+    text-decoration: none;
+  }
+  .site-footer__bottom a:hover {
+    color: var(--fg);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer__about {
+      grid-column: 1 / -1;
+    }
+    .site-footer__col,
+    .site-footer__col:last-child {
+      grid-column: span 4;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer__col,
+    .site-footer__col:last-child {
+      grid-column: span 6;
+    }
+    .site-footer__col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

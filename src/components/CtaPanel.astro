@@ -1,0 +1,93 @@
+---
+/**
+ * "Bring the question": the close of every page, before the footer.
+ * Carbone is the one card that stands apart (10 · Cards and panels).
+ */
+import Icon from './Icon.astro';
+import { getCopy, path, em, type Lang } from '../i18n';
+import { site } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  body?: string;
+  secondary?: { label: string; href: string };
+}
+const { lang, title, body, secondary } = Astro.props;
+const t = getCopy(lang);
+---
+
+<section class="section cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-panel panel" data-reveal>
+      <div class="cta-panel__copy">
+        <h2 id="cta-title" class="display cta-panel__title" set:html={em(title ?? t.cta.title)} />
+        <p class="standfirst cta-panel__body">{body ?? t.cta.body}</p>
+      </div>
+      <div class="cta-panel__actions">
+        <a href={path(lang, 'contact')} class="btn btn--marker btn--lg">
+          {t.cta.button}<Icon name="arrow-right" />
+        </a>
+        {
+          secondary ? (
+            <a href={secondary.href} class="arrow-link">
+              {secondary.label}
+              <Icon name="arrow-right" />
+            </a>
+          ) : (
+            <p class="small cta-panel__mail">
+              {t.cta.or}{' '}
+              <a class="link" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Always follows a section that already carries its bottom padding. */
+  .cta-section {
+    padding-top: 0;
+    padding-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+  }
+  .cta-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 2.5rem var(--gutter);
+    padding: clamp(2rem, 1rem + 5vw, 5rem);
+  }
+  .cta-panel__copy {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .cta-panel__body {
+    color: var(--fg-muted);
+    max-width: 28em;
+  }
+  .cta-panel__actions {
+    display: grid;
+    justify-items: start;
+    gap: 1.25rem;
+  }
+  .btn--lg {
+    min-height: 56px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  .cta-panel__mail {
+    color: var(--fg-muted);
+  }
+  @media (max-width: 800px) {
+    .cta-panel {
+      grid-template-columns: 1fr;
+    }
+    .cta-panel__actions .btn {
+      width: 100%;
+    }
+  }
+</style>

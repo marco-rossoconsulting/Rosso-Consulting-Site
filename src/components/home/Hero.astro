@@ -1,0 +1,281 @@
+---
+import Icon from '../Icon.astro';
+import { getCopy, path, type Lang, type RouteKey } from '../../i18n';
+import { names } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getCopy(lang);
+const h = t.home.hero;
+const sideKeys = ['operator', 'advisor', 'builder'] as const;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__main">
+      <p class="label fade-up" style="--i:0">{h.label}</p>
+      <h1 id="hero-title" class="display hero__title">
+        {
+          h.words.map((word, i) => (
+            <span class="mask-line" style={`--i:${i}`}>
+              <span>
+                <a href={`#side-${sideKeys[i]}`} class="hero__word" data-side-link={sideKeys[i]}>
+                  {i === h.words.length - 1 ? <em>{word}</em> : word}
+                </a>
+              </span>
+            </span>
+          ))
+        }
+      </h1>
+    </div>
+    <div class="hero__aside">
+      <p class="standfirst hero__intro fade-up" style="--i:1">{h.intro}</p>
+      <div class="hero__actions fade-up" style="--i:2">
+        <a href={path(lang, 'contact')} class="btn btn--marker">{t.ui.cta}<Icon name="arrow-right" /></a>
+        <a href={path(lang, 'lab')} class="arrow-link">{h.secondary}<Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul class="offers" role="list">
+      {
+        t.home.offers.map((o, i) => (
+          <li class:list={['offer', 'rule-double', { 'rule-red': o.key === 'lab' }]} data-reveal style={`--i:${i}`}>
+            <a href={path(lang, o.key as RouteKey)} class="offer__link">
+              <span class:list={['label', o.key === 'lab' ? '' : 'label--quiet']}>{o.audience}</span>
+              <span class="offer__name">{o.name}</span>
+              <span class="offer__text">{o.text}</span>
+              <Icon name="arrow-right" class="offer__arrow" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="names" aria-labelledby="names-title">
+    <h2 id="names-title" class="visually-hidden">{t.home.namesHeading}</h2>
+    <div class="names__track">
+      <ul class="names__list" role="list">
+        {names.map((n) => <li>{n}</li>)}
+      </ul>
+      <ul class="names__list" role="list" aria-hidden="true">
+        {names.map((n) => <li>{n}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: clamp(2.5rem, 1.5rem + 4vw, 5.5rem);
+  }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+    row-gap: 2rem;
+    align-items: end;
+  }
+  .hero__main {
+    grid-column: 1 / span 7;
+    display: grid;
+    gap: 1.75rem;
+  }
+  .hero__aside {
+    grid-column: 8 / span 5;
+    display: grid;
+    gap: 1.75rem;
+    padding-bottom: 0.6rem;
+  }
+  .hero__title {
+    font-size: clamp(3.25rem, 1.9rem + 5.2vw, 4.5rem);
+    line-height: 1.02;
+  }
+  .hero__word {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    padding-right: 0.08em;
+  }
+  /* The marker points at the side you are about to read about. */
+  .hero__word::before {
+    content: '';
+    position: absolute;
+    left: 0.06em;
+    top: 0.05em;
+    width: 0.2em;
+    height: 0.15em;
+    background: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    opacity: 0;
+    transform: translateY(-40%);
+    transition: opacity 0.25s ease, transform 0.4s var(--ease-out);
+  }
+  .hero__word::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0.1em;
+    bottom: 0.1em;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--ease-out);
+  }
+  .hero__word:hover::before,
+  .hero__word:focus-visible::before {
+    opacity: 1;
+    transform: none;
+  }
+  .hero__word:hover::after,
+  .hero__word:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .hero__intro {
+    color: var(--fg);
+    max-width: 27em;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+  }
+
+  /* Three doors into the site (12 · Applications, home page above the fold) */
+  .offers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+    margin-top: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  }
+  .offer__link {
+    position: relative;
+    display: grid;
+    gap: 0.55rem;
+    padding: 1.1rem 2.25rem 1.25rem 0;
+    color: var(--fg);
+    text-decoration: none;
+    height: 100%;
+  }
+  .offer__name {
+    font-family: var(--serif);
+    font-size: var(--t-h2);
+    font-weight: 400;
+    line-height: 1.2;
+    transition: transform 0.45s var(--ease-out);
+  }
+  .offer__text {
+    font-family: var(--sans);
+    font-size: var(--t-small);
+    line-height: 1.5;
+    color: var(--fg-muted);
+    max-width: 30em;
+  }
+  .offer__link :global(.offer__arrow) {
+    position: absolute;
+    right: 0.25rem;
+    top: 2.6rem;
+    width: 20px;
+    height: 20px;
+    opacity: 0.35;
+    transition: transform 0.45s var(--ease-out), opacity 0.3s ease;
+  }
+  .offer__link:hover .offer__name {
+    transform: translateX(6px);
+  }
+  .offer__link:hover :global(.offer__arrow) {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  /* Names: one quiet marquee, paused on hover, static under reduced motion */
+  .names {
+    margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+    padding-block: 1.25rem;
+    border-block: 1px solid var(--hairline);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .names__track {
+    display: flex;
+    width: max-content;
+  }
+  .names__list {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+    padding-right: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+  }
+  .names__list li {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--fg-muted);
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .names__track {
+      animation: names 48s linear infinite;
+    }
+    .names:hover .names__track {
+      animation-play-state: paused;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .names {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .names__track {
+      width: auto;
+      justify-content: center;
+    }
+    .names__list {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 2rem;
+      padding: 0 var(--side);
+    }
+    .names__list[aria-hidden='true'] {
+      display: none;
+    }
+  }
+  @keyframes names {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .hero__main,
+    .hero__aside {
+      grid-column: 1 / -1;
+    }
+    .hero__aside {
+      padding-bottom: 0;
+    }
+  }
+  @media (max-width: 760px) {
+    .offers {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .offer__link {
+      padding-bottom: 0.9rem;
+    }
+    .offer__link :global(.offer__arrow) {
+      top: 2.4rem;
+      opacity: 0.7;
+    }
+  }
+</style>

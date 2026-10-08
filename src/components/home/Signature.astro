@@ -1,0 +1,79 @@
+---
+import { getCopy, em, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getCopy(lang);
+const words = t.home.signature.promise.split(' ');
+const n = words.length;
+---
+
+<section class="signature" aria-labelledby="signature-title">
+  <div class="container signature__inner">
+    <span class="marker signature__marker" aria-hidden="true"></span>
+    <h2 id="signature-title" class="display signature__title" data-reveal set:html={em(t.home.signature.title)} />
+    <p class="signature__promise">
+      {
+        words.map((w, i) => (
+          <>
+            <span class="w" style={`--s:${(12 + (i / n) * 26).toFixed(2)}%`}>
+              {w}
+            </span>{' '}
+          </>
+        ))
+      }
+    </p>
+  </div>
+</section>
+
+<style>
+  .signature {
+    padding-block: clamp(6rem, 4rem + 8vw, 11rem);
+    border-block: 1px solid var(--hairline);
+    background: color-mix(in srgb, var(--panel) 45%, var(--bg));
+  }
+  .signature__inner {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+  .signature__marker {
+    font-size: 1.5rem;
+  }
+  .signature__title {
+    font-size: clamp(3rem, 1.6rem + 5.6vw, 4.5rem);
+  }
+  .signature__promise {
+    max-width: 30em;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    view-timeline-name: --promise;
+    view-timeline-axis: block;
+  }
+  /* Words darken in reading order as the promise moves up the screen. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .signature__promise .w {
+        animation: word-in linear both;
+        animation-timeline: --promise;
+        animation-range: cover var(--s) cover calc(var(--s) + 8%);
+      }
+    }
+  }
+  /* Pietra to Carbone: the fill is visible, and every word passes contrast at every moment. */
+  @keyframes word-in {
+    from {
+      color: var(--fg-muted);
+    }
+    to {
+      color: var(--fg);
+    }
+  }
+</style>
