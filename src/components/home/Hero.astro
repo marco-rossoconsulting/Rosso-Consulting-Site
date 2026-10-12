@@ -1,7 +1,7 @@
 ---
 import Icon from '../Icon.astro';
 import { getCopy, path, type Lang, type RouteKey } from '../../i18n';
-import { names } from '../../data/site';
+import { stripLogos, stripTextNames } from '../../data/logos';
 
 interface Props {
   lang: Lang;
@@ -10,6 +10,14 @@ const { lang } = Astro.props;
 const t = getCopy(lang);
 const h = t.home.hero;
 const sideKeys = ['operator', 'advisor', 'builder'] as const;
+
+// Advisory companies first, then the hotel group, then clients.
+type StripItem = { kind: 'logo'; id: string; name: string; src: string; width: number; height: number } | { kind: 'text'; name: string };
+const strip: StripItem[] = [
+  ...stripLogos.slice(0, 4).map((l) => ({ kind: 'logo' as const, ...l })),
+  ...stripTextNames.map((name) => ({ kind: 'text' as const, name })),
+  ...stripLogos.slice(4).map((l) => ({ kind: 'logo' as const, ...l })),
+];
 ---
 
 <section class="hero" aria-labelledby="hero-title">
@@ -59,12 +67,26 @@ const sideKeys = ['operator', 'advisor', 'builder'] as const;
   <div class="names" aria-labelledby="names-title">
     <h2 id="names-title" class="visually-hidden">{t.home.namesHeading}</h2>
     <div class="names__track">
-      <ul class="names__list" role="list">
-        {names.map((n) => <li>{n}</li>)}
-      </ul>
-      <ul class="names__list" role="list" aria-hidden="true">
-        {names.map((n) => <li>{n}</li>)}
-      </ul>
+      {
+        [false, true].map((duplicate) => (
+          <ul class="names__list" role="list" aria-hidden={duplicate ? 'true' : undefined}>
+            {strip.map((item) =>
+              item.kind === 'logo' ? (
+                <li>
+                  <span
+                    class="names__logo"
+                    role="img"
+                    aria-label={item.name}
+                    style={`--w:${item.width}px;--h:${item.height}px;--src:url('${item.src}')`}
+                  />
+                </li>
+              ) : (
+                <li class="names__text">{item.name}</li>
+              ),
+            )}
+          </ul>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -198,7 +220,7 @@ const sideKeys = ['operator', 'advisor', 'builder'] as const;
   /* Names: one quiet marquee, paused on hover, static under reduced motion */
   .names {
     margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem);
-    padding-block: 1.25rem;
+    padding-block: 1.5rem;
     border-block: 1px solid var(--hairline);
     overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -216,12 +238,36 @@ const sideKeys = ['operator', 'advisor', 'builder'] as const;
     padding-right: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
   }
   .names__list li {
+    display: flex;
+    align-items: center;
+    flex: none;
+  }
+  /* Logos are single-colour masks, tinted to the theme: Pietra at rest, ink on hover. */
+  .names__logo {
+    --s: 1;
+    display: block;
+    width: calc(var(--w) * var(--s));
+    height: calc(var(--h) * var(--s));
+    background-color: var(--fg-muted);
+    -webkit-mask: var(--src) center / contain no-repeat;
+    mask: var(--src) center / contain no-repeat;
+    transition: background-color 0.3s ease;
+  }
+  .names__logo:hover {
+    background-color: var(--fg);
+  }
+  .names__text {
     font-family: var(--sans);
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: -0.005em;
     color: var(--fg-muted);
     white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .names__logo {
+      --s: 0.82;
+    }
   }
   @media (prefers-reduced-motion: no-preference) {
     .names__track {

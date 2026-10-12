@@ -31,19 +31,4 @@ export const portfolio = [
 ] as const;
 export type PortfolioId = (typeof portfolio)[number]['id'];
 
-/**
- * Names shown in the strip under the home hero. Set as text until official
- * logos are supplied with permission (Brand Guidelines, 12 · Applications).
- */
-export const names = [
-  'Canary Technologies',
-  'RoomPriceGenie',
-  'LobbyAI',
-  'Snapfix',
-  'Planhotel Hospitality Group',
-  'Hotel Association Zanzibar',
-  'THE VIEW Lugano',
-  'Francorosso',
-] as const;
-
 export type LabStatus = 'testing' | 'live' | 'venture';
