@@ -24,28 +24,43 @@ interface Props {
   seoDescription?: string;
   image?: string;
   related?: NoteRow[];
+  /** Essay category or "Field Notes", for structured data */
+  section?: string;
+  wordCount?: number;
 }
 
-const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, related = [] } = Astro.props;
+const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, related = [], section, wordCount } = Astro.props;
 const lang = 'en' as const;
 const t = getCopy(lang);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const headline = smartQuotes(title);
+// Short titles keep the byline; long ones stay whole so Google does not cut them mid-word.
+const pageTitle = seoTitle ?? (headline.length <= 52 ? `${headline} · Marco Rosso` : headline);
 const articleLd = {
   '@type': 'Article',
-  headline: title,
-  description: seoDescription ?? deck,
+  '@id': `${canonical}#article`,
+  headline,
+  description: seoDescription ?? smartQuotes(deck),
   datePublished: date.toISOString(),
+  dateModified: date.toISOString(),
   inLanguage: 'en',
-  mainEntityOfPage: canonical,
-  author: { '@id': `${site.url}/#marco-rosso` },
+  mainEntityOfPage: { '@id': `${canonical}#webpage` },
+  isPartOf: { '@id': `${site.url}/#website` },
+  author: { '@type': 'Person', '@id': `${site.url}/#marco-rosso`, name: 'Marco Rosso', url: `${site.url}/about/` },
   publisher: { '@id': `${site.url}/#rosso-consulting` },
   image: new URL(image ?? '/og-default.png', Astro.site).toString(),
+  ...(section ? { articleSection: section } : {}),
+  ...(wordCount ? { wordCount } : {}),
 };
+const crumbs = [
+  { name: t.ui.nav.notes, url: new URL('/notes/', Astro.site).toString() },
+  { name: headline, url: canonical },
+];
 ---
 
 <Base
   lang={lang}
-  title={seoTitle ?? `${smartQuotes(title)} · Marco Rosso`}
+  title={pageTitle}
   description={seoDescription ?? smartQuotes(deck)}
   current="notes"
   translated={false}
@@ -53,6 +68,8 @@ const articleLd = {
   image={image}
   published={date}
   jsonLd={[articleLd]}
+  crumbs={crumbs}
+  pageType="WebPage"
 >
   <div class="reading-progress" aria-hidden="true"></div>
   <article class="article">

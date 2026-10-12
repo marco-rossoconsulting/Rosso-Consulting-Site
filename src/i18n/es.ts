@@ -60,9 +60,9 @@ const es: Copy = {
 
   home: {
     seo: {
-      title: 'Marco Rosso · Operador, asesor y builder en tecnología hotelera',
+      title: 'Rosso Consulting · Marco Rosso, asesor en tecnología hotelera',
       description:
-        'Dirijo lo digital y la automatización en un grupo hotelero, asesoro a empresas de tecnología hotelera y construyo con IA en mi propio laboratorio. Ayudo a los fundadores a crecer y a los hoteles a poner la IA a trabajar.',
+        'Operador, asesor y builder. Dirijo lo digital en un grupo hotelero, asesoro a empresas de tecnología hotelera y ayudo a los hoteles a usar la IA.',
     },
     hero: {
       label: 'Marco Rosso · Lugano',
@@ -176,9 +176,9 @@ const es: Copy = {
 
   advisory: {
     seo: {
-      title: 'Advisory para fundadores e inversores en tecnología hotelera · Rosso Consulting',
+      title: 'Advisory para fundadores de tecnología hotelera · Rosso Consulting',
       description:
-        'Asesoramiento continuo para fundadores, equipos directivos e inversores en tecnología hotelera, de alguien que la ha vendido, ha hecho crecer a quienes la venden y hoy la compra.',
+        'Asesoramiento continuo para fundadores, directivos e inversores en tecnología hotelera, de alguien que la ha vendido, ha liderado equipos y hoy la compra.',
     },
     hero: {
       label: 'Para empresas de tecnología hotelera',
@@ -329,9 +329,9 @@ const es: Copy = {
 
   ai: {
     seo: {
-      title: 'AI in Practice: trabajo real hecho con IA, para hoteles · Rosso Consulting',
+      title: 'AI in Practice: IA para hoteles · Rosso Consulting',
       description:
-        'Los hoteles consiguen trabajo real hecho con IA, y se quedan con el método. Brand bibles, SOPs y auditorías construidas con tu equipo y revisadas por alguien que conoce los hoteles.',
+        'Trabajo real hecho con IA para hoteles, y el método se queda contigo. Brand bibles, SOPs y auditorías con tu equipo, revisadas por quien conoce los hoteles.',
     },
     hero: {
       label: 'Para hoteles',

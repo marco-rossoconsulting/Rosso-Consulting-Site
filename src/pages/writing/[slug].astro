@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 const { essay, all } = Astro.props;
 const { Content } = await render(essay);
 const t = getCopy('en');
+const wordCount = (essay.body ?? '').split(/\s+/).filter(Boolean).length;
 
 const relatedIds = essay.data.related?.map((r) => r.id) ?? [];
 const relatedEntries = (relatedIds.length ? all.filter((e) => relatedIds.includes(e.id)) : all.filter((e) => e.id !== essay.id)).slice(0, 2);
@@ -36,6 +37,8 @@ const related = relatedEntries.map((e) => ({
   seoDescription={essay.data.seo?.description}
   image={essay.data.seo?.image}
   related={related}
+  section={essay.data.category}
+  wordCount={wordCount}
 >
   <Content />
 </Article>

@@ -9,7 +9,7 @@ import newsreaderLatin from '@fontsource-variable/newsreader/files/newsreader-la
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCopy, langs, switchLang, type Lang, type RouteKey } from '../i18n';
-import { site } from '../data/site';
+import { buildGraph, type Crumb, type PageType } from '../lib/schema';
 
 interface Props {
   lang: Lang;
@@ -23,6 +23,10 @@ interface Props {
   published?: Date;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>[];
+  /** schema.org page type; derived from `current` when omitted */
+  pageType?: PageType;
+  /** breadcrumb trail after Home; derived from `current` when omitted */
+  crumbs?: Crumb[];
 }
 
 const {
@@ -36,6 +40,8 @@ const {
   published,
   noindex = false,
   jsonLd = [],
+  pageType,
+  crumbs,
 } = Astro.props;
 
 const t = getCopy(lang);
@@ -47,47 +53,24 @@ const alternates = translated
   : [{ lang: 'en' as Lang, href: canonical }];
 const xDefault = translated ? new URL(switchLang(pathname, 'en'), Astro.site).toString() : canonical;
 
-const personId = `${site.url}/#marco-rosso`;
-const orgId = `${site.url}/#rosso-consulting`;
-const graph = [
-  {
-    '@type': 'ProfessionalService',
-    '@id': orgId,
-    name: site.name,
-    url: `${site.url}/`,
-    logo: `${site.url}/brand/rosso-consulting-full.png`,
-    image: `${site.url}/og-default.png`,
-    email: site.email,
-    slogan: 'Tried before advised.',
-    description: getCopy('en').home.seo.description,
-    founder: { '@id': personId },
-    areaServed: 'EMEA',
-    knowsLanguage: site.person.knowsLanguage,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: site.locality,
-      addressRegion: site.region,
-      addressCountry: site.country,
-    },
-    sameAs: [site.linkedin],
-  },
-  {
-    '@type': 'Person',
-    '@id': personId,
-    name: site.person.fullName,
-    givenName: site.person.givenName,
-    familyName: site.person.familyName,
-    jobTitle: site.person.jobTitle,
-    url: `${site.url}/about/`,
-    email: site.email,
-    worksFor: [{ '@id': orgId }, { '@type': 'Organization', name: 'Planhotel Hospitality Group' }],
-    alumniOf: site.person.alumniOf.map((name) => ({ '@type': 'CollegeOrUniversity', name })),
-    knowsLanguage: site.person.knowsLanguage,
-    homeLocation: { '@type': 'Place', name: 'Lugano, Switzerland' },
-    sameAs: [site.linkedin],
-  },
-  ...jsonLd,
+const pageLabels: Partial<Record<RouteKey, string>> = {
+  advisory: t.ui.nav.advisory,
+  ai: t.ui.nav.ai,
+  lab: t.ui.nav.lab,
+  notes: t.ui.nav.notes,
+  about: t.ui.nav.about,
+  contact: t.contact.hero.label,
+  privacy: t.footer.privacy,
+};
+const homeUrl = new URL(switchLang('/', lang), Astro.site).toString();
+const trail: Crumb[] = [
+  { name: t.ui.home, url: homeUrl },
+  ...(crumbs ?? (current && pageLabels[current] ? [{ name: pageLabels[current]!, url: canonical }] : [])),
 ];
+const resolvedType: PageType =
+  pageType ??
+  (current === 'about' ? 'ProfilePage' : current === 'contact' ? 'ContactPage' : current === 'notes' ? 'CollectionPage' : 'WebPage');
+const graph = buildGraph({ lang, url: canonical, title, description, pageType: resolvedType, crumbs: trail, extra: jsonLd });
 const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 
 /* Set before first paint: theme (stored choice or system), the js class for

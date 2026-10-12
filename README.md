@@ -70,7 +70,7 @@ public/
 
 **Add an advisory company.** Add it to `portfolio` in `src/data/site.ts`, then add its category, role and focus under `advisory.portfolio.items` in each language file.
 
-**Add or replace a logo in the home strip.** Logos live in `public/logos/` as single-colour masks (transparent PNG; only the shape matters, the site tints it). Add the file, then add an entry to `src/data/logos.ts` with a display width and height in CSS pixels that keep the file's ratio. Aim for the same visual weight as its neighbours rather than the same height. Names in `stripTextNames` show as text until a logo is supplied. If a logo's ink is light grey rather than dark, convert it with a lower ink threshold so it doesn't look faded.
+**Add or replace a logo in the home strip.** Logos live in `public/logos/` as single-colour masks (transparent WebP at 3x display size; only the shape matters, the site tints it). Add the file, then add an entry to `src/data/logos.ts` with a display width and height in CSS pixels that keep the file's ratio. Aim for the same visual weight as its neighbours rather than the same height. Names in `stripTextNames` show as text until a logo is supplied. If a logo's ink is light grey rather than dark, convert it with a lower ink threshold so it doesn't look faded.
 
 **Change the portrait.** Replace `src/assets/marco-rosso.png` (keep the name, or update the imports). A larger, natural-light photo is welcome.
 

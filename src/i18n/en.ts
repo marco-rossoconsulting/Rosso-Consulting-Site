@@ -62,9 +62,9 @@ const en = {
 
   home: {
     seo: {
-      title: 'Marco Rosso · Operator, advisor and builder in hospitality technology',
+      title: 'Rosso Consulting · Marco Rosso, hospitality technology advisor',
       description:
-        'I lead digital and automation at a hotel group, advise hospitality technology companies, and build with AI in my own lab. I help founders grow and hotels put AI to work.',
+        'Operator, advisor and builder. I lead digital at a hotel group, advise hospitality technology companies and help hotels put AI to work.',
     },
     hero: {
       label: 'Marco Rosso · Lugano',
@@ -178,7 +178,7 @@ const en = {
 
   advisory: {
     seo: {
-      title: 'Advisory for hotel technology founders and investors · Rosso Consulting',
+      title: 'Advisory for hotel technology founders · Rosso Consulting',
       description:
         'Recurring advice for hotel technology founders, leadership teams and investors, from someone who has sold, scaled and now buys hotel technology.',
     },
@@ -331,7 +331,7 @@ const en = {
 
   ai: {
     seo: {
-      title: 'AI in Practice: real work done with AI, for hotels · Rosso Consulting',
+      title: 'AI in Practice: AI for hotels · Rosso Consulting',
       description:
         'Hotels get real work done with AI, and keep the method. Brand bibles, SOP libraries and audits built with your team and checked by a person who knows hotels.',
     },
