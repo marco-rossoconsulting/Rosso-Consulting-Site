@@ -113,3 +113,10 @@
   from = "/es/writing/"
   to = "/es/notes/"
   status = 301
+
+# ------------------------------------------------------------
+# Plugins
+# ------------------------------------------------------------
+# Notifies IndexNow (Bing, ChatGPT search, Copilot) after production deploys.
+[[plugins]]
+  package = "/netlify/plugins/indexnow"

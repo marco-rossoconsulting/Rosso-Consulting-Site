@@ -50,7 +50,7 @@ const strip: StripItem[] = [
     <ul class="offers" role="list">
       {
         t.home.offers.map((o, i) => (
-          <li class:list={['offer', 'rule-double', { 'rule-red': o.key === 'lab' }]} data-reveal style={`--i:${i}`}>
+          <li class:list={['offer', 'rule-double', { 'rule-red': o.key === 'lab' }]} style={`--i:${i}`}>
             <a href={path(lang, o.key as RouteKey)} class="offer__link">
               <span class:list={['label', o.key === 'lab' ? '' : 'label--quiet']}>{o.audience}</span>
               <span class="offer__name">{o.name}</span>
@@ -179,6 +179,7 @@ const strip: StripItem[] = [
   .offer__link {
     position: relative;
     display: grid;
+    align-content: start;
     gap: 0.55rem;
     padding: 1.1rem 2.25rem 1.25rem 0;
     color: var(--fg);

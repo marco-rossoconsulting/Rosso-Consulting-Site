@@ -60,9 +60,9 @@ const it: Copy = {
 
   home: {
     seo: {
-      title: 'Marco Rosso · Operatore, advisor e builder nella tecnologia per l’ospitalità',
+      title: 'Rosso Consulting · Marco Rosso, advisor di tecnologia per hotel',
       description:
-        'Guido digitale e automazione in un gruppo alberghiero, faccio da advisor ad aziende di tecnologia per l’ospitalità e costruisco con l’AI nel mio laboratorio. Aiuto i founder a crescere e gli hotel a mettere l’AI al lavoro.',
+        'Operatore, advisor e builder. Guido il digitale in un gruppo alberghiero, affianco aziende di tecnologia per hotel e aiuto gli hotel a usare l’AI.',
     },
     hero: {
       label: 'Marco Rosso · Lugano',
@@ -176,9 +176,9 @@ const it: Copy = {
 
   advisory: {
     seo: {
-      title: 'Advisory per founder e investitori nella tecnologia per hotel · Rosso Consulting',
+      title: 'Advisory per founder di tecnologia per hotel · Rosso Consulting',
       description:
-        'Consulenza continuativa per founder, team di leadership e investitori nella tecnologia per hotel, da chi l’ha venduta, ha fatto crescere chi la vende e oggi la compra.',
+        'Consulenza continuativa per founder, leadership e investitori nella tecnologia per hotel, da chi l’ha venduta, ha guidato chi la vende e oggi la compra.',
     },
     hero: {
       label: 'Per le aziende di tecnologia per hotel',
@@ -329,9 +329,9 @@ const it: Copy = {
 
   ai: {
     seo: {
-      title: 'AI in Practice: lavoro vero fatto con l’AI, per gli hotel · Rosso Consulting',
+      title: 'AI in Practice: l’AI per gli hotel · Rosso Consulting',
       description:
-        'Gli hotel ottengono lavoro concreto fatto con l’AI, e il metodo resta a loro. Brand bible, SOP e audit costruiti con il tuo team e controllati da una persona che conosce gli hotel.',
+        'Lavoro concreto fatto con l’AI per gli hotel, e il metodo resta a voi. Brand bible, SOP e audit fatti con il tuo team e controllati da chi conosce gli hotel.',
     },
     hero: {
       label: 'Per gli hotel',
