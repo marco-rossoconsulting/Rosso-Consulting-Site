@@ -21,10 +21,11 @@ export const stripLogos: StripLogo[] = [
   { id: 'roompricegenie', name: 'RoomPriceGenie', src: '/logos/roompricegenie.png', width: 55, height: 42 },
   { id: 'lobby', name: 'LobbyAI', src: '/logos/lobby.png', width: 87, height: 24 },
   { id: 'snapfix', name: 'Snapfix', src: '/logos/snapfix.png', width: 68, height: 38 },
+  { id: 'planhotel', name: 'Planhotel Hospitality Group', src: '/logos/planhotel.png', width: 153, height: 22 },
   { id: 'haz', name: 'Hotel Association Zanzibar', src: '/logos/haz.png', width: 102, height: 36 },
   { id: 'the-view', name: 'THE VIEW Lugano', src: '/logos/the-view.png', width: 83, height: 42 },
   { id: 'francorosso', name: 'Francorosso', src: '/logos/francorosso.png', width: 148, height: 16 },
 ];
 
-/** Shown as text until a logo file is supplied. */
-export const stripTextNames = ['Planhotel Hospitality Group'];
+/** Names shown as text until a logo file is supplied (none at the moment). */
+export const stripTextNames: string[] = [];

@@ -11,12 +11,11 @@ const t = getCopy(lang);
 const h = t.home.hero;
 const sideKeys = ['operator', 'advisor', 'builder'] as const;
 
-// Advisory companies first, then the hotel group, then clients.
+// Advisory companies first, then the hotel group I help run, then clients.
 type StripItem = { kind: 'logo'; id: string; name: string; src: string; width: number; height: number } | { kind: 'text'; name: string };
 const strip: StripItem[] = [
-  ...stripLogos.slice(0, 4).map((l) => ({ kind: 'logo' as const, ...l })),
+  ...stripLogos.map((l) => ({ kind: 'logo' as const, ...l })),
   ...stripTextNames.map((name) => ({ kind: 'text' as const, name })),
-  ...stripLogos.slice(4).map((l) => ({ kind: 'logo' as const, ...l })),
 ];
 ---
 
