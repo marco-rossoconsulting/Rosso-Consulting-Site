@@ -17,6 +17,8 @@ interface Props {
   title: string;
   deck: string;
   date: Date;
+  /** Last substantive revision, if any */
+  updated?: Date;
   kicker: string;
   readTime?: number;
   status?: 'testing' | 'live' | 'venture' | 'closed';
@@ -29,7 +31,7 @@ interface Props {
   wordCount?: number;
 }
 
-const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, related = [], section, wordCount } = Astro.props;
+const { title, deck, date, updated, kicker, readTime, status, seoTitle, seoDescription, image, related = [], section, wordCount } = Astro.props;
 const lang = 'en' as const;
 const t = getCopy(lang);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -42,7 +44,7 @@ const articleLd = {
   headline,
   description: seoDescription ?? smartQuotes(deck),
   datePublished: date.toISOString(),
-  dateModified: date.toISOString(),
+  dateModified: (updated ?? date).toISOString(),
   inLanguage: 'en',
   mainEntityOfPage: { '@id': `${canonical}#webpage` },
   isPartOf: { '@id': `${site.url}/#website` },
