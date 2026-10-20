@@ -867,7 +867,7 @@ const en = {
       },
       {
         h: 'How long it is kept',
-        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire or until you withdraw consent in Cookie settings, which deletes them. Google Analytics keeps the usage data for 14 months, then deletes it automatically.',
+        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire or until you withdraw consent in Cookie settings, which deletes them. Google Analytics keeps detailed visit data (such as the pages you viewed) for 2 months and data linked to the analytics cookie for 14 months, then deletes it automatically.',
       },
       {
         h: 'Cookies and tracking',

@@ -865,7 +865,7 @@ const es: Copy = {
       },
       {
         h: 'Cuánto tiempo',
-        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan o hasta que retiras el consentimiento en Configuración de cookies, que las elimina. Google Analytics conserva los datos de uso durante 14 meses y después los elimina automáticamente.',
+        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan o hasta que retiras el consentimiento en Configuración de cookies, que las elimina. Google Analytics conserva los datos detallados de las visitas (como las páginas que has visto) durante 2 meses y los datos vinculados a la cookie de analítica durante 14 meses, y después los elimina automáticamente.',
       },
       {
         h: 'Cookies y seguimiento',
