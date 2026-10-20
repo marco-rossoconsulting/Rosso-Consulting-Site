@@ -865,7 +865,7 @@ const it: Copy = {
       },
       {
         h: 'Per quanto tempo',
-        p: 'I messaggi: per il tempo necessario a gestire la tua richiesta e l’eventuale incarico che ne segue, poi vengono cancellati. I cookie di Google Analytics restano nel tuo browser finché scadono o finché revochi il consenso da Impostazioni cookie, che li cancella.',
+        p: 'I messaggi: per il tempo necessario a gestire la tua richiesta e l’eventuale incarico che ne segue, poi vengono cancellati. I cookie di Google Analytics restano nel tuo browser finché scadono o finché revochi il consenso da Impostazioni cookie, che li cancella. Google Analytics conserva i dati di utilizzo per 14 mesi, poi li cancella automaticamente.',
       },
       {
         h: 'Cookie e tracciamento',
