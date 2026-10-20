@@ -9,6 +9,7 @@ featured: true
 related:
   - winning-the-click
   - online-vs-offline
+service: ai
 ---
 
 Every revenue manager knows rate parity. Few realize how aggressively the parity contract has been hollowed out from the OTA side over the past five years — and how invisible the damage is on the dashboards they actually look at.

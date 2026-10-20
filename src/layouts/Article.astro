@@ -23,13 +23,18 @@ interface Props {
   seoTitle?: string;
   seoDescription?: string;
   image?: string;
+  imageAlt?: string;
   related?: NoteRow[];
+  /** Heading for the related list; defaults to "Keep reading" */
+  relatedTitle?: string;
+  /** Contextual link to a service page, shown after the body */
+  service?: { href: string; title: string; text: string };
   /** Essay category or "Field Notes", for structured data */
   section?: string;
   wordCount?: number;
 }
 
-const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, related = [], section, wordCount } = Astro.props;
+const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, imageAlt, related = [], relatedTitle, service, section, wordCount } = Astro.props;
 const lang = 'en' as const;
 const t = getCopy(lang);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -66,6 +71,7 @@ const crumbs = [
   translated={false}
   type="article"
   image={image}
+  imageAlt={imageAlt}
   published={date}
   jsonLd={[articleLd]}
   crumbs={crumbs}
@@ -104,9 +110,22 @@ const crumbs = [
       </div>
     </div>
 
+    {
+      service && (
+        <aside class="container article__service" aria-labelledby="service-title">
+          <a href={service.href} class="service-link card">
+            <span class="label label--quiet">{t.article.relatedService}</span>
+            <span id="service-title" class="service-link__title">{service.title}</span>
+            <span class="service-link__text">{service.text}</span>
+            <Icon name="arrow-right" class="service-link__arrow" />
+          </a>
+        </aside>
+      )
+    }
+
     <footer class="container article__foot">
       <div class="author card">
-        <Image src={portrait} alt="" width={64} height={64} densities={[1, 2, 3]} class="author__img" />
+        <Image src={portrait} alt="Marco Rosso" width={64} height={64} densities={[1, 2, 3]} class="author__img" />
         <div class="author__copy">
           <p class="label label--quiet">{t.article.authorTitle}</p>
           <p class="author__bio">{t.article.authorBio}</p>
@@ -126,7 +145,7 @@ const crumbs = [
       <section class="section related" aria-labelledby="related-title">
         <div class="container">
           <h2 id="related-title" class="h1 related__title">
-            {t.article.related}
+            {relatedTitle ?? t.article.related}
           </h2>
           <NoteList rows={related} lang={lang} />
         </div>
@@ -245,6 +264,54 @@ const crumbs = [
     .author {
       grid-template-columns: 1fr;
     }
+  }
+
+  .article__service {
+    width: min(46rem, 100% - 2 * var(--side));
+    padding-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  .service-link {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+    padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+    padding-right: calc(clamp(1.25rem, 1rem + 1.5vw, 2rem) + 2rem);
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid var(--accent);
+  }
+  .service-link__title {
+    font-family: var(--serif);
+    font-size: var(--t-h2);
+    font-weight: 400;
+    line-height: 1.22;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.3s ease;
+  }
+  .service-link:hover .service-link__title,
+  .service-link:focus-visible .service-link__title {
+    text-decoration-color: currentColor;
+  }
+  .service-link__text {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--fg-muted);
+  }
+  .service-link :global(.service-link__arrow) {
+    position: absolute;
+    right: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    transform: translateY(-50%);
+    opacity: 0.4;
+    transition: transform 0.45s var(--ease-out), opacity 0.3s ease;
+  }
+  .service-link:hover :global(.service-link__arrow) {
+    opacity: 1;
+    transform: translate(4px, -50%);
   }
 
   .related__title {

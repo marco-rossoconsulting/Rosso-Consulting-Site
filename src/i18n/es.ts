@@ -664,6 +664,8 @@ const es: Copy = {
     authorTitle: 'Escrito por Marco Rosso',
     authorBio: 'Operador, asesor y builder en tecnología hotelera. Dirijo lo digital y la automatización en Planhotel Hospitality Group, asesoro a empresas de tecnología hotelera y construyo con IA en mi propio laboratorio.',
     progress: 'Progreso de lectura',
+    relatedNotes: 'Notas relacionadas',
+    relatedService: 'Servicio relacionado',
   },
 
   about: {

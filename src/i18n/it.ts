@@ -664,6 +664,8 @@ const it: Copy = {
     authorTitle: 'Scritto da Marco Rosso',
     authorBio: 'Operatore, advisor e builder nella tecnologia per l’ospitalità. Guido digitale e automazione in Planhotel Hospitality Group, faccio da advisor ad aziende di tecnologia per hotel e costruisco con l’AI nel mio laboratorio.',
     progress: 'Avanzamento della lettura',
+    relatedNotes: 'Note correlate',
+    relatedService: 'Servizio correlato',
   },
 
   about: {

@@ -64,7 +64,11 @@ public/
 
 **Publish a Field Note.** Copy `src/content/notes/_template.md` to a new file such as `src/content/notes/001-review-replies.md`, fill in the front matter (`title`, `summary`, `number`, `date`, optional `status`), write the note and set `draft: false`. It appears on /notes/, on the home page and in the RSS feed. Files starting with `_` are never published.
 
-**Add an essay.** Add a Markdown file to `src/content/articles/` with the same front matter as the existing essays.
+**Add an essay.** Add a Markdown file to `src/content/articles/` with the same front matter as the existing essays. Optional fields:
+- `service: ai` or `service: advisory` shows a "Related service" link to /ai-in-practice/ or /advisory/ under the essay.
+- `related:` a list of essay slugs for "Related notes" (otherwise the two most recent other essays).
+- `seo.image` (a path under `public/`, e.g. `/uploads/essay.jpg`) and `seo.imageAlt` set the social image; without them the page uses `/og-default.png`.
+- Inline links work as normal Markdown: `[descriptive anchor](/advisory/)`. Use the page or essay title as the anchor, never "read more".
 
 **Add or change a Lab item.** Edit `lab.now.items` in each language file. Status is `testing`, `live` or `venture`.
 
