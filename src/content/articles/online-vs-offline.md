@@ -5,6 +5,8 @@ category: "Channels"
 date: 2025-12-08
 readTime: 8
 draft: false
+seo:
+  title: "Offline hotel distribution: the channel you undervalue"
 featured: true
 related:
   - rate-parity-trap
