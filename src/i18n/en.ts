@@ -859,7 +859,7 @@ const en = {
       },
       {
         h: 'Why',
-        p: 'To read and answer your message, and to prepare any work we then agree on. Nothing is used for marketing lists or shared for anyone else’s purposes.',
+        p: 'To read and answer your message, and to prepare any work we then agree on. Only with your consent, Google Analytics helps me understand how the site is used so I can improve it. Nothing is used for marketing lists or shared for anyone else’s purposes.',
       },
       {
         h: 'Where it is processed',
@@ -867,7 +867,7 @@ const en = {
       },
       {
         h: 'How long it is kept',
-        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire or until you withdraw consent in Cookie settings, which deletes them. Google Analytics keeps detailed visit data (such as the pages you viewed) for 2 months and data linked to the analytics cookie for 14 months, then deletes it automatically.',
+        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire (after up to 2 years) or until you withdraw consent in Cookie settings, which deletes them. Google Analytics keeps detailed visit data (such as the pages you viewed) for 2 months and data linked to the analytics cookie for 14 months, then deletes it automatically.',
       },
       {
         h: 'Cookies and tracking',
@@ -875,7 +875,7 @@ const en = {
       },
       {
         h: 'Your rights',
-        p: 'Under the Swiss Federal Act on Data Protection and, where it applies, the GDPR, you can ask to see, correct or delete your data, or object to its use. Write to marco@rossoconsulting.ch.',
+        p: 'Under the Swiss Federal Act on Data Protection and, where it applies, the GDPR, you can ask to see, correct or delete your data, or object to its use. Write to marco@rossoconsulting.ch. You can withdraw your consent to analytics at any time with Cookie settings in the footer.',
       },
     ],
   },

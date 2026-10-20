@@ -857,7 +857,7 @@ const es: Copy = {
       },
       {
         h: 'Para qué',
-        p: 'Para leer tu mensaje, responderte y preparar el trabajo que acordemos después. Nada de listas de marketing ni de cesiones para fines de terceros.',
+        p: 'Para leer tu mensaje, responderte y preparar el trabajo que acordemos después. Solo con tu consentimiento, Google Analytics me ayuda a entender cómo se usa la web para mejorarla. Nada de listas de marketing ni de cesiones para fines de terceros.',
       },
       {
         h: 'Dónde se tratan',
@@ -865,7 +865,7 @@ const es: Copy = {
       },
       {
         h: 'Cuánto tiempo',
-        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan o hasta que retiras el consentimiento en Configuración de cookies, que las elimina. Google Analytics conserva los datos detallados de las visitas (como las páginas que has visto) durante 2 meses y los datos vinculados a la cookie de analítica durante 14 meses, y después los elimina automáticamente.',
+        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan (como máximo a los 2 años) o hasta que retiras el consentimiento en Configuración de cookies, que las elimina. Google Analytics conserva los datos detallados de las visitas (como las páginas que has visto) durante 2 meses y los datos vinculados a la cookie de analítica durante 14 meses, y después los elimina automáticamente.',
       },
       {
         h: 'Cookies y seguimiento',
@@ -873,7 +873,7 @@ const es: Copy = {
       },
       {
         h: 'Tus derechos',
-        p: 'Según la Ley Federal suiza de Protección de Datos y, cuando se aplique, el RGPD, puedes pedir ver, corregir o eliminar tus datos, u oponerte a su uso. Escribe a marco@rossoconsulting.ch.',
+        p: 'Según la Ley Federal suiza de Protección de Datos y, cuando se aplique, el RGPD, puedes pedir ver, corregir o eliminar tus datos, u oponerte a su uso. Escribe a marco@rossoconsulting.ch. Puedes retirar tu consentimiento a la analítica en cualquier momento desde Configuración de cookies, al pie de la página.',
       },
     ],
   },
