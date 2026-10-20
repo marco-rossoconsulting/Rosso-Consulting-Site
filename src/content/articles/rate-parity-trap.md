@@ -8,7 +8,7 @@ draft: false
 updated: 2026-10-20
 seo:
   title: "Rate parity in 2026: how OTA discounts undercut direct"
-  description: "Parity clauses are banned in Switzerland since 2022 and for Booking.com in the EU since 2024, yet OTA discount layers still undercut your direct rate."
+  description: "Parity clauses have been banned in Switzerland since 2022 and for Booking.com in the EU since 2024, yet OTA discount layers still undercut your direct rate."
 featured: true
 related:
   - winning-the-click
