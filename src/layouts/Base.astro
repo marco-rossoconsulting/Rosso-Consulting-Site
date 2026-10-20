@@ -47,6 +47,13 @@ const {
   crumbs,
 } = Astro.props;
 
+// Google Analytics 4: only on the production site. Netlify sets CONTEXT at build time
+// ('production', 'deploy-preview', 'branch-deploy', 'dev'), so previews and local builds stay untracked.
+const GA_ID = 'G-0F79ZV4NLT';
+const gaEnabled = process.env.CONTEXT === 'production';
+// Marco's snippet, verbatim (global gtag, so later events and Tag Assistant work).
+const gaInit = `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '${GA_ID}');`;
+
 const t = getCopy(lang);
 const pathname = Astro.url.pathname;
 const canonical = new URL(pathname, Astro.site).toString();
@@ -88,6 +95,12 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
 <html lang={t.meta.htmlLang} dir="ltr">
   <head>
     <meta charset="utf-8" />
+    {gaEnabled && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>}
+    {
+      gaEnabled && (
+        <script is:inline set:html={gaInit} />
+      )
+    }
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
