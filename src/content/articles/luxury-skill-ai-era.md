@@ -5,6 +5,8 @@ category: "AI · Luxury"
 date: 2026-01-22
 readTime: 6
 draft: false
+seo:
+  title: "Luxury hotel leadership in the AI era: the one skill"
 featured: true
 related:
   - online-vs-offline

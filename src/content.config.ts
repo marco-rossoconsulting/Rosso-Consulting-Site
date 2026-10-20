@@ -12,6 +12,8 @@ const articles = defineCollection({
     deck: z.string(),
     category: z.string(),
     date: z.coerce.date(),
+    /** Last substantive revision; drives dateModified and the sitemap lastmod. */
+    updated: z.coerce.date().optional(),
     readTime: z.number().int().min(1).max(60),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),

@@ -5,6 +5,10 @@ category: "Distribution"
 date: 2026-03-15
 readTime: 7
 draft: false
+updated: 2026-10-20
+seo:
+  title: "Rate parity in 2026: how OTA discounts undercut direct"
+  description: "Parity clauses have been banned in Switzerland since 2022 and for Booking.com in the EU since 2024, yet OTA discount layers still undercut your direct rate."
 featured: true
 related:
   - winning-the-click
@@ -13,6 +17,8 @@ service: ai
 ---
 
 Every revenue manager knows rate parity. Few realize how aggressively the parity contract has been hollowed out from the OTA side over the past five years — and how invisible the damage is on the dashboards they actually look at.
+
+**Update, October 2026.** The legal ground under parity has moved since this essay first ran. In Switzerland, [Art. 8a of the Federal Act against Unfair Competition (UWG), the "Lex Booking"](https://www.fedlex.admin.ch/eli/cc/1988/223_223_223/de), has barred online booking platforms from imposing price, availability or conditions parity on hotels since 1 December 2022. In the EU, [Booking.com has had to comply with the Digital Markets Act ban on parity clauses](https://digital-strategy.ec.europa.eu/en/news/booking-must-now-comply-digital-markets-act) since 14 November 2024, so hotels are free to offer better prices on their own website. The OTA discount layer described below has not gone away, but in those markets a parity clause can no longer stop you from pricing direct below Booking.com.
 
 Rate parity, on paper, says this: the public rate you give a major OTA must match the public rate on your own website. It is the foundation of the OTA contract and, in most European jurisdictions, what remains of it after the wide-parity rulings of the last decade. The practical effect is supposed to be: if a guest goes to compare, the price they see direct is at least as good as the price they see on Booking or Expedia.
 
@@ -50,7 +56,7 @@ There is no clean answer. There are partial answers.
 
 **Build direct-only product, not direct-only price.** Mobile rates the OTA cannot match. Member rates with real, defensible value. Packages that bundle in ways comparable platforms cannot break apart. Stop fighting on price; start fighting on what cannot be commoditised.
 
-**Renegotiate parity contracts with knowledge.** When you walk into the next contract negotiation knowing precisely how your contractual parity is being undercut in practice, you have leverage you did not have before. Use it.
+**Use the pricing freedom you have, and check what is left of parity.** In Switzerland and the EU, a parity clause with Booking.com can no longer bind your direct price, so the leverage is in pricing direct on your own terms. For the contracts that remain, with other OTAs or in markets outside those rules, walk into the next negotiation knowing precisely how your contractual parity is being undercut in practice. That is leverage you did not have before. Use it.
 
 **Stop measuring direct success against an inflated baseline.** If your direct share is at 22% and you have moved to 26%, that is a real win even if your CFO is comparing to the industry's mythical 45% direct mix. The math has changed; the targets should too.
 
