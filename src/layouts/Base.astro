@@ -52,7 +52,8 @@ const pathname = Astro.url.pathname;
 const canonical = new URL(pathname, Astro.site).toString();
 const ogImage = new URL(image, Astro.site).toString();
 const isDefaultImage = image === '/og-default.png';
-const ogImageAlt = isDefaultImage || !imageAlt ? 'Rosso Consulting · Tried before advised.' : imageAlt;
+// The brand tagline describes only the default card; a custom image falls back to the page title.
+const ogImageAlt = isDefaultImage ? 'Rosso Consulting · Tried before advised.' : (imageAlt ?? title);
 const alternates = translated
   ? langs.map((l) => ({ lang: l, href: new URL(switchLang(pathname, l), Astro.site).toString() }))
   : [{ lang: 'en' as Lang, href: canonical }];

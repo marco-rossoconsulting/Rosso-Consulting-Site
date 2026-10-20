@@ -73,7 +73,7 @@ const crumbs = [
   translated={false}
   type="article"
   image={image}
-  imageAlt={imageAlt}
+  imageAlt={image ? (imageAlt ?? headline) : undefined}
   published={date}
   jsonLd={[articleLd]}
   crumbs={crumbs}
@@ -127,7 +127,7 @@ const crumbs = [
 
     <footer class="container article__foot">
       <div class="author card">
-        <Image src={portrait} alt="Marco Rosso" width={64} height={64} densities={[1, 2, 3]} class="author__img" />
+        <Image src={portrait} alt="" width={64} height={64} densities={[1, 2, 3]} class="author__img" />
         <div class="author__copy">
           <p class="label label--quiet">{t.article.authorTitle}</p>
           <p class="author__bio">{t.article.authorBio}</p>
