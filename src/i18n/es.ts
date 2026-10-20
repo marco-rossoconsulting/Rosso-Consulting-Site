@@ -46,7 +46,6 @@ const es: Copy = {
   },
 
   consent: {
-    label: 'Consentimiento de cookies',
     title: 'Cookies',
     text: 'Esta web usa Google Analytics para entender cómo se visita, y solo con tu consentimiento.',
     privacyLink: 'Aviso de privacidad',
@@ -854,7 +853,7 @@ const es: Copy = {
       },
       {
         h: 'Qué recojo',
-        p: 'Solo lo que envías con el formulario de contacto: tu nombre, tu email, la empresa u hotel si lo indicas, la opción que eliges y tu mensaje. Como cualquier alojamiento web, Netlify también trata datos técnicos como las direcciones IP para servir y proteger la web.',
+        p: 'Lo que envías con el formulario de contacto: tu nombre, tu email, la empresa u hotel si lo indicas, la opción que eliges y tu mensaje. Solo si aceptas las cookies de analítica, Google Analytics registra además cómo se usa la web: las páginas que visitas, tu ubicación aproximada, tu dispositivo y tu navegador. Como cualquier alojamiento web, Netlify también trata datos técnicos como las direcciones IP para servir y proteger la web.',
       },
       {
         h: 'Para qué',
@@ -862,11 +861,11 @@ const es: Copy = {
       },
       {
         h: 'Dónde se tratan',
-        p: 'La web y el formulario están alojados en Netlify, Inc., en Estados Unidos, y los mensajes llegan a mi bandeja de correo. Por eso los datos pueden tratarse fuera de Suiza y de la UE, con las garantías que ofrecen esos proveedores.',
+        p: 'La web y el formulario están alojados en Netlify, Inc., en Estados Unidos, y los mensajes llegan a mi bandeja de correo. Por eso los datos pueden tratarse fuera de Suiza y de la UE, con las garantías que ofrecen esos proveedores. Si aceptas las cookies de analítica, los datos de Google Analytics van a Google Ireland Limited (Gordon House, Barrow Street, Dublín 4, Irlanda) y pueden transferirse a Google LLC en Estados Unidos. Google LLC está certificada en los Data Privacy Framework UE-EE. UU. y Suiza-EE. UU., y las condiciones de tratamiento de datos de Google prevén además cláusulas contractuales tipo.',
       },
       {
         h: 'Cuánto tiempo',
-        p: 'El tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan.',
+        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan o hasta que retiras el consentimiento en Configuración de cookies, que las elimina.',
       },
       {
         h: 'Cookies y seguimiento',

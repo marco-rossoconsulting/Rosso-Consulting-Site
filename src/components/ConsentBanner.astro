@@ -5,7 +5,9 @@
  * and again from "Cookie settings" in the footer. Accept stores the choice and
  * loads GA through window.__rcConsent.loadGA() (set up in Base.astro, production only).
  * Decline stores the choice, deletes _ga cookies and reloads if GA was running.
- * It is a non-modal region: it never blocks reading or steals focus on load.
+ * It is a non-modal region placed right after the skip link (so it comes early in
+ * the tab order while sitting at the bottom of the screen); it never blocks
+ * reading or steals focus on load.
  */
 import { getCopy, path, type Lang } from '../i18n';
 
@@ -130,17 +132,28 @@ const t = getCopy(lang);
     }
   }
 
+  const openers = document.querySelectorAll<HTMLElement>('[data-consent-open]');
+  const setExpanded = (open: boolean) => openers.forEach((b) => b.setAttribute('aria-expanded', String(open)));
+
   function show(focus: boolean) {
     if (!banner) return;
     banner.hidden = false;
+    setExpanded(true);
     if (focus) card?.focus();
   }
+  /** Hide the banner. Focus goes back to the button that reopened it; after a
+   *  first-visit choice made from inside the banner, it moves to the main content
+   *  so it is not left on a hidden button. */
   function hide() {
     if (!banner) return;
+    const hadFocus = banner.contains(document.activeElement);
     banner.hidden = true;
+    setExpanded(false);
     if (opener) {
       opener.focus();
       opener = null;
+    } else if (hadFocus) {
+      document.getElementById('main')?.focus({ preventScroll: true });
     }
   }
 
@@ -167,7 +180,7 @@ const t = getCopy(lang);
     banner.querySelectorAll<HTMLButtonElement>('[data-consent-choice]').forEach((btn) =>
       btn.addEventListener('click', () => choose(btn.dataset.consentChoice as Choice)),
     );
-    document.querySelectorAll<HTMLElement>('[data-consent-open]').forEach((btn) =>
+    openers.forEach((btn) =>
       btn.addEventListener('click', () => {
         opener = btn;
         show(true);

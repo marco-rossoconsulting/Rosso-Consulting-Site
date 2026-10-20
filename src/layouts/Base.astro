@@ -150,13 +150,13 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
   </head>
   <body>
     <a class="skip-link" href="#main">{t.ui.skip}</a>
+    <ConsentBanner lang={lang} />
     <div data-top-sentinel aria-hidden="true" class="top-sentinel"></div>
     <Header lang={lang} current={current} />
     <main id="main" tabindex="-1">
       <slot />
     </main>
     <Footer lang={lang} />
-    <ConsentBanner lang={lang} />
   </body>
 </html>
 

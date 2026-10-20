@@ -48,7 +48,6 @@ const en = {
   },
 
   consent: {
-    label: 'Cookie consent',
     title: 'Cookies',
     text: 'This site uses Google Analytics to understand how it is visited, and only with your consent.',
     privacyLink: 'Privacy notice',
@@ -856,7 +855,7 @@ const en = {
       },
       {
         h: 'What I collect',
-        p: 'Only what you send through the contact form: your name, email address, company or hotel if you give one, the option you choose and your message. Like any website host, Netlify also processes technical data such as IP addresses to deliver and protect the site.',
+        p: 'What you send through the contact form: your name, email address, company or hotel if you give one, the option you choose and your message. Only if you accept analytics cookies, Google Analytics also records how the site is used: the pages you visit, your approximate location, and your device and browser. Like any website host, Netlify also processes technical data such as IP addresses to deliver and protect the site.',
       },
       {
         h: 'Why',
@@ -864,11 +863,11 @@ const en = {
       },
       {
         h: 'Where it is processed',
-        p: 'The site and its form are hosted by Netlify, Inc. in the United States, and messages are delivered to my email inbox. Data may therefore be processed outside Switzerland and the EU, with the safeguards those providers offer.',
+        p: 'The site and its form are hosted by Netlify, Inc. in the United States, and messages are delivered to my email inbox. Data may therefore be processed outside Switzerland and the EU, with the safeguards those providers offer. If you accept analytics cookies, the Google Analytics data goes to Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland) and may be transferred to Google LLC in the United States. Google LLC is certified under the EU-U.S. and Swiss-U.S. Data Privacy Frameworks, and Google’s data processing terms also provide for Standard Contractual Clauses.',
       },
       {
         h: 'How long it is kept',
-        p: 'As long as needed to handle your enquiry and any engagement that follows, then deleted.',
+        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire or until you withdraw consent in Cookie settings, which deletes them.',
       },
       {
         h: 'Cookies and tracking',

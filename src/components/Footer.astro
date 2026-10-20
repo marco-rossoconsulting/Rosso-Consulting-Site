@@ -61,7 +61,7 @@ const year = new Date().getFullYear();
       <p>{t.footer.languages}</p>
       <p class="site-footer__legal">
         <a href={path(lang, 'privacy')}>{t.footer.privacy}</a>
-        <button type="button" class="site-footer__consent" data-consent-open aria-controls="consent-banner">{t.footer.cookieSettings}</button>
+        <button type="button" class="site-footer__consent" data-consent-open aria-controls="consent-banner" aria-expanded="false">{t.footer.cookieSettings}</button>
       </p>
     </div>
   </div>
