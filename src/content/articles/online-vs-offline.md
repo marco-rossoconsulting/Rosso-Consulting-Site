@@ -11,6 +11,7 @@ featured: true
 related:
   - rate-parity-trap
   - luxury-skill-ai-era
+service: ai
 ---
 
 Hospitality has spent the better part of two decades treating offline distribution like a legacy channel waiting to die. Look at the actual numbers and you will find a quieter story — one in which offline is not dying so much as being systematically undervalued by the people who should know better.

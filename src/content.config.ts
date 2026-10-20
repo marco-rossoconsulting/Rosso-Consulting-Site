@@ -21,10 +21,16 @@ const articles = defineCollection({
       .object({
         title: z.string().optional(),
         description: z.string().optional(),
+        /** Social image (og:image / twitter:image), a path under public/, e.g. /uploads/essay.jpg. Falls back to /og-default.png. */
         image: z.string().optional(),
+        /** Alt text for the social image; needed when `image` is set. */
+        imageAlt: z.string().optional(),
       })
       .optional(),
+    /** Other essays to show under "Related notes" (slugs). Falls back to the most recent other essays. */
     related: z.array(reference('articles')).optional(),
+    /** The service page this essay leads to: `ai` (/ai-in-practice/) or `advisory` (/advisory/). */
+    service: z.enum(['ai', 'advisory']).optional(),
   }),
 });
 

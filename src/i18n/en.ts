@@ -666,6 +666,8 @@ const en = {
     authorTitle: 'Written by Marco Rosso',
     authorBio: 'Operator, advisor and builder in hospitality technology. I lead digital and automation at Planhotel Hospitality Group, advise hotel technology companies and build with AI in my own lab.',
     progress: 'Reading progress',
+    relatedNotes: 'Related notes',
+    relatedService: 'Related service',
   },
 
   about: {

@@ -9,6 +9,7 @@ featured: true
 related:
   - rate-parity-trap
   - online-vs-offline
+service: advisory
 ---
 
 Every hotel executive blames OTAs for eating into direct bookings. They are not wrong about the volume. They are wrong about why.

@@ -20,6 +20,8 @@ interface Props {
   translated?: boolean;
   type?: 'website' | 'article';
   image?: string;
+  /** Alt text for a custom social image */
+  imageAlt?: string;
   published?: Date;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>[];
@@ -37,6 +39,7 @@ const {
   translated = true,
   type = 'website',
   image = '/og-default.png',
+  imageAlt,
   published,
   noindex = false,
   jsonLd = [],
@@ -48,6 +51,9 @@ const t = getCopy(lang);
 const pathname = Astro.url.pathname;
 const canonical = new URL(pathname, Astro.site).toString();
 const ogImage = new URL(image, Astro.site).toString();
+const isDefaultImage = image === '/og-default.png';
+// The brand tagline describes only the default card; a custom image falls back to the page title.
+const ogImageAlt = isDefaultImage ? 'Rosso Consulting · Tried before advised.' : (imageAlt ?? title);
 const alternates = translated
   ? langs.map((l) => ({ lang: l, href: new URL(switchLang(pathname, l), Astro.site).toString() }))
   : [{ lang: 'en' as Lang, href: canonical }];
@@ -110,9 +116,9 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Rosso Consulting · Tried before advised." />
+    {isDefaultImage && <meta property="og:image:width" content="1200" />}
+    {isDefaultImage && <meta property="og:image:height" content="630" />}
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:locale" content={t.meta.ogLocale} />
     {
       translated &&
@@ -126,6 +132,7 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <script is:inline set:html={themeInit} />
     <script type="application/ld+json" set:html={ld} />

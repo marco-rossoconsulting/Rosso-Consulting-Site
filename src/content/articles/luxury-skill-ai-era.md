@@ -11,6 +11,7 @@ featured: true
 related:
   - online-vs-offline
   - winning-the-click
+service: ai
 ---
 
 AI will commoditise everything that can be commoditised. The luxury hotel question is no longer whether to deploy it — that decision was made sometime in mid-2024, whether your leadership team noticed or not.

@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Article from '../../layouts/Article.astro';
 import { getEssays, essayHref } from '../../lib/notes';
 import { smartQuotes } from '../../lib/typography';
-import { getCopy } from '../../i18n';
+import { getCopy, path } from '../../i18n';
 
 export async function getStaticPaths() {
   const essays = await getEssays();
@@ -25,6 +25,16 @@ const related = relatedEntries.map((e) => ({
   kicker: e.data.category,
   readTime: `${e.data.readTime} ${t.ui.minRead}`,
 }));
+
+// Related service: a contextual link to the service page this essay leads to.
+const serviceKey = essay.data.service;
+const service = serviceKey
+  ? {
+      href: path('en', serviceKey),
+      title: t[serviceKey].seo.title.replace(/\s*·\s*Rosso Consulting$/, ''),
+      text: t[serviceKey].seo.description,
+    }
+  : undefined;
 ---
 
 <Article
@@ -37,7 +47,10 @@ const related = relatedEntries.map((e) => ({
   seoTitle={essay.data.seo?.title}
   seoDescription={essay.data.seo?.description}
   image={essay.data.seo?.image}
+  imageAlt={essay.data.seo?.imageAlt}
   related={related}
+  relatedTitle={t.article.relatedNotes}
+  service={service}
   section={essay.data.category}
   wordCount={wordCount}
 >
