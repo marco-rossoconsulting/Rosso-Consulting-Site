@@ -34,11 +34,13 @@ interface Props {
   wordCount?: number;
 }
 
-const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, imageAlt, related = [], relatedTitle, service, section, wordCount } = Astro.props;
+const { title, deck, date, kicker, readTime, status, seoTitle, seoDescription, image, related = [], section, wordCount } = Astro.props;
 const lang = 'en' as const;
 const t = getCopy(lang);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const headline = smartQuotes(title);
+// Template extras (social image alt, related-list heading, related service link)
+const { imageAlt, relatedTitle, service } = Astro.props;
 // Short titles keep the byline; long ones stay whole so Google does not cut them mid-word.
 const pageTitle = seoTitle ?? (headline.length <= 52 ? `${headline} · Marco Rosso` : headline);
 const articleLd = {
