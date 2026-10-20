@@ -43,7 +43,17 @@ const en = {
     location: 'Lugano, Switzerland',
     languages: 'Working in English, Italian and Spanish',
     privacy: 'Privacy',
+    cookieSettings: 'Cookie settings',
     rights: 'Rosso Consulting',
+  },
+
+  consent: {
+    label: 'Cookie consent',
+    title: 'Cookies',
+    text: 'This site uses Google Analytics to understand how it is visited, and only with your consent.',
+    privacyLink: 'Privacy notice',
+    accept: 'Accept',
+    decline: 'Decline',
   },
 
   cta: {
@@ -838,7 +848,7 @@ const en = {
       description: 'How Rosso Consulting handles the personal data you share through this website.',
     },
     title: 'Privacy *notice*.',
-    updated: 'Last updated: October 2026',
+    updated: 'Last updated: 20 October 2026',
     sections: [
       {
         h: 'Who is responsible',
@@ -862,7 +872,7 @@ const en = {
       },
       {
         h: 'Cookies and tracking',
-        p: 'This site sets no tracking cookies and runs no analytics or advertising scripts. If you change the light or dark theme, that choice is stored in your own browser only. Fonts are served from this site, not from third parties.',
+        p: 'With your consent, this site uses Google Analytics 4, a service from Google, to understand how it is visited. It sets cookies (_ga and _ga_<id>) and collects usage data such as the pages you visit, your approximate location, and your device and browser. That data is processed by Google, possibly outside Switzerland and the EU. Nothing from Google loads until you accept. Your choice is stored in your own browser, and you can change it at any time with Cookie settings at the bottom of every page. If you change the light or dark theme, that choice is stored in your own browser only. Fonts are served from this site, not from third parties.',
       },
       {
         h: 'Your rights',

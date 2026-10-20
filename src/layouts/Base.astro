@@ -8,6 +8,7 @@ import newsreaderLatin from '@fontsource-variable/newsreader/files/newsreader-la
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import { getCopy, langs, switchLang, type Lang, type RouteKey } from '../i18n';
 import { buildGraph, type Crumb, type PageType } from '../lib/schema';
 
@@ -47,12 +48,14 @@ const {
   crumbs,
 } = Astro.props;
 
-// Google Analytics 4: only on the production site. Netlify sets CONTEXT at build time
-// ('production', 'deploy-preview', 'branch-deploy', 'dev'), so previews and local builds stay untracked.
+// Google Analytics 4, only after consent (components/ConsentBanner.astro) and only on the
+// production site. Netlify sets CONTEXT at build time ('production', 'deploy-preview',
+// 'branch-deploy', 'dev'); elsewhere the banner still shows, but Accept loads nothing.
 const GA_ID = 'G-0F79ZV4NLT';
 const gaEnabled = process.env.CONTEXT === 'production';
-// Marco's snippet, verbatim (global gtag, so later events and Tag Assistant work).
-const gaInit = `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '${GA_ID}');`;
+// Runs before first paint. Nothing is requested from Google unless the visitor has
+// stored rc-consent = granted (version 1). loadGA() is also what Accept calls.
+const consentInit = `(function(){var ID=${JSON.stringify(gaEnabled ? GA_ID : null)},KEY='rc-consent',V=1;function read(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');return c&&c.v===V&&(c.value==='granted'||c.value==='denied')?c.value:null}catch(e){return null}}var api={key:KEY,version:V,gaId:ID,loaded:false,read:read,loadGA:function(){if(!ID||api.loaded)return;api.loaded=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',ID);var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);}};window.__rcConsent=api;if(read()==='granted')api.loadGA();})();`;
 
 const t = getCopy(lang);
 const pathname = Astro.url.pathname;
@@ -95,12 +98,7 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
 <html lang={t.meta.htmlLang} dir="ltr">
   <head>
     <meta charset="utf-8" />
-    {gaEnabled && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>}
-    {
-      gaEnabled && (
-        <script is:inline set:html={gaInit} />
-      )
-    }
+    <script is:inline set:html={consentInit} />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -158,6 +156,7 @@ const themeInit = `(function(){var d=document.documentElement;d.classList.add('j
       <slot />
     </main>
     <Footer lang={lang} />
+    <ConsentBanner lang={lang} />
   </body>
 </html>
 

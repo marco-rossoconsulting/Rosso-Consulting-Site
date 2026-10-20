@@ -41,7 +41,17 @@ const es: Copy = {
     location: 'Lugano, Suiza',
     languages: 'Trabajo en inglés, italiano y español',
     privacy: 'Privacidad',
+    cookieSettings: 'Configuración de cookies',
     rights: 'Rosso Consulting',
+  },
+
+  consent: {
+    label: 'Consentimiento de cookies',
+    title: 'Cookies',
+    text: 'Esta web usa Google Analytics para entender cómo se visita, y solo con tu consentimiento.',
+    privacyLink: 'Aviso de privacidad',
+    accept: 'Aceptar',
+    decline: 'Rechazar',
   },
 
   cta: {
@@ -836,7 +846,7 @@ const es: Copy = {
       description: 'Cómo trata Rosso Consulting los datos personales que compartes a través de esta web.',
     },
     title: 'Aviso de *privacidad*.',
-    updated: 'Última actualización: octubre de 2026',
+    updated: 'Última actualización: 20 de octubre de 2026',
     sections: [
       {
         h: 'Quién es responsable',
@@ -860,7 +870,7 @@ const es: Copy = {
       },
       {
         h: 'Cookies y seguimiento',
-        p: 'Esta web no usa cookies de seguimiento ni scripts de analítica o publicidad. Si cambias entre el tema claro y el oscuro, esa preferencia se guarda solo en tu navegador. Las fuentes se sirven desde esta web, no desde terceros.',
+        p: 'Con tu consentimiento, esta web usa Google Analytics 4, un servicio de Google, para entender cómo se visita. Instala cookies (_ga y _ga_<id>) y recoge datos de uso como las páginas que visitas, tu ubicación aproximada, tu dispositivo y tu navegador. Google trata esos datos, posiblemente fuera de Suiza y de la UE. Nada de Google se carga hasta que aceptas. Tu elección se guarda en tu propio navegador y puedes cambiarla cuando quieras desde Configuración de cookies, al pie de cada página. Si cambias entre el tema claro y el oscuro, esa preferencia se guarda solo en tu navegador. Las fuentes se sirven desde esta web, no desde terceros.',
       },
       {
         h: 'Tus derechos',

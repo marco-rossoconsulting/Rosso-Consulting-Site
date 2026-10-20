@@ -1,0 +1,185 @@
+---
+/**
+ * Cookie consent for Google Analytics. First-party, no dependencies.
+ * Hidden until scripts decide: shown when no choice is stored (rc-consent, version 1),
+ * and again from "Cookie settings" in the footer. Accept stores the choice and
+ * loads GA through window.__rcConsent.loadGA() (set up in Base.astro, production only).
+ * Decline stores the choice, deletes _ga cookies and reloads if GA was running.
+ * It is a non-modal region: it never blocks reading or steals focus on load.
+ */
+import { getCopy, path, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getCopy(lang);
+---
+
+<section id="consent-banner" class="consent" role="region" aria-labelledby="consent-title" data-consent hidden>
+  <div class="consent__card" tabindex="-1" data-consent-card>
+    <h2 id="consent-title" class="label">{t.consent.title}</h2>
+    <p class="consent__text">
+      {t.consent.text}
+      <a href={path(lang, 'privacy')}>{t.consent.privacyLink}</a>
+    </p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost consent__btn" data-consent-choice="denied">{t.consent.decline}</button>
+      <button type="button" class="btn btn--ghost consent__btn" data-consent-choice="granted">{t.consent.accept}</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .consent {
+    position: fixed;
+    right: var(--side);
+    bottom: max(var(--side), env(safe-area-inset-bottom));
+    left: auto;
+    z-index: 70;
+    width: min(26rem, calc(100% - 2 * var(--side)));
+  }
+  .consent[hidden] {
+    display: none;
+  }
+  .consent__card {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.25rem 1.25rem 1.1rem;
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--hairline);
+    border-top: 2px solid var(--rule);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.28);
+  }
+  .consent__card:focus {
+    outline: none;
+  }
+  .consent__card:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .consent__text {
+    font-size: var(--t-small);
+    line-height: 1.55;
+  }
+  .consent__text a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-color: var(--link-line);
+    text-underline-offset: 0.2em;
+    white-space: nowrap;
+  }
+  .consent__text a:hover {
+    text-decoration-color: currentColor;
+  }
+  .consent__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .consent__btn {
+    min-height: 44px;
+    width: 100%;
+  }
+  @media (max-width: 560px) {
+    .consent {
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    .consent__card {
+      border-radius: 0;
+      border-inline: 0;
+      border-bottom: 0;
+      padding-bottom: max(1.1rem, env(safe-area-inset-bottom));
+    }
+  }
+</style>
+
+<script>
+  type Choice = 'granted' | 'denied';
+  interface ConsentApi {
+    key: string;
+    version: number;
+    gaId: string | null;
+    loaded: boolean;
+    read: () => Choice | null;
+    loadGA: () => void;
+  }
+  const api = (window as unknown as { __rcConsent?: ConsentApi }).__rcConsent;
+  const banner = document.querySelector<HTMLElement>('[data-consent]');
+  const card = banner?.querySelector<HTMLElement>('[data-consent-card]');
+  let opener: HTMLElement | null = null;
+
+  /** Delete _ga and _ga_* for this host and each parent domain. */
+  function clearGaCookies() {
+    const names = document.cookie
+      .split(';')
+      .map((c) => c.split('=')[0].trim())
+      .filter((n) => n === '_ga' || n.startsWith('_ga_'));
+    const parts = location.hostname.split('.');
+    const domains = [''];
+    for (let i = 0; i < parts.length - 1; i++) domains.push(`; domain=.${parts.slice(i).join('.')}`);
+    for (const name of names) {
+      for (const d of domains) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0; path=/${d}`;
+      }
+    }
+  }
+
+  function show(focus: boolean) {
+    if (!banner) return;
+    banner.hidden = false;
+    if (focus) card?.focus();
+  }
+  function hide() {
+    if (!banner) return;
+    banner.hidden = true;
+    if (opener) {
+      opener.focus();
+      opener = null;
+    }
+  }
+
+  function choose(value: Choice) {
+    if (!api) return;
+    const wasLoaded = api.loaded;
+    try {
+      localStorage.setItem(api.key, JSON.stringify({ v: api.version, value, at: new Date().toISOString() }));
+    } catch {
+      /* storage blocked: the choice applies to this page only */
+    }
+    if (value === 'granted') {
+      api.loadGA();
+      hide();
+    } else {
+      clearGaCookies();
+      hide();
+      // GA was running on this page: reload so nothing keeps collecting.
+      if (wasLoaded) location.reload();
+    }
+  }
+
+  if (api && banner) {
+    banner.querySelectorAll<HTMLButtonElement>('[data-consent-choice]').forEach((btn) =>
+      btn.addEventListener('click', () => choose(btn.dataset.consentChoice as Choice)),
+    );
+    document.querySelectorAll<HTMLElement>('[data-consent-open]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        opener = btn;
+        show(true);
+      }),
+    );
+    banner.addEventListener('keydown', (e) => {
+      // Escape closes the banner only when a choice already exists.
+      if (e.key === 'Escape' && api.read()) hide();
+    });
+    // A stored "denied" still clears any _ga cookie left from an earlier visit.
+    const stored = api.read();
+    if (stored === 'denied') clearGaCookies();
+    if (!stored) show(false);
+  }
+</script>

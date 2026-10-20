@@ -59,7 +59,10 @@ const year = new Date().getFullYear();
     <div class="site-footer__bottom">
       <p>© {year} {t.footer.rights}</p>
       <p>{t.footer.languages}</p>
-      <a href={path(lang, 'privacy')}>{t.footer.privacy}</a>
+      <p class="site-footer__legal">
+        <a href={path(lang, 'privacy')}>{t.footer.privacy}</a>
+        <button type="button" class="site-footer__consent" data-consent-open aria-controls="consent-banner">{t.footer.cookieSettings}</button>
+      </p>
     </div>
   </div>
 </footer>
@@ -164,6 +167,24 @@ const year = new Date().getFullYear();
     text-decoration: none;
   }
   .site-footer__bottom a:hover {
+    color: var(--fg);
+  }
+  .site-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+  .site-footer__consent {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: var(--fg-muted);
+    cursor: pointer;
+  }
+  .site-footer__consent:hover {
     color: var(--fg);
   }
 
