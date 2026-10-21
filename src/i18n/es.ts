@@ -41,7 +41,16 @@ const es: Copy = {
     location: 'Lugano, Suiza',
     languages: 'Trabajo en inglés, italiano y español',
     privacy: 'Privacidad',
+    cookieSettings: 'Configuración de cookies',
     rights: 'Rosso Consulting',
+  },
+
+  consent: {
+    title: 'Cookies',
+    text: 'Esta web usa Google Analytics para entender cómo se visita, y solo con tu consentimiento.',
+    privacyLink: 'Aviso de privacidad',
+    accept: 'Aceptar',
+    decline: 'Rechazar',
   },
 
   cta: {
@@ -836,7 +845,7 @@ const es: Copy = {
       description: 'Cómo trata Rosso Consulting los datos personales que compartes a través de esta web.',
     },
     title: 'Aviso de *privacidad*.',
-    updated: 'Última actualización: octubre de 2026',
+    updated: 'Última actualización: 20 de octubre de 2026',
     sections: [
       {
         h: 'Quién es responsable',
@@ -844,27 +853,27 @@ const es: Copy = {
       },
       {
         h: 'Qué recojo',
-        p: 'Solo lo que envías con el formulario de contacto: tu nombre, tu email, la empresa u hotel si lo indicas, la opción que eliges y tu mensaje. Como cualquier alojamiento web, Netlify también trata datos técnicos como las direcciones IP para servir y proteger la web.',
+        p: 'Lo que envías con el formulario de contacto: tu nombre, tu email, la empresa u hotel si lo indicas, la opción que eliges y tu mensaje. Solo si aceptas las cookies de analítica, Google Analytics registra además cómo se usa la web: las páginas que visitas, tu ubicación aproximada, tu dispositivo y tu navegador. Como cualquier alojamiento web, Netlify también trata datos técnicos como las direcciones IP para servir y proteger la web.',
       },
       {
         h: 'Para qué',
-        p: 'Para leer tu mensaje, responderte y preparar el trabajo que acordemos después. Nada de listas de marketing ni de cesiones para fines de terceros.',
+        p: 'Para leer tu mensaje, responderte y preparar el trabajo que acordemos después. Solo con tu consentimiento, Google Analytics me ayuda a entender cómo se usa la web para mejorarla. Nada de listas de marketing ni de cesiones para fines de terceros.',
       },
       {
         h: 'Dónde se tratan',
-        p: 'La web y el formulario están alojados en Netlify, Inc., en Estados Unidos, y los mensajes llegan a mi bandeja de correo. Por eso los datos pueden tratarse fuera de Suiza y de la UE, con las garantías que ofrecen esos proveedores.',
+        p: 'La web y el formulario están alojados en Netlify, Inc., en Estados Unidos, y los mensajes llegan a mi bandeja de correo. Por eso los datos pueden tratarse fuera de Suiza y de la UE, con las garantías que ofrecen esos proveedores. Si aceptas las cookies de analítica, los datos de Google Analytics van a Google Ireland Limited (Gordon House, Barrow Street, Dublín 4, Irlanda) y pueden transferirse a Google LLC en Estados Unidos. Google LLC está certificada en los Data Privacy Framework UE-EE. UU. y Suiza-EE. UU., y las condiciones de tratamiento de datos de Google prevén además cláusulas contractuales tipo.',
       },
       {
         h: 'Cuánto tiempo',
-        p: 'El tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan.',
+        p: 'Los mensajes: el tiempo necesario para atender tu consulta y el encargo que pueda seguir. Después se eliminan. Las cookies de Google Analytics permanecen en tu navegador hasta que caducan (como máximo a los 2 años) o hasta que retiras el consentimiento en Configuración de cookies, que las elimina. Google Analytics conserva los datos detallados de las visitas (como las páginas que has visto) durante 2 meses y los datos vinculados a la cookie de analítica durante 14 meses, y después los elimina automáticamente.',
       },
       {
         h: 'Cookies y seguimiento',
-        p: 'Esta web no usa cookies de seguimiento ni scripts de analítica o publicidad. Si cambias entre el tema claro y el oscuro, esa preferencia se guarda solo en tu navegador. Las fuentes se sirven desde esta web, no desde terceros.',
+        p: 'Con tu consentimiento, esta web usa Google Analytics 4, un servicio de Google, para entender cómo se visita. Instala cookies (_ga y _ga_<id>) y recoge datos de uso como las páginas que visitas, tu ubicación aproximada, tu dispositivo y tu navegador. Google trata esos datos, posiblemente fuera de Suiza y de la UE. Nada de Google se carga hasta que aceptas. Tu elección se guarda en tu propio navegador y puedes cambiarla cuando quieras desde Configuración de cookies, al pie de cada página. Si cambias entre el tema claro y el oscuro, esa preferencia se guarda solo en tu navegador. Las fuentes se sirven desde esta web, no desde terceros.',
       },
       {
         h: 'Tus derechos',
-        p: 'Según la Ley Federal suiza de Protección de Datos y, cuando se aplique, el RGPD, puedes pedir ver, corregir o eliminar tus datos, u oponerte a su uso. Escribe a marco@rossoconsulting.ch.',
+        p: 'Según la Ley Federal suiza de Protección de Datos y, cuando se aplique, el RGPD, puedes pedir ver, corregir o eliminar tus datos, u oponerte a su uso. Escribe a marco@rossoconsulting.ch. Puedes retirar tu consentimiento a la analítica en cualquier momento desde Configuración de cookies, al pie de la página.',
       },
     ],
   },

@@ -43,7 +43,16 @@ const en = {
     location: 'Lugano, Switzerland',
     languages: 'Working in English, Italian and Spanish',
     privacy: 'Privacy',
+    cookieSettings: 'Cookie settings',
     rights: 'Rosso Consulting',
+  },
+
+  consent: {
+    title: 'Cookies',
+    text: 'This site uses Google Analytics to understand how it is visited, and only with your consent.',
+    privacyLink: 'Privacy notice',
+    accept: 'Accept',
+    decline: 'Decline',
   },
 
   cta: {
@@ -838,7 +847,7 @@ const en = {
       description: 'How Rosso Consulting handles the personal data you share through this website.',
     },
     title: 'Privacy *notice*.',
-    updated: 'Last updated: October 2026',
+    updated: 'Last updated: 20 October 2026',
     sections: [
       {
         h: 'Who is responsible',
@@ -846,27 +855,27 @@ const en = {
       },
       {
         h: 'What I collect',
-        p: 'Only what you send through the contact form: your name, email address, company or hotel if you give one, the option you choose and your message. Like any website host, Netlify also processes technical data such as IP addresses to deliver and protect the site.',
+        p: 'What you send through the contact form: your name, email address, company or hotel if you give one, the option you choose and your message. Only if you accept analytics cookies, Google Analytics also records how the site is used: the pages you visit, your approximate location, and your device and browser. Like any website host, Netlify also processes technical data such as IP addresses to deliver and protect the site.',
       },
       {
         h: 'Why',
-        p: 'To read and answer your message, and to prepare any work we then agree on. Nothing is used for marketing lists or shared for anyone else’s purposes.',
+        p: 'To read and answer your message, and to prepare any work we then agree on. Only with your consent, Google Analytics helps me understand how the site is used so I can improve it. Nothing is used for marketing lists or shared for anyone else’s purposes.',
       },
       {
         h: 'Where it is processed',
-        p: 'The site and its form are hosted by Netlify, Inc. in the United States, and messages are delivered to my email inbox. Data may therefore be processed outside Switzerland and the EU, with the safeguards those providers offer.',
+        p: 'The site and its form are hosted by Netlify, Inc. in the United States, and messages are delivered to my email inbox. Data may therefore be processed outside Switzerland and the EU, with the safeguards those providers offer. If you accept analytics cookies, the Google Analytics data goes to Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland) and may be transferred to Google LLC in the United States. Google LLC is certified under the EU-U.S. and Swiss-U.S. Data Privacy Frameworks, and Google’s data processing terms also provide for Standard Contractual Clauses.',
       },
       {
         h: 'How long it is kept',
-        p: 'As long as needed to handle your enquiry and any engagement that follows, then deleted.',
+        p: 'Messages: as long as needed to handle your enquiry and any engagement that follows, then deleted. Google Analytics cookies stay in your browser until they expire (after up to 2 years) or until you withdraw consent in Cookie settings, which deletes them. Google Analytics keeps detailed visit data (such as the pages you viewed) for 2 months and data linked to the analytics cookie for 14 months, then deletes it automatically.',
       },
       {
         h: 'Cookies and tracking',
-        p: 'This site sets no tracking cookies and runs no analytics or advertising scripts. If you change the light or dark theme, that choice is stored in your own browser only. Fonts are served from this site, not from third parties.',
+        p: 'With your consent, this site uses Google Analytics 4, a service from Google, to understand how it is visited. It sets cookies (_ga and _ga_<id>) and collects usage data such as the pages you visit, your approximate location, and your device and browser. That data is processed by Google, possibly outside Switzerland and the EU. Nothing from Google loads until you accept. Your choice is stored in your own browser, and you can change it at any time with Cookie settings at the bottom of every page. If you change the light or dark theme, that choice is stored in your own browser only. Fonts are served from this site, not from third parties.',
       },
       {
         h: 'Your rights',
-        p: 'Under the Swiss Federal Act on Data Protection and, where it applies, the GDPR, you can ask to see, correct or delete your data, or object to its use. Write to marco@rossoconsulting.ch.',
+        p: 'Under the Swiss Federal Act on Data Protection and, where it applies, the GDPR, you can ask to see, correct or delete your data, or object to its use. Write to marco@rossoconsulting.ch. You can withdraw your consent to analytics at any time with Cookie settings in the footer.',
       },
     ],
   },
